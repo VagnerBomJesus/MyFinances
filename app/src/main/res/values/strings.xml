@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">MyFinances</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Finanças</string>
+    <string name="action_settings">Definições</string>
+    <string name="saldo">Saldo:</string>
+    <string name="receitas">Receitas:</string>
+    <string name="despesas">Despesas:</string>
+    <string name="nova_receita">NOVA RECEITA</string>
+    <string name="nova_despesa">NOVA DESPESA</string>
 </resources>

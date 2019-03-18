@@ -10,6 +10,58 @@
 
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="375dp"
+        android:layout_height="521dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.567" />
+
+    <Button
+        android:id="@+id/buttonNovaReceita"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="novaReceita"
+        android:text="@string/nova_receita"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="#93D67C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNovaDespesa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonNovaDespesa"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="novaDespesa"
+        android:text="@string/nova_despesa"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="#ff384c"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/textViewSaldoMain"
         android:layout_width="wrap_content"
@@ -24,7 +76,8 @@
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textViewReceitasMain"
@@ -62,41 +115,41 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="1024,99€"
+        android:text="1024,78€"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSaldoMain"
-        tools:text="1024,99€" />
+        tools:text="1024,78€" />
 
     <TextView
         android:id="@+id/textViewShowReceitasMain"
-        android:layout_width="182dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="24,99€"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="24,78€"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewReceitasMain"
         app:layout_constraintTop_toBottomOf="@+id/textViewShowSaldoMain"
-        tools:text="24,99€" />
+        tools:text="24,78€" />
 
     <TextView
         android:id="@+id/textViewShowDespesasMain"
-        android:layout_width="181dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
         android:text="284,82€"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/holo_red_dark"
@@ -106,40 +159,32 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewShowReceitasMain"
         tools:text="284,82€" />
 
-    <Button
-        android:id="@+id/buttonNovaReceita"
-        android:layout_width="320dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="16dp"
+    <TextView
+        android:id="@+id/textViewShowDiaMesAno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="@string/nova_receita"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textColor="#93D67C"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonNovaDespesa"
+        android:layout_marginTop="8dp"
+        android:text="@string/geral"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDespesasMain" />
 
-    <Button
-        android:id="@+id/buttonNovaDespesa"
-        android:layout_width="320dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="80dp"
-        android:text="@string/nova_despesa"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textColor="#ff384c"
-        android:textSize="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/textViewStatusOrcamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewShowDiaMesAno" />
 
 
 

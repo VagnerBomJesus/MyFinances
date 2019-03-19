@@ -47,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Onclik in Terminar
-        if (id == R.id.action_terminar) {
-            Toast.makeText(getApplicationContext(),"Clicastes em termiar",Toast.LENGTH_SHORT).show();
+        if (id == R.id.action_terminar) {//com sua ação finich
+            this.finish();
+            System.exit(0);
             return true;
         }
         return super.onOptionsItemSelected(item);

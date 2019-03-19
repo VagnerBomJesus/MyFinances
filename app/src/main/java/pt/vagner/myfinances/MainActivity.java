@@ -1,5 +1,6 @@
 package pt.vagner.myfinances;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,14 +22,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -51,5 +44,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void novaReceita(View view) { //Botão "NOVA RECEITA"
+        Intent i = new Intent(this, NovaReceita.class);
+        startActivity(i);
+    }
+
+    public void novaDespesa(View view) { //Botão "NOVA DESPESA"
+        Intent i = new Intent(this, NovaDespesa.class);
+        startActivity(i);
     }
 }

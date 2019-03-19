@@ -10,16 +10,17 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class NovasReceita extends AppCompatActivity {
+public class NovaReceita extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_novas_receita);
+        setContentView(R.layout.activity_nova_receita);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }

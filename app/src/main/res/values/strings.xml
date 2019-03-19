@@ -11,4 +11,5 @@
     <string name="geral">Geral</string>
     <string name="title_activity_nova_despesa">Nova Despesa</string>
     <string name="title_activity_nova_receita">Nova Receita</string>
+    <string name="title_activity_sobre">Sobre Progamador</string>
 </resources>

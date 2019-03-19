@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         }
         //Onclik in Sobre
         if (id == R.id.action_sobre) {
-            Toast.makeText(getApplicationContext(),"Clicastes em Sobre",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"Clicastes em Sobre",Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, Sobre.class);
             return true;
         }
 

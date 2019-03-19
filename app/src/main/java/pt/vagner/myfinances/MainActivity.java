@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,17 +33,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+    public boolean onOptionsItemSelected(MenuItem item) {//definiçao
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(),"Clicastes em Definiçoes",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        //Onclik in Sobre
+        if (id == R.id.action_sobre) {
+            Toast.makeText(getApplicationContext(),"Clicastes em Sobre",Toast.LENGTH_SHORT).show();
             return true;
         }
 
+        //Onclik in Terminar
+        if (id == R.id.action_terminar) {
+            Toast.makeText(getApplicationContext(),"Clicastes em termiar",Toast.LENGTH_SHORT).show();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
     public void novaReceita(View view) { //Botão "NOVA RECEITA"

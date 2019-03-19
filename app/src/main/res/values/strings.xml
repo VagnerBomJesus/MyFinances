@@ -9,7 +9,6 @@
     <string name="action_sobre">Sobre</string>
     <string name="action_terminar">Terminar</string>
     <string name="geral">Geral</string>
-    <string name="title_activity_nova_despesa">NovaDespesa</string>
-    <string name="title_activity_novas_receita">NovasReceita</string>
-    <string name="title_activity_nova_receita">NovaReceita</string>
+    <string name="title_activity_nova_despesa">Nova Despesa</string>
+    <string name="title_activity_nova_receita">Nova Receita</string>
 </resources>

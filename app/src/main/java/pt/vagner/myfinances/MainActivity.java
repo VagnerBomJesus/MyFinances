@@ -40,21 +40,21 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Clicastes em Definiçoes",Toast.LENGTH_SHORT).show();
             return true;
         }
-        //Onclik in Sobre
-        if (id == R.id.action_sobre) {
-            //Toast.makeText(getApplicationContext(),"Clicastes em Sobre",Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, Sobre.class);
+        if (id == R.id.action_sobre) {//com sua ação finich
+            Intent i = new Intent(this, sobre.class);
+            startActivity(i);
             return true;
         }
+
 
         //Onclik in Terminar
         if (id == R.id.action_terminar) {//com sua ação finich
             this.finish();
-            System.exit(0);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
     public void novaReceita(View view) { //Botão "NOVA RECEITA"
         Intent i = new Intent(this, NovaReceita.class);
         startActivity(i);

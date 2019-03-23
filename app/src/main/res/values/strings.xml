@@ -17,5 +17,14 @@
     <string name="_24_78">24,78€</string>
     <string name="_1024_78">1024,78€</string>
 
+    <string name="desenvolvida_por">DESENVOLVIDA POR:</string>
+    <string name="programacao_avancada">Programação Avançada</string>
+    <string name="estg_ipg_ei">ESTG-IPG | Engenharia Informática</string>
+    <string name="contact">Contacto: vagneripg@gmail.com</string>
+    <string name="vagner_bom_jesus">Vagner Bom Jesus</string>
+    <string name="_2018_2019">2018/2019</string>
+    <string name="boas">___________________________</string>
+    <string name="vbj">TODO</string>
+
 
 </resources>

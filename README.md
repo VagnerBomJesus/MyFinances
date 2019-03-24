@@ -5,4 +5,4 @@
 
 <h2>Interface Principal do app</h2>
 <img src="https://user-images.githubusercontent.com/48354097/54880854-8e5fe200-4e41-11e9-9465-add6f3544f3a.gif" alt="Interface Principal"
-height="400" width="300">
+height="400" width="250">

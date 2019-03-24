@@ -4,4 +4,5 @@
 <h3>Objetivo</h3>-> Gerenciar as Despesas e receitas através do banco de daos SQLite.
 
 <h2>Interface Principal do app</h2>
-<img src="https://user-images.githubusercontent.com/48354097/54880592-15ab5680-4e3e-11e9-8816-29d80fa6f34d.png" alt="Interface Principal">
+<img src="https://user-images.githubusercontent.com/48354097/54880854-8e5fe200-4e41-11e9-9465-add6f3544f3a.gif" alt="Interface Principal"
+height="400" width="300">

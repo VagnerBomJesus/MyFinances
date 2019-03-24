@@ -28,4 +28,16 @@
     <string name="redeSociais">Rede Social</string>
     <string name="facenook">Facebook</string>
 
-</resources>
+    <string name="inserir_despesa">Inserir Despesa</string>
+    <string name="valor_despesa">Valor €</string>
+    <string name="valor">Valor</string>
+    <string name="descricao_despesa">Descrição da despesa (opcional)</string>
+    <string name="designacao">Descrição:</string>
+    <string name="categoria">Categoria:</string>
+    <string name="escolha_a_data">Escolha a Data:</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="adcionar">+</string>
+    <string name="valor_euros">valor (€)</string>
+    <string name="inserir_receita">INSERIR RECEITA</string>
+    <string name="descricao_receita">Descrição da receita (opcional)</string>
+   </resources>

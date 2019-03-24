@@ -4,6 +4,5 @@
     <color name="colorPrimaryDark">#5CC167</color>
     <color name="colorAccent">#050505</color>
     <color name="facebookColor">#3B5998</color>
-
-
+    <color name="backgraundMenufab">#F0F0F0</color>
 </resources>

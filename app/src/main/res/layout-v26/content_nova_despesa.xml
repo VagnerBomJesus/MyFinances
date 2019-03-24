@@ -132,7 +132,7 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:src="@drawable/drop"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/todo"
             android:layout_alignParentEnd="true" />
 
     </RelativeLayout>

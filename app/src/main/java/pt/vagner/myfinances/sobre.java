@@ -22,6 +22,15 @@ public class sobre extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
     }
+    public void sendEmail(View view) {
+        Intent i = new Intent();
+        i.setAction(Intent.ACTION_SEND);
+        i.putExtra(Intent.EXTRA_TEXT, "A sua mensagem de texto...");
+        i.putExtra(Intent.EXTRA_EMAIL, "vagneripg@gmail.com");
+        i.putExtra(Intent.EXTRA_SUBJECT, "Suporte Finanças");
+        i.setType("text/plain");
+        startActivity(i);
+    }
     public void facebookIntent(View view){
         String url = "https://www.facebook.com/profile.php?id=100007017550232";
         Intent i = new Intent(Intent.ACTION_VIEW);

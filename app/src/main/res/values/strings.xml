@@ -9,8 +9,8 @@
     <string name="action_sobre">Sobre</string>
     <string name="action_terminar">Terminar</string>
     <string name="geral">Geral</string>
-    <string name="title_activity_nova_despesa">Nova Despesa</string>
-    <string name="title_activity_nova_receita">Nova Receita</string>
+    <string name="title_activity_nova_despesa">Nova Despesa...</string>
+    <string name="title_activity_nova_receita">Nova Receita...</string>
     <string name="title_activity_sobre">Sobre Progamador</string>
     <string name="todo">TODO</string>
     <string name="_284_82">284,82€</string>

@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextValorDespesa" />
 
-    
+
     <EditText
         android:id="@+id/editTextValorDespesa"
         android:layout_width="125dp"

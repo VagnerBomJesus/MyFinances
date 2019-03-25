@@ -21,36 +21,6 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_sobre" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <com.github.clans.fab.FloatingActionMenu
-            android:id="@+id/menuFotoante"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="0dp"
-            app:menu_backgroundColor="@color/backgraundMenufab"
-            app:menu_fab_label="@string/redeSociais">
-
-            <com.github.clans.fab.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="facebookIntent"
-                android:src="@drawable/ic_facebook"
-                app:fab_colorNormal="@color/facebookColor"
-                app:fab_label="@string/facenook" />
-
-        </com.github.clans.fab.FloatingActionMenu>
-    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

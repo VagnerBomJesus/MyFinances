@@ -24,7 +24,7 @@
     <string name="inserir_despesa">Insert Expense</string>
     <string name="valor_despesa">Value €</string>
     <string name="valor">Value</string>
-    <string name="descricao_despesa">Description of expenditure (optional)</string>
+    <string name="descricao_despesa">Expenditure Description (optional)</string>
     <string name="designacao">Description:</string>
     <string name="categoria">Category:</string>
     <string name="escolha_a_data">Choose the Date:</string>

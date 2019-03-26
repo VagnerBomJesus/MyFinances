@@ -1,3 +1,10 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="layout_width">375dp</dimen>
+    <dimen name="layout_height">521dp</dimen>
+    <dimen name="fa_margin">8dp</dimen>
+    <dimen name="fabMargin">16dp</dimen>
+    <dimen name="Margin32">32dp</dimen>
+    <dimen name="Margin18">18dp</dimen>
+    <dimen name="Margin50">50dp</dimen>
+
 </resources>

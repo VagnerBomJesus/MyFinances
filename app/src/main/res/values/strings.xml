@@ -11,22 +11,22 @@
     <string name="geral">Geral</string>
     <string name="title_activity_nova_despesa">Nova Despesa...</string>
     <string name="title_activity_nova_receita">Nova Receita...</string>
-    <string name="title_activity_sobre">Sobre Progamador</string>
+    <string name="title_activity_sobre">Sobre Programador</string>
     <string name="todo">TODO</string>
-    <string name="_284_82">284,82€</string>
-    <string name="_24_78">24,78€</string>
-    <string name="_1024_78">1024,78€</string>
+    <string name="_284_82" translatable="false">284,82€</string>
+    <string name="_24_78" translatable="false">24,78€</string>
+    <string name="_1024_78" translatable="false">1024,78€</string>
 
     <string name="desenvolvida_por">DESENVOLVIDA POR:</string>
     <string name="programacao_avancada">Programação Avançada</string>
     <string name="estg_ipg_ei">ESTG-IPG | Engenharia Informática</string>
     <string name="contact">Contacto: vagneripg@gmail.com</string>
     <string name="vagner_bom_jesus">Vagner Bom Jesus</string>
-    <string name="_2018_2019">2018/2019</string>
-    <string name="boas">___________________________</string>
+    <string name="_2018_2019" translatable="false">2018/2019</string>
+    <string name="boas" translatable="false">___________________________</string>
     <string name="vbj">Vagner Foto</string>
     <string name="redeSociais">Rede Social</string>
-    <string name="facenook">Facebook</string>
+    <string name="facenook" translatable="false">Facebook</string>
 
     <string name="inserir_despesa">Inserir Despesa</string>
     <string name="valor_despesa">Valor €</string>
@@ -36,8 +36,8 @@
     <string name="categoria">Categoria:</string>
     <string name="escolha_a_data">Escolha a Data:</string>
     <string name="cancelar">Cancelar</string>
-    <string name="adcionar">+</string>
+    <string name="adcionar" translatable="false">+</string>
     <string name="valor_euros">valor (€)</string>
     <string name="inserir_receita">INSERIR RECEITA</string>
     <string name="descricao_receita">Descrição da receita (opcional)</string>
-   </resources>
+</resources>

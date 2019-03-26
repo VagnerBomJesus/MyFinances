@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Finance</string>
+    <string name="contact">Contact: vagneripg@gmail.com</string>
+    <string name="action_settings">Definitions</string>
+    <string name="saldo">Balance:</string>
+    <string name="receitas">Recipe:</string>
+    <string name="despesas">Expenses:</string>
+    <string name="nova_receita">NEW RECIPE</string>
+    <string name="nova_despesa">NEW EXPENSES</string>
+    <string name="action_sobre">About</string>
+    <string name="action_terminar">Finish</string>
+    <string name="geral">General</string>
+    <string name="title_activity_nova_despesa">New Expenses ...</string>
+    <string name="title_activity_nova_receita">New Recipe ...</string>
+    <string name="title_activity_sobre">About Programmer</string>
+    <string name="todo">All</string>
+    <string name="desenvolvida_por">DEVELOPED BY:</string>
+    <string name="programacao_avancada">Advanced Programming</string>
+    <string name="estg_ipg_ei">ESTG-IPG | Computer Engineering</string>
+    <string name="vagner_bom_jesus" translatable="false">Vagner Photo</string>
+    <string name="vbj">Vagner Photo</string>
+    <string name="redeSociais">Social networks</string>
+    <string name="inserir_despesa">Insert Expense</string>
+    <string name="valor_despesa">Value €</string>
+    <string name="valor">Value</string>
+    <string name="descricao_despesa">Description of expenditure (optional)</string>
+    <string name="designacao">Description:</string>
+    <string name="categoria">Category:</string>
+    <string name="escolha_a_data">Choose the Date:</string>
+    <string name="cancelar">Cancel</string>
+    <string name="valor_euros">Value (€)</string>
+    <string name="inserir_receita">" INSERT RECIPE"</string>
+    <string name="descricao_receita">Recipe Description (optional)</string>
+</resources>

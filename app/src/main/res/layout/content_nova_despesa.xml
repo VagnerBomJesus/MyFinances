@@ -36,8 +36,7 @@
         android:inputType="numberDecimal"
         android:maxLength="9"
         app:layout_constraintStart_toEndOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoDespesa"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoDespesa"/>
 
     <TextView
         android:id="@+id/textView21"
@@ -69,8 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20"/>
 
     <TextView
         android:id="@+id/textView20"
@@ -132,7 +130,7 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:src="@drawable/drop"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/todo"
             android:layout_alignParentEnd="true" />
 
     </RelativeLayout>

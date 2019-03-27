@@ -40,4 +40,7 @@
     <string name="valor_euros">valor (€)</string>
     <string name="inserir_receita">INSERIR RECEITA</string>
     <string name="descricao_receita">Descrição da receita (opcional)</string>
+    <string name="erro_smsValor">Inserir Valor!</string>
+    <string name="title_activity_listar_todos">Listar Todos ....</string>
+    <string name="_1996">1996</string>
 </resources>

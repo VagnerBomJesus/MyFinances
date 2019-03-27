@@ -32,4 +32,7 @@
     <string name="valor_euros">Value (€)</string>
     <string name="inserir_receita">" INSERT RECIPE"</string>
     <string name="descricao_receita">Recipe Description (optional)</string>
+    <string name="erro_smsValor">Insert Value!</string>
+    <string name="title_activity_listar_todos">List All...</string>
+
 </resources>

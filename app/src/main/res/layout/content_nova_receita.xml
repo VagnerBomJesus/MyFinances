@@ -99,9 +99,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:text="@string/valor"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/background_dark"
@@ -136,9 +134,11 @@
         android:text="@string/inserir_receita"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
+        android:onClick="inserirReceita"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextValorReceita" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextValorReceita"
+        />
 
     <Button
         android:id="@+id/adicionarCategoriaButton"
@@ -212,6 +212,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/buttoncancelar_shape"
+        android:onClick="cancel"
         android:text="@string/cancelar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"

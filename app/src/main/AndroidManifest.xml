@@ -10,9 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ListarTodos"
+            android:label="@string/title_activity_listar_todos"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.vagner.myfinances.MainActivity" />
+        </activity>
+        <activity
             android:name=".sobre"
             android:label="@string/title_activity_sobre"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NovaReceita"
             android:label="@string/title_activity_nova_receita"

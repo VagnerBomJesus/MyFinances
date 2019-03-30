@@ -34,5 +34,12 @@
     <string name="descricao_receita">Recipe Description (optional)</string>
     <string name="erro_smsValor">Insert Value!</string>
     <string name="title_activity_listar_todos">List All...</string>
+    <string name="_1996">1996</string>
+    <string name="erro_editTextDesignacaoReceita">Required field!!</string>
+    <string name="insira_um_valor_maior_que_0">Enter a value greater than 0</string>
+    <string name="registo_inserido_success">Record inserted successfully!</string>
+    <string name="anular_registo">UNDO</string>
+    <string name="erro_eliminar_registo">Error while delete record...</string>
+    <string name="registo_eliminado_success">Record deleted successfully!</string>
 
 </resources>

@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".NovaDespesa"
+            android:label="@string/title_activity_nova_despesa"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.vagner.myfinances.MainActivity" />
+        </activity>
+        <activity
             android:name=".ListarTodos"
             android:label="@string/title_activity_listar_todos"
             android:parentActivityName=".MainActivity"
@@ -25,15 +34,6 @@
         <activity
             android:name=".NovaReceita"
             android:label="@string/title_activity_nova_receita"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="pt.vagner.myfinances.MainActivity" />
-        </activity>
-        <activity
-            android:name=".NovaDespesa"
-            android:label="@string/title_activity_nova_despesa"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

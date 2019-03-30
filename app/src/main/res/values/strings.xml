@@ -43,4 +43,10 @@
     <string name="erro_smsValor">Inserir Valor!</string>
     <string name="title_activity_listar_todos">Listar Todos ....</string>
     <string name="_1996">1996</string>
+    <string name="erro_editTextDesignacaoReceita">Campo obrigatório</string>
+    <string name="insira_um_valor_maior_que_0">Insira um valor maior que 0</string>
+    <string name="registo_inserido_success">Registo inserido com sucesso!</string>
+    <string name="anular_registo">Anular</string>
+    <string name="erro_eliminar_registo">Erro ao eliminar registo...</string>
+    <string name="registo_eliminado_success">Registo eliminado com sucesso!</string>
 </resources>

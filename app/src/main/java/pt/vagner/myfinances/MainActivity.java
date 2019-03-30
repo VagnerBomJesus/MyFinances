@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void novaDespesa(View view) { //Botão "NOVA DESPESA"
+   /** public void novaDespesa(View view) { //Botão "NOVA DESPESA"
         Intent i = new Intent(this, NovaDespesa.class);
         startActivity(i);
-    }
+    }*/
 }

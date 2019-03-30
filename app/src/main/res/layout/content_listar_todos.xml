@@ -30,9 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textViewData"
             android:layout_alignParentStart="true"
-            android:text="Comando"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Comando" />
 
         <TextView
             android:id="@+id/textViewTipo"

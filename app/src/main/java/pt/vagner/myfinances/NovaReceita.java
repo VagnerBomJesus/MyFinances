@@ -67,8 +67,6 @@ public class NovaReceita extends AppCompatActivity {
         intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
 
         startActivity(intent);
-
-
     }
 
 

@@ -8,6 +8,36 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_ListasDasLista"
+        android:orderInCategory="100"
+        android:title="@string/action_ListasDasLista"
+        app:showAsAction="never">
+
+        <menu>
+            <item
+                android:id="@+id/action_ListarDia"
+                android:orderInCategory="100"
+                android:title="@string/action_ListarDia"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_ListarMes"
+                android:orderInCategory="100"
+                android:title="@string/action_ListarMes"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_ListarAno"
+                android:orderInCategory="100"
+                android:title="@string/action_ListarAno"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_ListarTodos"
+                android:orderInCategory="100"
+                android:title="@string/action_ListarTodos"
+                app:showAsAction="never" />
+
+        </menu>
+    </item>
+    <item
         android:id="@+id/action_sobre"
         android:orderInCategory="100"
         android:title="@string/action_sobre"

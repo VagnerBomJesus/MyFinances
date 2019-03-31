@@ -10,6 +10,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ListarAno"
+            android:label="@string/title_activity_listar_ano"
+            android:parentActivityName=".ListarTodos"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.vagner.myfinances.ListarTodos" />
+        </activity>
+        <activity
+            android:name=".ListarMes"
+            android:label="@string/title_activity_listar_mes"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.vagner.myfinances.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ListarDia"
+            android:label="@string/title_activity_listar_dia"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.vagner.myfinances.MainActivity" />
+        </activity>
+        <activity
             android:name=".NovaDespesa"
             android:label="@string/title_activity_nova_despesa"
             android:parentActivityName=".MainActivity"

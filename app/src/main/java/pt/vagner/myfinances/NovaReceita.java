@@ -115,7 +115,6 @@ public class NovaReceita extends AppCompatActivity {
     }
 
     public void cancel(View view) { //Botão "cancelar"
-
         finish();
     }
 }

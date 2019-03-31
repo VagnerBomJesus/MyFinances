@@ -49,4 +49,5 @@
     <string name="anular_registo">Anular</string>
     <string name="erro_eliminar_registo">Erro ao eliminar registo...</string>
     <string name="registo_eliminado_success">Registo eliminado com sucesso!</string>
+    <string name="sms_alert_inserir_registos_data_futura">Não pode inserir registos para datas futuras!</string>
 </resources>

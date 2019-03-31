@@ -41,5 +41,5 @@
     <string name="anular_registo">UNDO</string>
     <string name="erro_eliminar_registo">Error while delete record...</string>
     <string name="registo_eliminado_success">Record deleted successfully!</string>
-
+    <string name="sms_alert_inserir_registos_data_futura">Can\'t insert records for future dates</string>
 </resources>

@@ -38,10 +38,10 @@ public class NovaDespesa extends AppCompatActivity {
 
     public void inserirDespesaDb(View view) {//button inserir vai a base de dados
         EditText editTextDesignacaoDespesa = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
-        String mensagem = editTextDesignacaoDespesa.getText().toString();
+        String designacao = editTextDesignacaoDespesa.getText().toString();
 
         EditText editTextValorDespesa = (EditText) findViewById(R.id.editTextValorDespesa);
-        String designacao = editTextValorDespesa.getText().toString();
+        String mensagem = editTextValorDespesa.getText().toString();
 
 
         if (designacao.trim().length() == 0) {

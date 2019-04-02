@@ -138,7 +138,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+            android:id="@+id/textInputEditValor"
             android:layout_width="@dimen/Margin233"
             android:layout_height="wrap_content"
             android:hint="@string/valor_euros"
@@ -159,6 +159,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editEditeDesinacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/descricao_Edite"
@@ -175,6 +176,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textCategoria"
             android:layout_width="@dimen/Margin200"
             android:layout_height="@dimen/Margin42"
             android:hint="@string/tipo"

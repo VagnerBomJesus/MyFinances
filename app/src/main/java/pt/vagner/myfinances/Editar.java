@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class Editar extends AppCompatActivity {
 
@@ -31,9 +33,57 @@ public class Editar extends AppCompatActivity {
     }
     public void guardar(View view){
         Toast.makeText(getApplicationContext(),"Guardaro Com sucesso",Toast.LENGTH_LONG).show();
+
+        EditText textCategoria = (EditText) findViewById(R.id.textCategoria);
+        String mensagem = textCategoria.getText().toString();
+
+        EditText editEditeDesinacao = (EditText) findViewById(R.id.editEditeDesinacao);
+        String designacao = editEditeDesinacao.getText().toString();
+
+        EditText textInputEditValor = (EditText) findViewById(R.id.textInputEditValor);
+        String Categoria = textInputEditValor.getText().toString();
+
+        if (mensagem.trim().length() == 0) {
+            textCategoria.setError(getString(R.string.erro_editTextDesignacaoReceita));
+            textCategoria.requestFocus();
+            return;
+        }
+        if (designacao.trim().length() == 0) {
+            editEditeDesinacao.setError(getString(R.string.erro_editTextDesignacaoReceita));
+            editEditeDesinacao.requestFocus();
+            return;
+        }
+        double valor = 0;
+
+        try {
+            valor = Double.parseDouble(textInputEditValor.getText().toString());
+        } catch (NumberFormatException e) {
+            textInputEditValor.setError(getString(R.string.erro_smsValor));
+            textInputEditValor.requestFocus();
+            return;
+        }
+
+        if (valor == 0) {
+            textInputEditValor.setError(getString(R.string.insira_um_valor_maior_que_0));
+            textInputEditValor.requestFocus();
+            return;
+        }
+
         Intent intent = new Intent(this, MainActivity.class);
+
+        intent.putExtra(DefinicoesApp.Designacao, designacao);
+
         startActivity(intent);
+
+        intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
+        startActivity(intent);
+
+        intent.putExtra(DefinicoesApp.Designacao, Categoria);
+
+        startActivity(intent);
+
     }
+
     public void cancel(View view) { //Botão "cancelar"
         finish();
     }

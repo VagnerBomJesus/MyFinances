@@ -44,11 +44,17 @@ public class ListarTodos extends AppCompatActivity {
         int dia = getCurrentDay();
         int mes = getCurrentMonth();
         int ano = getCurrentYear();
+
+
         Intent intent = getIntent();
+
         String mensagem = intent.getStringExtra(DefinicoesApp.MENSAGEM);
         Date data = (Date) intent.getSerializableExtra(DefinicoesApp.DATA);
+
         TextView textViewValor = (TextView) findViewById(R.id.textViewValor);
         TextView textViewData = (TextView) findViewById(R.id.textViewData);
+
+
         textViewData.setText(""+dia+"/"+mes+"/"+ano);
         textViewValor.setText(mensagem+"€");
     }

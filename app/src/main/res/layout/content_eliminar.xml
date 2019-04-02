@@ -8,4 +8,100 @@
     tools:context=".Eliminar"
     tools:showIn="@layout/activity_eliminar">
 
+    <Button
+        android:id="@+id/buttonGuardarEitado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/buttoncancelar_shape"
+        android:onClick="Eliminar"
+        android:text="@string/eliminar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/textViewSelectedDateDespesa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fa_margin"
+        android:layout_marginLeft="@dimen/fa_margin"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="@dimen/fa_margin"
+        android:layout_marginRight="@dimen/fa_margin"
+        android:textSize="24sp"
+        app:fontFamily="sans-serif-condensed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ContentDescription"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/Margin32"
+        android:text="@string/escolha_a_data"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ContentDescription"
+        android:layout_width="@dimen/Margin50"
+        android:layout_height="@dimen/Margin50"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginTop="24sp"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_day"
+        android:contentDescription="@string/todo" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/Margin50"
+        android:layout_marginLeft="@dimen/Margin50"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="@dimen/Margin50"
+        android:layout_marginRight="@dimen/Margin50"
+        android:background="@drawable/buttoncancelar_shape"
+        android:onClick="cancel"
+        android:text="@string/cancelar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonGuardarEitado"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="255dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ContentDescription"
+        tools:text="O Que dejejas determinar!" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

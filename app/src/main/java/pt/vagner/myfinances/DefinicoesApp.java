@@ -4,4 +4,5 @@ class DefinicoesApp {
     public static final String MENSAGEM = "pt.vagner.myfinances.MENSAGEM";
     public static final String Designacao="pt.vagner.myfinances.Designacao";
     public static final String DATA = "pt.vagner.myfinances.DATA";
+    public static final String Categoria = "pt.vagner.myfinances.Categoria";
 }

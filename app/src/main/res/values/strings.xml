@@ -59,4 +59,5 @@
     <string name="title_activity_eliminar">Eliminar</string>
     <string name="title_activity_editar">Editar</string>
     <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>
 </resources>

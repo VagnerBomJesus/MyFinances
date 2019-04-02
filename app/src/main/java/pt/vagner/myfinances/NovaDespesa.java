@@ -75,8 +75,6 @@ public class NovaDespesa extends AppCompatActivity {
 
         startActivity(intent);
 
-
-
     }
 
 

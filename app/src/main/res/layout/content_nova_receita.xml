@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:text="@string/designacao"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/background_dark"
@@ -82,20 +82,19 @@
         android:id="@+id/buttonInserirReceita"
         android:layout_width="320dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/buttoninserirreceita_shape"
+        android:onClick="inserirReceita"
         android:text="@string/inserir_receita"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
-        android:onClick="inserirReceita"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextValorReceita"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/editTextValorReceita" />
 
 
     <TextView
@@ -114,10 +113,10 @@
 
     <EditText
         android:id="@+id/editTextDesignacaoReceita"
-        android:layout_width="387dp"
+        android:layout_width="315dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"

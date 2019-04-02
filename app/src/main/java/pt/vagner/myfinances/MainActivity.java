@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Clicastes em Definiçoes",Toast.LENGTH_SHORT).show();
             return true;
         }
-        if (id == R.id.action_ListarDia) {//com sua ação Listar por dia
+        /***if (id == R.id.action_ListarDia) {//com sua ação Listar por dia
             Intent i = new Intent(this, ListarDia.class);
             Toast.makeText(this,R.string.action_ListarDia,
                     Toast.LENGTH_LONG).show();
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
             startActivity(i);
             return true;
-        }
+        }**/
 
         if (id == R.id.action_sobre) {//com sua ação Sobre
             Intent i = new Intent(this, sobre.class);

@@ -50,8 +50,9 @@ public class ListarTodos extends AppCompatActivity {
         TextView textViewValor = (TextView) findViewById(R.id.textViewValor);
         TextView textViewData = (TextView) findViewById(R.id.textViewData);
         textViewData.setText(""+dia+"/"+mes+"/"+ano);
-        textViewValor.setText(mensagem);
+        textViewValor.setText(mensagem+"€");
     }
+
     private void mostraDesignacao() {
         Intent intent = getIntent();
         String designacao = intent.getStringExtra(DefinicoesApp.Designacao);

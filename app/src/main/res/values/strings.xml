@@ -34,7 +34,7 @@
     <string name="descricao_despesa">Descrição da despesa (opcional)</string>
     <string name="designacao">Descrição:</string>
     <string name="categoria">Categoria:</string>
-    <string name="escolha_a_data">Escolha a Data:</string>
+    <string name="escolha_a_data">Data:</string>
     <string name="cancelar">Cancelar</string>
     <string name="adcionar" translatable="false">+</string>
     <string name="valor_euros">valor (€)</string>
@@ -59,4 +59,5 @@
     <string name="title_activity_listar_dia">Listar por Dia...</string>
     <string name="title_activity_listar_mes">Listar por Mês...</string>
     <string name="title_activity_listar_ano">Listar por Ano...</string>
+    <string name="todo">TODO</string>
 </resources>

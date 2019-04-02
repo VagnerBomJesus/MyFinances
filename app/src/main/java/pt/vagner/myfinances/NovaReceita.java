@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class NovaReceita extends AppCompatActivity {
 
@@ -63,7 +64,7 @@ public class NovaReceita extends AppCompatActivity {
             editTextValorReceita.requestFocus();
             return;
         }
-
+        Date data = new Date();
         Intent intent = new Intent(this, ListarTodos.class);
 
         intent.putExtra(DefinicoesApp.Designacao, designacao);
@@ -71,6 +72,7 @@ public class NovaReceita extends AppCompatActivity {
         startActivity(intent);
 
         intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
+        intent.putExtra(DefinicoesApp.DATA, data);
 
         startActivity(intent);
     }

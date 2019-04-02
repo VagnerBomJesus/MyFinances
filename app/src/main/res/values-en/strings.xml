@@ -27,7 +27,7 @@
     <string name="descricao_despesa">Expenditure Description (optional)</string>
     <string name="designacao">Description:</string>
     <string name="categoria">Category:</string>
-    <string name="escolha_a_data">Choose the Date:</string>
+    <string name="escolha_a_data">Date:</string>
     <string name="cancelar">Cancel</string>
     <string name="valor_euros">Value (€)</string>
     <string name="inserir_receita">" INSERT RECIPE"</string>

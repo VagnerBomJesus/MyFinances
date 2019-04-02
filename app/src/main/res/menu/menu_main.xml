@@ -1,5 +1,4 @@
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="pt.vagner.myfinances.MainActivity">
@@ -8,6 +7,26 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_opcao"
+        android:orderInCategory="100"
+        android:title="@string/action_opcao"
+        app:showAsAction="never">
+
+        <menu>
+            <item
+                android:id="@+id/action_Editar"
+                android:orderInCategory="100"
+                android:title="@string/action_Editar"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_Eliminar"
+                android:orderInCategory="100"
+                android:title="@string/action_Eliminar"
+                app:showAsAction="never" />
+
+        </menu>
+    </item>
     <item
         android:id="@+id/action_sobre"
         android:orderInCategory="100"

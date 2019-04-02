@@ -42,13 +42,10 @@
     <string name="erro_eliminar_registo">Error while delete record...</string>
     <string name="registo_eliminado_success">Record deleted successfully!</string>
     <string name="sms_alert_inserir_registos_data_futura">Can\'t insert records for future dates</string>
-    <string name="action_ListasDasLista">List</string>
-    <string name="action_ListarDia">List by Day</string>
-    <string name="action_ListarMes">List by Month</string>
-    <string name="action_ListarAno">List by Year</string>
     <string name="action_ListarTodos">List by All</string>
-    <string name="Onclik_ListarTodos">Enter List by All</string>
-    <string name="title_activity_listar_dia">List by Day...</string>
-    <string name="title_activity_listar_mes">List by Month...</string>
-    <string name="title_activity_listar_ano">List by Yea...</string>
+    <string name="action_opcao">Options</string>
+    <string name="action_Eliminar">Delete Records</string>
+    <string name="action_Editar">Update Records</string>
+    <string name="title_activity_eliminar">Delete Records...</string>
+    <string name="title_activity_editar">Update Records...</string>
 </resources>

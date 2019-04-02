@@ -50,13 +50,10 @@
     <string name="erro_eliminar_registo">Erro ao eliminar registo...</string>
     <string name="registo_eliminado_success">Registo eliminado com sucesso!</string>
     <string name="sms_alert_inserir_registos_data_futura">Não pode inserir registos para datas futuras!</string>
-    <string name="action_ListasDasLista">Listar</string>
-    <string name="action_ListarDia">Listar por Dia</string>
-    <string name="action_ListarMes">Listar por Mês</string>
-    <string name="action_ListarAno">Listar por Ano</string>
     <string name="action_ListarTodos">Listar por Todos</string>
-    <string name="Onclik_ListarTodos">Primastes em Listar Todos</string>
-    <string name="title_activity_listar_dia">Listar por Dia...</string>
-    <string name="title_activity_listar_mes">Listar por Mês...</string>
-    <string name="title_activity_listar_ano">Listar por Ano...</string>
+    <string name="action_opcao">Opções</string>
+    <string name="action_Eliminar">Eliminar Registos</string>
+    <string name="action_Editar">Editar Registos</string>
+    <string name="title_activity_eliminar">Eliminar</string>
+    <string name="title_activity_editar">Editar</string>
 </resources>

@@ -37,7 +37,8 @@
         android:inputType="numberDecimal"
         android:maxLength="9"
         app:layout_constraintStart_toEndOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoDespesa" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoDespesa"
+        android:autofillHints="" tools:targetApi="o" />
 
     <TextView
         android:id="@+id/textView21"
@@ -69,7 +70,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        android:autofillHints="" tools:targetApi="o"/>
 
     <TextView
         android:id="@+id/textView20"
@@ -97,7 +99,7 @@
         android:textSize="24sp"
         app:fontFamily="sans-serif-condensed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/datePickerButtonDespesa"
+        app:layout_constraintStart_toEndOf="@+id/ContentDescription"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -115,13 +117,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/datePickerButtonDespesa"
+        android:id="@+id/ContentDescription"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/todo"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_day" />

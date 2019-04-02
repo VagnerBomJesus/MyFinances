@@ -32,6 +32,8 @@
     <string name="valor_despesa">Valor €</string>
     <string name="valor">Valor</string>
     <string name="descricao_despesa">Descrição da despesa (opcional)</string>
+    <string name="descricao_Edite">Descrição (opcional)</string>
+    <string name="tipo">Despesa / Receita</string>
     <string name="designacao">Descrição:</string>
     <string name="categoria">Categoria:</string>
     <string name="escolha_a_data">Data:</string>
@@ -56,4 +58,5 @@
     <string name="action_Editar">Editar Registos</string>
     <string name="title_activity_eliminar">Eliminar</string>
     <string name="title_activity_editar">Editar</string>
+    <string name="guardar">Guardar</string>
 </resources>

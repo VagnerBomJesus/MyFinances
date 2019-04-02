@@ -48,4 +48,7 @@
     <string name="action_Editar">Update Records</string>
     <string name="title_activity_eliminar">Delete Records...</string>
     <string name="title_activity_editar">Update Records...</string>
+    <string name="guardar">Save</string>
+    <string name="descricao_Edite">Description (optional)</string>
+    <string name="tipo">Expenditure / Recipe</string>
 </resources>

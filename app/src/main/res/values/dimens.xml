@@ -7,5 +7,13 @@
     <dimen name="Margin18">18dp</dimen>
     <dimen name="Margin50">50dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin24">24sp</dimen>
+    <dimen name="Margin200">200dp</dimen>
+    <dimen name="Margin42">42dp</dimen>
+    <dimen name="Margin233">233dp</dimen>
+    <dimen name="Margin243">243dp</dimen>
+    <dimen name="Margin228">228dp</dimen>
+    <dimen name="Margin221">221dp</dimen>
+    <dimen name="Margin54">54dp</dimen>
 
 </resources>

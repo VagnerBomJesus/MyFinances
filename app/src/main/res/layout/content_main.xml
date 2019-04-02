@@ -93,7 +93,7 @@
         android:text="@string/receitas"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/Margin18"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewShowSaldoMain" />
 
@@ -107,7 +107,7 @@
         android:text="@string/despesas"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/Margin18"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewReceitasMain" />
 
@@ -139,7 +139,7 @@
         android:text="@string/_24_78"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="@dimen/Margin18"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewReceitasMain"
         app:layout_constraintTop_toBottomOf="@+id/textViewShowSaldoMain"
@@ -157,7 +157,7 @@
         android:text="@string/_284_82"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="@dimen/Margin18"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewDespesasMain"
         app:layout_constraintTop_toBottomOf="@+id/textViewShowReceitasMain"

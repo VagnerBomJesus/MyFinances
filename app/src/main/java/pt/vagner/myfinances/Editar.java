@@ -32,7 +32,7 @@ public class Editar extends AppCompatActivity {
         setDefaultDateToTextView();///visualizar data atual
     }
     public void guardar(View view){
-        Toast.makeText(getApplicationContext(),"Guardaro Com sucesso",Toast.LENGTH_LONG).show();
+
 
         EditText textCategoria = (EditText) findViewById(R.id.textCategoria);
         String mensagem = textCategoria.getText().toString();
@@ -81,10 +81,11 @@ public class Editar extends AppCompatActivity {
         intent.putExtra(DefinicoesApp.Designacao, Categoria);
 
         startActivity(intent);
+        Toast.makeText(getApplicationContext(),"Guardaro Com sucesso",Toast.LENGTH_LONG).show();
 
     }
 
-    public void cancel(View view) { //Botão "cancelar"
+    public void cancel(View view) { // todo: Botão "cancelar"
         finish();
     }
 

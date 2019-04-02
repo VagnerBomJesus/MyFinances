@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/Margin50"
         android:layout_marginLeft="@dimen/Margin50"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/Margin50"
         android:background="@drawable/buttoncancelar_shape"
         android:onClick="guardar"
         android:text="@string/guardar"
@@ -24,7 +24,7 @@
 
     <TextView
         android:id="@+id/textView21"
-        android:layout_width="wrap_content"
+        android:layout_width="82dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fab_margin"
         android:layout_marginLeft="@dimen/fab_margin"
@@ -69,11 +69,11 @@
         android:id="@+id/textViewSelectedDateDespesa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/fa_margin"
-        android:layout_marginLeft="@dimen/fa_margin"
-        android:layout_marginRight="@dimen/fa_margin"
         android:layout_marginStart="@dimen/fa_margin"
-        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginLeft="@dimen/fa_margin"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="@dimen/fa_margin"
+        android:layout_marginRight="@dimen/fa_margin"
         android:textSize="24sp"
         app:fontFamily="sans-serif-condensed"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,6 +138,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText"
             android:layout_width="@dimen/Margin233"
             android:layout_height="wrap_content"
             android:hint="@string/valor_euros"
@@ -150,7 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fa_margin"
         android:layout_marginLeft="@dimen/fa_margin"
-        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/fa_margin"
         android:layout_marginRight="@dimen/fa_margin"
         app:layout_constraintEnd_toEndOf="parent"

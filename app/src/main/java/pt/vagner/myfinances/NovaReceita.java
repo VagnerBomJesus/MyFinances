@@ -1,5 +1,6 @@
 package pt.vagner.myfinances;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,9 +10,11 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,9 +22,14 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Date;
 
-public class NovaReceita extends AppCompatActivity {
+public class NovaReceita extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     private MenuItem item;
+    private static Boolean isClicked = false;
+    private EditText editTextValorReceita;
+    private TextView textViewSelectedDate;
+    private TextView textViewData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,11 @@ public class NovaReceita extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        /************************Construção dos objetos***************************/
+
+        editTextValorReceita = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
+        textViewSelectedDate = (TextView) findViewById(R.id.textViewSelectedDate);
+        textViewData= (TextView) findViewById(R.id.textViewData);
 
 
         setDefaultDateToTextView();///visualizar data atual
@@ -118,5 +131,29 @@ public class NovaReceita extends AppCompatActivity {
 
     public void cancel(View view) { //Botão "cancelar"
         finish();
+    }
+
+
+
+    public void definirDataReceita(View view) { //Botão "definir data"
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+            //Código que obtém a data selecionada pelo utilizador
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.YEAR, year);
+            calendar.set(Calendar.MONTH, month);
+            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+            month++;
+
+            textViewSelectedDate.setText("" + dayOfMonth + "/" + month + "/" + year);
+
+
+            isClicked = true;
+
     }
 }

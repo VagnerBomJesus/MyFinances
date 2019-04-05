@@ -30,6 +30,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
+        android:onClick="definirDataReceita"
         android:contentDescription="@string/todo"
         app:layout_constraintStart_toEndOf="@+id/textViewShowDiaMesAno"
         app:layout_constraintTop_toTopOf="parent"

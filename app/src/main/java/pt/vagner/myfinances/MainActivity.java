@@ -1,8 +1,10 @@
 package pt.vagner.myfinances;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            Toast.makeText(getApplicationContext(),"Clicastes em Definiçoes",Toast.LENGTH_SHORT).show();
+            novaReceita121();
             return true;
         }
         if (id == R.id.action_Editar) {//com sua ação Editar
@@ -65,11 +67,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void novaReceita(View view) { //Botão "NOVA RECEITA"
         Intent i = new Intent(this, NovaReceita.class);
+
         startActivity(i);
     }
 
     public void novaDespesa(View view) { //Botão "NOVA DESPESA"
         Intent i = new Intent(this, NovaDespesa.class);
         startActivity(i);
+    }
+    public void novaReceita121 (){
+        AlertDialog.Builder msBox = new AlertDialog.Builder(this);
+        msBox.setTitle("Excluindo.....");
+        msBox.setIcon(android.R.drawable.ic_menu_delete);
+        msBox.setMessage("Tens certeza do que estas a fazer?...");
+        msBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "Clicou em sim",Toast.LENGTH_LONG).show();
+            }
+        });
+        msBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this,"Clicou em não", Toast.LENGTH_LONG).show();
+            }
+        });
+        msBox.show();
     }
 }

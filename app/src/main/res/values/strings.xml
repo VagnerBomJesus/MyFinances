@@ -1,5 +1,14 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="title_activity_main" translatable="false">Finanças</string>
     <string name="app_name">Finanças</string>
+    <string name="nav_header_title" translatable="false">Vagner Bom Jesus</string>
+    <string name="nav_header_subtitle" translatable="false">vagneripg@gmail.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+
     <string name="action_settings">Definições</string>
     <string name="saldo">Saldo:</string>
     <string name="receitas">Receitas:</string>
@@ -60,4 +69,22 @@
     <string name="title_activity_editar">Editar</string>
     <string name="guardar">Guardar</string>
     <string name="eliminar">Eliminar</string>
+
+    <string name="qto_pode_gastar_mes">Quanto pode gastar por mês?</string>
+    <string name="listar_por_dia">Listar por dia</string>
+    <string name="listar_por_mes">Listar por mês</string>
+    <string name="listar_por_ano">Listar por ano</string>
+    <string name="listar_todos_1">Listar todos</string>
+    <string name="definir_orca">Definir orçamento</string>
+    <string name="acerca">Acerca</string>
+    <string name="gerir_cat">Gerir Categorias</string>
+    <string name="sms_cat_n_inserida">Categoria não inserida!</string>
+    <string name="cancelar_dialog_cat">Cancelar</string>
+    <string name="inserir_1">Inserir</string>
+    <string name="inserir_cat_dialog">Inserir Categoria</string>
+    <string name="adicione_uma_categoria">Por favor, adicione uma categoria!</string>
+    <string name="ano_dois_pontos">Ano:</string>
+    <string name="dia_dois_pontos">Dia:</string>
+    <string name="mes_dois_pontos">Mês:</string>
+
 </resources>

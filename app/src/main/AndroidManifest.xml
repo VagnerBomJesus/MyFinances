@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ListarTodos"></activity>
+        <activity android:name=".ListarMes" />
+        <activity android:name=".ListarAno" />
+        <activity android:name=".ListarDia" />
+        <activity android:name=".GerirCategorias" />
         <activity
             android:name=".Editar"
             android:label="@string/title_activity_editar"
@@ -27,6 +32,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pt.vagner.myfinances.MainActivity" />
         </activity>
+        <activity android:name=".sobre" />
         <activity
             android:name=".NovaDespesa"
             android:label="@string/title_activity_nova_despesa"
@@ -36,19 +42,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pt.vagner.myfinances.MainActivity" />
         </activity>
-        <activity
-            android:name=".ListarTodos"
-            android:label="@string/title_activity_listar_todos"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="pt.vagner.myfinances.MainActivity" />
-        </activity>
-        <activity
-            android:name=".sobre"
-            android:label="@string/title_activity_sobre"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NovaReceita"
             android:label="@string/title_activity_nova_receita"
@@ -60,7 +53,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

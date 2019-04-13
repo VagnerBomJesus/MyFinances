@@ -49,7 +49,7 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
 
         setDefaultDateToTextView();///visualizar data atual
     }
-    public void inserirReceita(View view) {
+    public void inserirReceitaDb(View view) {
         EditText editTextValorReceita = (EditText) findViewById(R.id.editTextValorReceita);
         String mensagem = editTextValorReceita.getText().toString();
 
@@ -141,19 +141,16 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
     }
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        //Código que obtém a data selecionada pelo utilizador
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-            //Código que obtém a data selecionada pelo utilizador
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(Calendar.YEAR, year);
-            calendar.set(Calendar.MONTH, month);
-            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        month++;
 
-            month++;
-
-            textViewSelectedDate.setText("" + dayOfMonth + "/" + month + "/" + year);
-
-
-            isClicked = true;
+        textViewSelectedDate.setText("" + dayOfMonth + "/" + month + "/" + year);
+        isClicked = true;
 
     }
 }

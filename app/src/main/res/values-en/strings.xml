@@ -52,4 +52,24 @@
     <string name="descricao_Edite">Description (optional)</string>
     <string name="tipo">Expenditure / Recipe</string>
     <string name="eliminar">Delete</string>
+
+    <string name="qto_pode_gastar_mes">How much do you spend per month?</string>
+    <string name="acerca">About</string>
+    <string name="definir_orca">Set budget</string>
+    <string name="listar_por_dia">List by day</string>
+    <string name="listar_por_mes">List by month</string>
+    <string name="listar_por_ano">List by year</string>
+    <string name="listar_todos_1">List all</string>
+    <string name="gerir_cat">Categories Management</string>
+    <string name="sms_cat_n_inserida">Category not entered</string>
+    <string name="inserir_1">Insert</string>
+    <string name="cancelar_dialog_cat">Cancel</string>
+    <string name="inserir_cat_dialog">Insert Category</string>
+    <string name="adicione_uma_categoria">Please, select a category!</string>
+    <string name="ano_dois_pontos">Year:</string>
+    <string name="dia_dois_pontos">Day:</string>
+    <string name="mes_dois_pontos">Month:</string>
+
+
+
 </resources>

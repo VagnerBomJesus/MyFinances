@@ -12,13 +12,8 @@ import androidx.fragment.app.DialogFragment;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.Calendar;
-
 
 public class NovaDespesa extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
@@ -41,10 +36,6 @@ public class NovaDespesa extends AppCompatActivity implements DatePickerDialog.O
 
         editTextDesignacaoDespesa = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
         textViewSelectedDateDespesa = (TextView) findViewById(R.id.textViewSelectedDateDespesa);
-
-
-
-
 
         setDefaultDateToTextView(); //data atual na textview data
     }
@@ -96,7 +87,6 @@ public class NovaDespesa extends AppCompatActivity implements DatePickerDialog.O
 
 
     }
-
 
     /**
      * @return dia atual
@@ -161,5 +151,6 @@ public class NovaDespesa extends AppCompatActivity implements DatePickerDialog.O
 
         isClicked = true;
     }
+
 
 }

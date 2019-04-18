@@ -164,6 +164,6 @@
     <string name="cat_despesas">Categorias Despesas</string>
     <string name="toque_na_cat_eliminar">Toque na categoria que pretende eliminar</string>
     <string name="deslize_ver_cat_restantes">Deslize para ver as restantes categorias</string>
-
+    <string name="nova_cat">Nova Categoria</string>
 
 </resources>

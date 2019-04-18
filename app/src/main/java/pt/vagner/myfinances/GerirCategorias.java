@@ -1,11 +1,12 @@
 package pt.vagner.myfinances;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class GerirCategorias extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+public class GerirCategorias extends AppCompatActivity {
+    public static boolean clickedButtonCatReceita = false;
+    public static boolean clickButtonCatDespesa = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

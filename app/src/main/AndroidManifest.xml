@@ -27,7 +27,11 @@
             android:label="@string/listar_dia"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".GerirCategorias" />
+        <activity
+            android:name=".GerirCategorias"
+            android:label="@string/gerir_cat"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity" />>
         <activity
             android:name=".Editar"
             android:label="@string/title_activity_editar"

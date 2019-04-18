@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".NovaDespesa"
-    tools:showIn="@layout/activity_nova_despesa">
+    tools:showIn="@layout/activity_nova_despesa"
+    android:background="#e7e7e7">
     <Button
         android:id="@+id/buttonInserirDespesa"
         android:layout_width="320dp"

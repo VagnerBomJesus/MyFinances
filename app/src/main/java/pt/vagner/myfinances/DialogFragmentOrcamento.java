@@ -13,10 +13,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-public class DialogFragmentOrcamento extends AppCompatDialogFragment {
-
+public class DialogFragmentOrcamento {
+/**
     private EditText editTextInput;
-    private DialogFragmentOrcamento.ExampleDialogListener listener;
+    private ExampleDialogListener listener;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -24,6 +24,33 @@ public class DialogFragmentOrcamento extends AppCompatDialogFragment {
 
         //Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
+
+        //Pass null as the parent view because its going in the dialog layout
+        View view = inflater.inflate(R.layout.dialog_categoria_layout, null);
+        builder.setView(view)
+
+                .setNegativeButton(R.string.cancelar_dialog_cat, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        GerirCategorias.clickedButtonCatReceita = false;
+                        GerirCategorias.clickButtonCatDespesa = false;
+                    }
+                })
+                .setPositiveButton(R.string.inserir_1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Verificar se o campo está vazio
+                        String categoria = editTextInput.getText().toString().trim();
+                        if (categoria.trim().isEmpty()){
+                            Toast.makeText(getContext(), R.string.sms_cat_n_inserida, Toast.LENGTH_LONG).show();
+                        }else {
+                            listener.setTexts(categoria);
+                        }
+                    }
+                });
+
+        editTextInput = view.findViewById(R.id.editTextDialogCategoria);
+
         return builder.create();
     }
 
@@ -32,7 +59,7 @@ public class DialogFragmentOrcamento extends AppCompatDialogFragment {
         super.onAttach(context);
 
         try {
-            listener = (DialogFragmentOrcamento.ExampleDialogListener) context;
+            listener = (ExampleDialogListener) context;
         } catch (ClassCastException e) {
             throw  new ClassCastException(context.toString() +
                     "must implement ExampleDialogListener");
@@ -40,11 +67,7 @@ public class DialogFragmentOrcamento extends AppCompatDialogFragment {
     }
 
     public interface ExampleDialogListener {
-        void setValue(double orcamento);
-    }
-
-    private void goToMainActivity(){
-        Intent i = new Intent(getContext(), MainActivity.class);
-        startActivity(i);
-    }
+        void setTexts(String categoria);
+    }**/
 }
+

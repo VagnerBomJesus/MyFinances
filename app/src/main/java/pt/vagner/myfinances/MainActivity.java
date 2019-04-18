@@ -99,7 +99,31 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
+        if (id == R.id.nav_ldia) {
+            Intent i = new Intent(this, ListarDia.class);
+            startActivity(i);
+        } else if (id == R.id.nav_lmes) {
+            Intent i = new Intent(this, ListarMes.class);
+            startActivity(i);
+        } else if (id == R.id.nav_lano) {
+            Intent i = new Intent(this, ListarAno.class);
+            startActivity(i);
+        } else if (id == R.id.nav_ltodos) {
+            Intent i = new Intent(this, ListarTodos.class);
+            startActivity(i);
+       /** } else if (id == R.id.nav_orca) {
+            DialogFragmentOrcamento dialogFragmentOrcamento = new DialogFragmentOrcamento();
+            dialogFragmentOrcamento.show(getSupportFragmentManager(), "DialogFragmentOrcamento");**/
+        } else if (id == R.id.nav_sobre) {
+            Intent i = new Intent(this, sobre.class);
+            startActivity(i);
+        } else if (id == R.id.nav_gestcategorias) {
+            Intent i = new Intent(this, GerirCategorias.class);
+            startActivity(i);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

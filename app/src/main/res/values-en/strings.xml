@@ -71,5 +71,92 @@
     <string name="mes_dois_pontos">Month:</string>
 
 
+    <string name="listar_ano">List by year...</string>
+    <string name="listar_mes">List by month...</string>
+    <string name="listar_dia">List by day...</string>
+
+
+
+
+
+
+
+
+    <string name="insira_a_designa_o_da_receita">Insert the income description</string>
+
+    <string name="insira_o_valor_da_receita">Insert the income value</string>
+      <string name="quadro_descritivo_finan_as_pessoais">Personal finance descriptive table:</string>
+    <string name="valor_definido_or_amento_mensal">Defined value of monthly budget:</string>
+    <string name="resultados_ano">Results for year</string>
+    <string name="resultados_m_s">Results for month</string>
+    <string name="resultados_dia">Results for day</string>
+    <string name="todos">All</string>
+    <string name="atualizar_despesa">Update Expense</string>
+   <string name="atualizar_receita">Update Income</string>
+    <string name="cate_ja_exist">Category already exists!</string>
+    <string name="Nova_receita_actv">New Income...</string>
+    <string name="cancelar2">cancel</string>
+   <string name="definir_button">Define</string>
+    <string name="sms_orc_n_definido">No value entered</string>
+    <string name="sms_cat_inserida_success">Category inserted successfully</string>
+    <string name="sms_error_inserir_cat_db">Error inserting category in DB!</string>
+    <string name="sms_nao_foi_possivel_obter_id">Could not get ID</string>
+    <string name="insira_um_valor">Enter a value!</string>
+   <string name="registo_alterado_com_sucesso">Record changed successfully!</string>
+    <string name="erro_alterar_registo">Error while changing record</string>
+
+    <string name="nao_foram_encontrados_registos">Can\'t found records for year</string>
+    <string name="nao1">NO</string>
+    <string name="sim">YES</string>
+    <string name="erro_eliminar_cat">Error while deleting category...</string>
+    <string name="cat_eliminada_success">Category deleted successfully</string>
+    <string name="tem_a_certeza">Are you sure?</string>
+    <string name="eliminar_categoria">Delete category</string>
+    <string name="nao_foram_encontrados_registos_data">Can\'t found records for date</string>
+    <string name="nao_foram_encontrados_registos_para">Can\'t found records for</string>
+    <string name="de">of</string>
+    <string name="janeiro">January</string>
+    <string name="fevereiro">February</string>
+    <string name="marco">March</string>
+    <string name="abril">April</string>
+    <string name="maio">May</string>
+    <string name="junho">June</string>
+    <string name="julho">July</string>
+    <string name="agosto">August</string>
+    <string name="setembro">September</string>
+    <string name="outubro">October</string>
+    <string name="novembro">November</string>
+    <string name="dezembro">December</string>
+    <string name="nao_foram_encontrados_registos_todos">Can\'t found records</string>
+    <string name="valor_orca_definido_sucesso">Budget defined successfully</string>
+    <string name="erro_inserir_valor_bd">Error while insert budget</string>
+    <string name="ultrapassou_limit_orca_mensal">"Exceeded your monthly budget limit! "</string>
+    <string name="euros_atingir_limit_orca_mensal">€ to reach your monthly budget limit!</string>
+    <string name="atingiu_limit_orca_mensal">Reached your monthly budget limit!</string>
+
+    <string name="erro_inserir_registo_bd">Error while insert record in DB!</string>
+    <string name="escolha_uma_opcao">Choose an option</string>
+    <string name="atualizar_eliminar_registo">Update or delete record?</string>
+    <string name="atualizar">Update</string>
+    <string name="cancelar_adapter">Cancel</string>
+    <string name="sobre">About</string>
+    <string name="nova_despesa_act">New Expense...</string>
+    <string name="definicoes">Settings</string>
+
+    <string name="listar_todos">List all...</string>
+    <string name="editar_receita">Update Income...</string>
+    <string name="editar_despesa">Update Expense...</string>
+
+    <string name="ano">Year</string>
+    <string name="text_definicoes">The balance value is the diference between the income\'s value and the expense\'s value and is always updated presented, independently  of the type of the data view.</string>
+    <string name="text2_defenicoes">In the List Day, List Month and List Year options, click on the income/expense to delete or update it.</string>
+
+    <string name="cat_receitas">Incomes Categories</string>
+    <string name="cat_despesas">Expenses Categories</string>
+    <string name="toque_na_cat_eliminar">Touch the category you want to delete</string>
+    <string name="deslize_ver_cat_restantes">Scroll down to see other categories</string>
+
+
+
 
 </resources>

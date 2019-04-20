@@ -21,7 +21,7 @@
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".EditDespesas"
+            android:name=".EditDespesa"
             android:label="@string/editar_despesa"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />

@@ -4,9 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
@@ -76,7 +73,7 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
         if (id == R.id.action_EditarDespesa) {//com sua ação Editar
-            Intent i = new Intent(this, EditDespesas.class);
+            Intent i = new Intent(this, EditDespesa.class);
             startActivity(i);
             return true;
         }

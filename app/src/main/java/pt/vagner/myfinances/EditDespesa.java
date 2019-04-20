@@ -6,7 +6,6 @@ import androidx.fragment.app.DialogFragment;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -14,54 +13,55 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
-import java.util.Date;
 
-public class EditReceita extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,DialogFragmentCategoria.ExampleDialogListener{
+public class EditDespesa extends AppCompatActivity implements  DatePickerDialog.OnDateSetListener, DialogFragmentCategoria.ExampleDialogListener{
 
-    private EditText editTextValorReceita;
-    private TextView textViewSelectedDate;
-    private TextView textViewData;
-
+    private EditText editTextDesignacaoDespesa;
+    private TextView textViewSelectedDateDespesa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_receita);
-        editTextValorReceita = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
-        textViewSelectedDate = (TextView) findViewById(R.id.textViewSelectedDate);
-        textViewData= (TextView) findViewById(R.id.textViewData);
+        setContentView(R.layout.activity_edit_despesas);
+        /************************Construção dos objetos***************************/
 
+        editTextDesignacaoDespesa = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
+        textViewSelectedDateDespesa = (TextView) findViewById(R.id.textViewSelectedDateDespesa);
 
-        setDefaultDateToTextView();///visualizar data atual
+        setDefaultDateToTextView(); //data atual na textview data
     }
-    public void atualizarReceita(View view) {
-        EditText editTextValorReceita = (EditText) findViewById(R.id.editTextValorReceita);
-        String mensagem = editTextValorReceita.getText().toString();
 
-        EditText editTextDesignacaoReceita = (EditText) findViewById(R.id.editTextDesignacaoReceita);
-        String designacao = editTextDesignacaoReceita.getText().toString();
+
+    public void updateDespesaDb(View view) {//button inserir vai a base de dados
+        EditText editTextDesignacaoDespesa = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
+        String designacao = editTextDesignacaoDespesa.getText().toString();
+
+        EditText editTextValorDespesa = (EditText) findViewById(R.id.editTextValorDespesa);
+        String mensagem = editTextValorDespesa.getText().toString();
 
 
         if (designacao.trim().length() == 0) {
-            editTextDesignacaoReceita.setError(getString(R.string.erro_editTextDesignacaoReceita));
-            editTextDesignacaoReceita.requestFocus();
+            editTextDesignacaoDespesa.setError(getString(R.string.erro_editTextDesignacaoReceita));
+            editTextDesignacaoDespesa.requestFocus();
             return;
         }
         double valor = 0;
 
         try {
-            valor = Double.parseDouble(editTextValorReceita.getText().toString());
+            valor = Double.parseDouble(editTextValorDespesa.getText().toString());
         } catch (NumberFormatException e) {
-            editTextValorReceita.setError(getString(R.string.erro_smsValor));
-            editTextValorReceita.requestFocus();
+            editTextValorDespesa.setError(getString(R.string.erro_smsValor));
+            editTextValorDespesa.requestFocus();
             return;
         }
 
         if (valor == 0) {
-            editTextValorReceita.setError(getString(R.string.insira_um_valor_maior_que_0));
-            editTextValorReceita.requestFocus();
+            editTextValorDespesa.setError(getString(R.string.insira_um_valor_maior_que_0));
+            editTextValorDespesa.requestFocus();
             return;
         }
-        Date data = new Date();
+
+
+
         Intent intent = new Intent(this, ListarTodos.class);
 
         intent.putExtra(DefinicoesApp.Designacao, designacao);
@@ -69,9 +69,10 @@ public class EditReceita extends AppCompatActivity implements DatePickerDialog.O
         startActivity(intent);
 
         intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
-        intent.putExtra(DefinicoesApp.DATA, data);
 
         startActivity(intent);
+
+
     }
 
     /**
@@ -104,7 +105,7 @@ public class EditReceita extends AppCompatActivity implements DatePickerDialog.O
      * coloca na textview da data a data atual dd/mm/yyyy
      */
     private void setDefaultDateToTextView(){
-        TextView textViewDate = (TextView) findViewById(R.id.textViewSelectedDate);
+        TextView textViewDate = (TextView) findViewById(R.id.textViewSelectedDateDespesa);
 
         int dia = getCurrentDay();
         int mes = getCurrentMonth();
@@ -113,16 +114,16 @@ public class EditReceita extends AppCompatActivity implements DatePickerDialog.O
         textViewDate.setText(""+dia+"/"+mes+"/"+ano);
     }
 
+
+
     public void cancel(View view) { //Botão "cancelar"
         finish();
     }
-
-
-
-    public void definirDataEditReceita(View view) { //Botão "definir data"
+    public void definirDataEditDespesa(View view) { //Botão "definir data"
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
+
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         //Código que obtém a data selecionada pelo utilizador
@@ -133,24 +134,27 @@ public class EditReceita extends AppCompatActivity implements DatePickerDialog.O
 
         month++;
 
-        textViewSelectedDate.setText("" + dayOfMonth + "/" + month + "/" + year);
+        textViewSelectedDateDespesa.setText(""+dayOfMonth+"/"+month+"/"+year);
 
     }
-    public void addCategoriaEditReceita(View view) { //Botão "+"
+    public void addCategoriaEditDespesa(View view) { //Botão adicionar categoria Despesa
         DialogFragmentCategoria dialogFragmentCategoria = new DialogFragmentCategoria();
-        dialogFragmentCategoria.show(getSupportFragmentManager(), "DialogFragmentCategoria");
+        dialogFragmentCategoria.show(getSupportFragmentManager(), "DialogFragmentDespesas");
     }
+
+
+
 
     @Override
-    public void setTexts(String categoria) { //Ação do botão Inserir Categoria
+    public void setTexts(String categoria) { //Ação do botão "addCategoriaDespesa"
 
         try {
-
-            Toast.makeText(EditReceita.this, R.string.sms_cat_inserida_success,Toast.LENGTH_LONG).show();
+            Toast.makeText(EditDespesa.this,R.string.sms_cat_inserida_success,Toast.LENGTH_LONG).show();
         } catch (Exception e) {
-            Toast.makeText(EditReceita.this, R.string.sms_error_inserir_cat_db,Toast.LENGTH_LONG).show();
+            Toast.makeText(EditDespesa.this,R.string.sms_error_inserir_cat_db,Toast.LENGTH_LONG).show();
         }
-
-
     }
+
+
 }
+

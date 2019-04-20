@@ -3,24 +3,19 @@ package pt.vagner.myfinances;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
-import android.view.View;
-import android.widget.DatePicker;
-import android.widget.EditText;
-
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.Calendar;
 
-
-public class NovaDespesa extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
+public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.OnDateSetListener, DialogFragmentCategoria.ExampleDialogListener{
 
     private static Boolean isClicked = false;
     private EditText editTextDesignacaoDespesa;
@@ -41,10 +36,6 @@ public class NovaDespesa extends AppCompatActivity implements DatePickerDialog.O
 
         editTextDesignacaoDespesa = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
         textViewSelectedDateDespesa = (TextView) findViewById(R.id.textViewSelectedDateDespesa);
-
-
-
-
 
         setDefaultDateToTextView(); //data atual na textview data
     }
@@ -96,7 +87,6 @@ public class NovaDespesa extends AppCompatActivity implements DatePickerDialog.O
 
 
     }
-
 
     /**
      * @return dia atual
@@ -161,5 +151,23 @@ public class NovaDespesa extends AppCompatActivity implements DatePickerDialog.O
 
         isClicked = true;
     }
+    public void addCategoriaDespesa(View view) { //Botão adicionar categoria Despesa
+        DialogFragmentCategoria dialogFragmentCategoria = new DialogFragmentCategoria();
+        dialogFragmentCategoria.show(getSupportFragmentManager(), "DialogFragmentDespesas");
+    }
+
+
+
+
+    @Override
+    public void setTexts(String categoria) { //Ação do botão "addCategoriaDespesa"
+
+        try {
+             Toast.makeText(NovaDespesa.this,R.string.sms_cat_inserida_success,Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(NovaDespesa.this,R.string.sms_error_inserir_cat_db,Toast.LENGTH_LONG).show();
+        }
+    }
+
 
 }

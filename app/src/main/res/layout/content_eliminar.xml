@@ -8,6 +8,7 @@
     tools:context=".Eliminar"
     tools:showIn="@layout/activity_eliminar">
 
+
     <Button
         android:id="@+id/buttonGuardarEitado"
         android:layout_width="131dp"
@@ -25,12 +26,6 @@
         app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-
-
-
-
-
 
 
     <TextView
@@ -153,7 +148,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fab_margin"
@@ -165,7 +160,5 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

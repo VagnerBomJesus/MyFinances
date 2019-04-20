@@ -5,14 +5,38 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/title_activity_listar_todos"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EditReceita"></activity>
+        <activity android:name=".EditDespesas" />
+        <activity
+            android:name=".ListarAno"
+            android:label="@string/listar_ano"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ListarMes"
+            android:label="@string/listar_mes"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ListarDia"
+            android:label="@string/listar_dia"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GerirCategorias"
+            android:label="@string/gerir_cat"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity" />>
         <activity
             android:name=".Editar"
             android:label="@string/title_activity_editar"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -22,37 +46,28 @@
             android:name=".Eliminar"
             android:label="@string/title_activity_eliminar"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pt.vagner.myfinances.MainActivity" />
         </activity>
+        <activity android:name=".sobre" />
         <activity
             android:name=".NovaDespesa"
             android:label="@string/title_activity_nova_despesa"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pt.vagner.myfinances.MainActivity" />
         </activity>
-        <activity
-            android:name=".ListarTodos"
-            android:label="@string/title_activity_listar_todos"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="pt.vagner.myfinances.MainActivity" />
-        </activity>
-        <activity
-            android:name=".sobre"
-            android:label="@string/title_activity_sobre"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NovaReceita"
             android:label="@string/title_activity_nova_receita"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -60,7 +75,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

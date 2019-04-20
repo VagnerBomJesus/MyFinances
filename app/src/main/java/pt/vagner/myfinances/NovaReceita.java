@@ -2,16 +2,7 @@ package pt.vagner.myfinances;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.DialogFragment;
-
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
@@ -19,10 +10,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
+
 import java.util.Calendar;
 import java.util.Date;
 
-public class NovaReceita extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
+public class NovaReceita extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,DialogFragmentCategoria.ExampleDialogListener{
 
     private MenuItem item;
     private static Boolean isClicked = false;
@@ -49,7 +44,7 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
 
         setDefaultDateToTextView();///visualizar data atual
     }
-    public void inserirReceita(View view) {
+    public void inserirReceitaDb(View view) {
         EditText editTextValorReceita = (EditText) findViewById(R.id.editTextValorReceita);
         String mensagem = editTextValorReceita.getText().toString();
 
@@ -141,19 +136,33 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
     }
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        //Código que obtém a data selecionada pelo utilizador
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-            //Código que obtém a data selecionada pelo utilizador
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(Calendar.YEAR, year);
-            calendar.set(Calendar.MONTH, month);
-            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        month++;
 
-            month++;
+        textViewSelectedDate.setText("" + dayOfMonth + "/" + month + "/" + year);
+        isClicked = true;
 
-            textViewSelectedDate.setText("" + dayOfMonth + "/" + month + "/" + year);
+    }
+    public void addCategoria(View view) { //Botão "+"
+        DialogFragmentCategoria dialogFragmentCategoria = new DialogFragmentCategoria();
+        dialogFragmentCategoria.show(getSupportFragmentManager(), "DialogFragmentCategoria");
+    }
 
+    @Override
+    public void setTexts(String categoria) { //Ação do botão Inserir Categoria
 
-            isClicked = true;
+        try {
+
+            Toast.makeText(NovaReceita.this, R.string.sms_cat_inserida_success,Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(NovaReceita.this, R.string.sms_error_inserir_cat_db,Toast.LENGTH_LONG).show();
+        }
+
 
     }
 }

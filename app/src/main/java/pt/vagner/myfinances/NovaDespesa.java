@@ -17,7 +17,6 @@ import java.util.Calendar;
 
 public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.OnDateSetListener, DialogFragmentCategoria.ExampleDialogListener{
 
-    private static Boolean isClicked = false;
     private EditText editTextDesignacaoDespesa;
     private TextView textViewSelectedDateDespesa;
 
@@ -69,10 +68,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
             editTextValorDespesa.requestFocus();
             return;
         }
-        //Se o botão "definirData" não foi clicado
-        if (!isClicked){
-            new ListarTodos();
-        }
+
 
 
         Intent intent = new Intent(this, ListarTodos.class);
@@ -149,7 +145,6 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
 
         textViewSelectedDateDespesa.setText(""+dayOfMonth+"/"+month+"/"+year);
 
-        isClicked = true;
     }
     public void addCategoriaDespesa(View view) { //Botão adicionar categoria Despesa
         DialogFragmentCategoria dialogFragmentCategoria = new DialogFragmentCategoria();

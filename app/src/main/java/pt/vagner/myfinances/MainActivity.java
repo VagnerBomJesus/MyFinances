@@ -69,11 +69,18 @@ public class MainActivity extends AppCompatActivity
             novaReceita121();
             return true;
         }
-        if (id == R.id.action_Editar) {//com sua ação Editar
-            Intent i = new Intent(this, Editar.class);
+
+        if (id == R.id.action_EditarReceita) {//com sua ação Editar
+            Intent i = new Intent(this, EditReceita.class);
             startActivity(i);
             return true;
         }
+        if (id == R.id.action_EditarDespesa) {//com sua ação Editar
+            Intent i = new Intent(this, EditDespesas.class);
+            startActivity(i);
+            return true;
+        }
+
         if (id == R.id.action_Eliminar) {//com sua ação Eliminar
             Intent i = new Intent(this, Eliminar.class);
             startActivity(i);
@@ -114,7 +121,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_ltodos) {
             Intent i = new Intent(this, ListarTodos.class);
             startActivity(i);
-       /** } else if (id == R.id.nav_orca) {
+       /**} else if (id == R.id.nav_orca) {
             DialogFragmentOrcamento dialogFragmentOrcamento = new DialogFragmentOrcamento();
             dialogFragmentOrcamento.show(getSupportFragmentManager(), "DialogFragmentOrcamento");**/
         } else if (id == R.id.nav_sobre) {

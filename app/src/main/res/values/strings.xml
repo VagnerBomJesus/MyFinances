@@ -64,7 +64,7 @@
     <string name="action_ListarTodos">Listar por Todos</string>
     <string name="action_opcao">Opções</string>
     <string name="action_Eliminar">Eliminar Registos</string>
-    <string name="action_Editar">Editar Registos</string>
+    <string name="action_Editar">Editar</string>
     <string name="title_activity_eliminar">Eliminar</string>
     <string name="title_activity_editar">Editar</string>
     <string name="guardar">Guardar</string>
@@ -157,6 +157,8 @@
     <string name="listar_todos">Listar Todos...</string>
     <string name="editar_receita">Editar Receita...</string>
     <string name="editar_despesa">Editar Despesa...</string>
+    <string name="Editar_receita">Editar Receita</string>
+    <string name="Editar_despesa">Editar Despesa</string>
     <string name="ano">Ano</string>
     <string name="text_definicoes">O valor do saldo é a diferença entre o valor das receitas e o valor das despesas e é apresentado sempre o valor atualizado, independentemente do tipo de visualização escolhido (Ano, Mês, Dia).</string>
     <string name="text2_defenicoes">Nas opções Listar Dia, Listar Mês, Listar Ano e Listar Todos, clique sobre a receita/despesa para poder eliminá-la ou alterá-la.</string>

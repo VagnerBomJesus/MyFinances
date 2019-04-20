@@ -45,7 +45,7 @@
     <string name="action_ListarTodos">List by All</string>
     <string name="action_opcao">Options</string>
     <string name="action_Eliminar">Delete Records</string>
-    <string name="action_Editar">Update Records</string>
+    <string name="action_Editar">Update</string>
     <string name="title_activity_eliminar">Delete Records...</string>
     <string name="title_activity_editar">Update Records...</string>
     <string name="guardar">Save</string>
@@ -146,7 +146,8 @@
     <string name="listar_todos">List all...</string>
     <string name="editar_receita">Update Income...</string>
     <string name="editar_despesa">Update Expense...</string>
-
+    <string name="Editar_receita">Update Income</string>
+    <string name="Editar_despesa">Update Expense</string>
     <string name="ano">Year</string>
     <string name="text_definicoes">The balance value is the diference between the income\'s value and the expense\'s value and is always updated presented, independently  of the type of the data view.</string>
     <string name="text2_defenicoes">In the List Day, List Month and List Year options, click on the income/expense to delete or update it.</string>

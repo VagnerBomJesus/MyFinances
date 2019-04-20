@@ -6,6 +6,8 @@ public class DadosDefinicoesToMain {
     private static int ano;
     private static String tipo;
 
+    
+
     public static String getTipo() {
         return tipo;
     }

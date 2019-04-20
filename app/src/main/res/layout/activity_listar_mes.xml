@@ -34,7 +34,9 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:src="@drawable/drop" />
+            android:contentDescription="@string/todojh"
+            android:src="@drawable/drop"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
     <RelativeLayout
@@ -65,7 +67,9 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:src="@drawable/drop" />
+            android:contentDescription="@string/todojh"
+            android:src="@drawable/drop"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 

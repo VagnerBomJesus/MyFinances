@@ -9,29 +9,25 @@
     tools:showIn="@layout/activity_eliminar">
 
 
-
-
     <Button
         android:id="@+id/buttonGuardarEitado"
         android:layout_width="131dp"
         android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/buttoncancelar_shape"
         android:onClick="Eliminar"
         android:text="@string/eliminar"
         android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toStartOf="@+id/textView21" />
 
 
     <TextView
-        android:id="@+id/textViewSelectedDateDespesa"
+        android:id="@+id/textViewSelectedDateDespesja"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fa_margin"
@@ -39,8 +35,10 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="@dimen/fa_margin"
         android:layout_marginRight="@dimen/fa_margin"
+        android:layout_marginBottom="611dp"
         android:textSize="24sp"
         app:fontFamily="sans-serif-condensed"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ContentDescription"
         app:layout_constraintTop_toTopOf="parent" />
@@ -79,15 +77,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/buttoncancelar_shape"
         android:onClick="cancel"
         android:text="@string/cancelar"
         android:textColor="#FFFFFF"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toEndOf="@+id/textView21"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -133,21 +131,6 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-    <TextView
-        android:id="@+id/textViewSelectedDateDespesa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fa_margin"
-        android:layout_marginLeft="@dimen/fa_margin"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="@dimen/fa_margin"
-        android:layout_marginRight="@dimen/fa_margin"
-        android:textSize="24sp"
-        app:fontFamily="sans-serif-condensed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ContentDescription"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView10"

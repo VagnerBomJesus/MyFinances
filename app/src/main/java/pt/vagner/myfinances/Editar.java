@@ -116,7 +116,7 @@ public class Editar extends AppCompatActivity {
      * coloca na textview da data a data atual dd/mm/yyyy
      */
     private void setDefaultDateToTextView(){
-        TextView textViewDate = (TextView) findViewById(R.id.textViewSelectedDateDespesa);
+        TextView textViewDate = (TextView) findViewById(R.id.textViewSelectedDateDespesja);
 
         int dia = getCurrentDay();
         int mes = getCurrentMonth();

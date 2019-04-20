@@ -157,8 +157,11 @@
     <string name="toque_na_cat_eliminar">Touch the category you want to delete</string>
     <string name="deslize_ver_cat_restantes">Scroll down to see other categories</string>
     <string name="nova_cat">New Category</string>
-
-
+    <string name="lk">+</string>
+    <string name="todov">TODO</string>
+    <string name="todop">TODO</string>
+    <string name="todojh">TODOb</string>
+    <string name="jklm">___________________________</string>
 
 
 </resources>

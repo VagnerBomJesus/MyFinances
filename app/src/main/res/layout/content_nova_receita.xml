@@ -26,10 +26,10 @@
         android:id="@+id/datePickerButton"
         android:layout_width="49dp"
         android:layout_height="49dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/todojh"
         android:onClick="definirDataReceita"
         app:layout_constraintStart_toEndOf="@+id/textViewShowDiaMesAno"
         app:layout_constraintTop_toTopOf="parent"
@@ -78,7 +78,9 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:src="@drawable/drop" />
+            android:contentDescription="@string/todojh"
+            android:src="@drawable/drop"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
     <TextView
@@ -121,7 +123,8 @@
         android:inputType="numberDecimal"
         android:maxLength="9"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoReceita" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoReceita"
+        android:importantForAutofill="no" tools:targetApi="o"/>
 
     <Button
         android:id="@+id/buttonInserirReceita"
@@ -145,14 +148,14 @@
         android:id="@+id/adicionarCategoriaButton"
         android:layout_width="49dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="72dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/buttonaddcategoria_shape"
         android:onClick="addCategoria"
-        android:text="+"
+        android:text="@string/lk"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/relativeLayoutAno"
@@ -187,7 +190,8 @@
         android:maxLength="50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:importantForAutofill="no" tools:targetApi="o" />
 
     <TextView
         android:id="@+id/textViewSelectedDate"

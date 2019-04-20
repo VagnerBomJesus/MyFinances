@@ -34,7 +34,9 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:src="@drawable/drop" />
+            android:src="@drawable/drop"
+            android:contentDescription="@string/todov"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
     <TextView

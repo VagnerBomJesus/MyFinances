@@ -38,7 +38,8 @@
         android:inputType="numberDecimal"
         android:maxLength="9"
         app:layout_constraintStart_toEndOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoDespesa" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoDespesa"
+        android:autofillHints="" tools:targetApi="o" />
 
     <TextView
         android:id="@+id/textView21"
@@ -70,7 +71,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/textView20"
@@ -90,14 +92,14 @@
         android:id="@+id/adicionarCategoriaDespesaButton"
         android:layout_width="49dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="72dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/buttonaddcategoriadespesa_shape"
         android:onClick="addCategoriaDespesa"
-        android:text="+"
+        android:text="@string/lk"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/relativeLayoutAno"
@@ -132,6 +134,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
+            android:contentDescription="@string/todojh"
             android:src="@drawable/drop" />
 
     </RelativeLayout>
@@ -151,7 +154,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
-        android:id="@+id/textViewSelectedDateDespesa"
+        android:id="@+id/textViewSelectedDateDespesja"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"

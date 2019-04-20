@@ -34,7 +34,8 @@
         android:onClick="selectDia"
         app:layout_constraintStart_toEndOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayoutMes"
-        app:srcCompat="@android:drawable/ic_menu_day" />
+        app:srcCompat="@android:drawable/ic_menu_day"
+        android:contentDescription="@string/todojh" />
 
     <TextView
         android:id="@+id/textViewSelectDateListar"

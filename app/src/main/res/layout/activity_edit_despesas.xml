@@ -37,7 +37,8 @@
             android:inputType="numberDecimal"
             android:maxLength="9"
             app:layout_constraintStart_toEndOf="@+id/textView21"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoDespesa" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextDesignacaoDespesa"
+            android:autofillHints="" tools:targetApi="o" />
 
         <TextView
             android:id="@+id/textView21"
@@ -70,7 +71,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            app:layout_constraintTop_toBottomOf="@+id/textView20"
+            android:autofillHints="" tools:targetApi="o" />
 
         <TextView
             android:id="@+id/textView20"
@@ -98,7 +100,7 @@
             android:layout_marginTop="72dp"
             android:background="@drawable/buttonaddcategoriadespesa_shape"
             android:onClick="addCategoriaEditDespesa"
-            android:text="+"
+            android:text="@string/lk"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/relativeLayoutAno"
@@ -133,7 +135,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:src="@drawable/drop" />
+                android:src="@drawable/drop"
+                android:contentDescription="@string/todop"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 
@@ -153,7 +157,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <TextView
-            android:id="@+id/textViewSelectedDateDespesa"
+            android:id="@+id/textViewSelectedDateDespesja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -186,11 +190,14 @@
             android:id="@+id/datePickerButtonDespesa"
             android:layout_width="49dp"
             android:layout_height="49dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:contentDescription="TODO"
+            android:layout_marginEnd="301dp"
+            android:layout_marginRight="301dp"
+            android:contentDescription="@string/todov"
             android:onClick="definirDataEditDespesa"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView18"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_day" />

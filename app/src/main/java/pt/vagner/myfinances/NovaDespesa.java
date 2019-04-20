@@ -34,7 +34,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         /************************Construção dos objetos***************************/
 
         editTextDesignacaoDespesa = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
-        textViewSelectedDateDespesa = (TextView) findViewById(R.id.textViewSelectedDateDespesa);
+        textViewSelectedDateDespesa = (TextView) findViewById(R.id.textViewSelectedDateDespesja);
 
         setDefaultDateToTextView(); //data atual na textview data
     }
@@ -114,7 +114,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
      * coloca na textview da data a data atual dd/mm/yyyy
      */
     private void setDefaultDateToTextView(){
-        TextView textViewDate = (TextView) findViewById(R.id.textViewSelectedDateDespesa);
+        TextView textViewDate = (TextView) findViewById(R.id.textViewSelectedDateDespesja);
 
         int dia = getCurrentDay();
         int mes = getCurrentMonth();

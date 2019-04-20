@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:textSize="16sp"
-            tools:text="@string/_1996" />
+            tools:text="@string/_1996"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/textViewValor"

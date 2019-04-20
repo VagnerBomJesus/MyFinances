@@ -1,14 +1,14 @@
 package pt.vagner.myfinances;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class ListarTodos extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ListarDia extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listar_todos);
+        setContentView(R.layout.activity_listar_dia);
     }
 }

@@ -29,7 +29,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:contentDescription="@string/todojh"
         android:onClick="definirDataReceita"
         app:layout_constraintStart_toEndOf="@+id/textViewShowDiaMesAno"
         app:layout_constraintTop_toTopOf="parent"
@@ -78,7 +77,6 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:contentDescription="@string/todojh"
             android:src="@drawable/drop"
             android:layout_alignParentEnd="true" />
 
@@ -155,7 +153,7 @@
         android:layout_marginRight="8dp"
         android:background="@drawable/buttonaddcategoria_shape"
         android:onClick="addCategoria"
-        android:text="@string/lk"
+        android:text="@string/adcionar"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/relativeLayoutAno"

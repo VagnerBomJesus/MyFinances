@@ -21,7 +21,7 @@
     <string name="title_activity_nova_despesa">Nova Despesa...</string>
     <string name="title_activity_nova_receita">Nova Receita...</string>
     <string name="title_activity_sobre">Sobre Programador</string>
-    <string name="todo">TODO</string>
+
     <string name="_284_82" translatable="false">284,82€</string>
     <string name="_24_78" translatable="false">24,78€</string>
     <string name="_1024_78" translatable="false">1024,78€</string>
@@ -167,14 +167,8 @@
     <string name="toque_na_cat_eliminar">Toque na categoria que pretende eliminar</string>
     <string name="deslize_ver_cat_restantes">Deslize para ver as restantes categorias</string>
     <string name="nova_cat">Nova Categoria</string>
-    <string name="lk">+</string>
-    <string name="todov">TODO</string>
-    <string name="todop">TODO</string>
-    <string name="todov">TODO</string>
-    <string name="todojh">TODOb</string>
-    <string name="vagner_bom_jesus">Vagner Bom Jesus</string>
-    <string name="jklm">___________________________</string>
-    <string name="categoria_receitas">Categoria Receitas</string>
-    <string name="inserir_nova_categoria">Inserir Nova Categoria</string>
+
+
+
 
 </resources>

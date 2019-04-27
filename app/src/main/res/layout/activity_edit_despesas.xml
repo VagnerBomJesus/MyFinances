@@ -100,7 +100,7 @@
             android:layout_marginTop="72dp"
             android:background="@drawable/buttonaddcategoriadespesa_shape"
             android:onClick="addCategoriaEditDespesa"
-            android:text="@string/lk"
+            android:text="@string/adcionar"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/relativeLayoutAno"
@@ -136,7 +136,6 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:src="@drawable/drop"
-                android:contentDescription="@string/todop"
                 android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
@@ -195,7 +194,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="301dp"
             android:layout_marginRight="301dp"
-            android:contentDescription="@string/todov"
             android:onClick="definirDataEditDespesa"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView18"

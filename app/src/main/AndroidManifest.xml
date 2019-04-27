@@ -46,16 +46,6 @@
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Editar"
-            android:label="@string/title_activity_editar"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="pt.vagner.myfinances.MainActivity" />
-        </activity>
-        <activity
             android:name=".Eliminar"
             android:label="@string/title_activity_eliminar"
             android:parentActivityName=".MainActivity"

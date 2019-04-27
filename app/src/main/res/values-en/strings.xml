@@ -14,11 +14,11 @@
     <string name="title_activity_nova_despesa">New Expenses ...</string>
     <string name="title_activity_nova_receita">New Recipe ...</string>
     <string name="title_activity_sobre">About Programmer</string>
-    <string name="todo">All</string>
+
     <string name="desenvolvida_por">DEVELOPED BY:</string>
     <string name="programacao_avancada">Advanced Programming</string>
     <string name="estg_ipg_ei">ESTG-IPG | Computer Engineering</string>
-    <string name="vagner_bom_jesus" translatable="false">Vagner Photo</string>
+    <string name="vagner_bom_jesus" translatable="false">Vagner Bom Jesus</string>
     <string name="vbj">Vagner Photo</string>
     <string name="redeSociais">Social networks</string>
     <string name="inserir_despesa">Insert Expense</string>
@@ -157,11 +157,7 @@
     <string name="toque_na_cat_eliminar">Touch the category you want to delete</string>
     <string name="deslize_ver_cat_restantes">Scroll down to see other categories</string>
     <string name="nova_cat">New Category</string>
-    <string name="lk">+</string>
-    <string name="todov">TODO</string>
-    <string name="todop">TODO</string>
-    <string name="todojh">TODOb</string>
-    <string name="jklm">___________________________</string>
+
 
 
 </resources>

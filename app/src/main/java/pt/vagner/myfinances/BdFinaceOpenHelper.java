@@ -30,7 +30,17 @@ public class BdFinaceOpenHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        
+        //Criação da Tabela Orçamento
+        new BdTableOrcamento(db).cria();
+
+        //Criação da Tabela Registo de Movimento
+        new BdTableRegistoMovimentos(db).cria();
+
+        //Criação da Tabela Tipo de Receita
+        new BdTableTipoReceita(db).cria();
+
+        //Criação da Tabela Tipo de Despesa
+        new BdTableTipeDespesa(db).cria();
     }
 
     /**

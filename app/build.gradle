@@ -33,4 +33,5 @@ dependencies {
 
     implementation 'com.github.clans:fab:1.6.4'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'org.jetbrains:annotations-java5:15.0'
 }

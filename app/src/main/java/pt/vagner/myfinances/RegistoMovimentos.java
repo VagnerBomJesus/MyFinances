@@ -1,14 +1,17 @@
 package pt.vagner.myfinances;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+
 import java.util.Date;
 
 public class RegistoMovimentos {
 
-    String id_movimento, receitadespesa, designacao;
-    int tiporeceita, tipodespesa;
-    int dia, mes, ano;
-    Date data;
-    double valor;
+    private String  id_movimento, receitadespesa, designacao;
+    private int tiporeceita, tipodespesa;
+    private int dia, mes, ano;
+    private Date data;
+    private double valor;
 
     //Construtores
     public RegistoMovimentos() {}
@@ -98,4 +101,6 @@ public class RegistoMovimentos {
     public void setValor(double valor) {
         this.valor = valor;
     }
+
+
 }

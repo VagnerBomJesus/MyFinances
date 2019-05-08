@@ -48,6 +48,4 @@ public class BdTableOrcamento implements BaseColumns {
         return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy);
     }
 
-
-
 }

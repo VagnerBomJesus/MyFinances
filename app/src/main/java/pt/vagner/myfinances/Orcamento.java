@@ -4,14 +4,16 @@ package pt.vagner.myfinances;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+
+
 public class Orcamento {
-   private long id_orcamento;
-   private double valor;
+    private long id_orcamento;
+    private double valor;
 
     //Construtores
-    public Orcamento(){}
+    public Orcamento() {}
 
-    public Orcamento(long id_orcamento, double valor) {
+    public Orcamento(int id_orcamento, double valor){
         this.id_orcamento = id_orcamento;
         this.valor = valor;
     }
@@ -33,30 +35,29 @@ public class Orcamento {
         this.valor = valor;
     }
 
-
+   /*
     //CRUD
-    public ContentValues getContentVslues (){
+    public ContentValues getContentValues(){
         ContentValues valores = new ContentValues();
+
         valores.put(BdTableOrcamento.VALOR, valor);
+
         return valores;
-
     }
-
     public static Orcamento getCurrentOrcamentoFromCursor(Cursor cursor){
         long id_orcamento = cursor.getLong(
                 cursor.getColumnIndex(BdTableOrcamento._ID)
         );
-
-        final int posValor = cursor.getInt(
+        int valor = cursor.getInt(
                 cursor.getColumnIndex(BdTableOrcamento.VALOR)
         );
 
         Orcamento orcamento = new Orcamento();
 
         orcamento.setId_orcamento(id_orcamento);
-        orcamento.setValor(posValor);
+        orcamento.setValor(valor);
 
         return orcamento;
-    }
+    }*/
 
 }

@@ -28,6 +28,7 @@ public class BdTableOrcamento implements BaseColumns {
 
     }
 
+
     //create
     public long insert(ContentValues values){
         return db.insert(NOME_TABELA, null, values);
@@ -46,6 +47,26 @@ public class BdTableOrcamento implements BaseColumns {
     //read
     public Cursor query (String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy){
         return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy);
+    }
+
+    //CRUD
+    public static ContentValues getContentValues(Orcamento orcamento){
+        ContentValues valores = new ContentValues();
+        valores.put(VALOR, orcamento.getValor());
+
+        return valores;
+    }
+
+    public static Orcamento getCurrentOrcamentoFromCursor(Cursor cursor){
+        final int posId = cursor.getColumnIndex(_ID);
+        final int posValor = cursor.getColumnIndex(VALOR);
+
+        Orcamento orcamento = new Orcamento();
+
+        orcamento.setId_orcamento(cursor.getInt(posId));
+        orcamento.setValor(cursor.getDouble(posValor));
+
+        return orcamento;
     }
 
 }

@@ -26,7 +26,6 @@ public class BdFinanceTest {
         getAppContext().deleteDatabase(BdFinaceOpenHelper.NOME_BASE_DADOS);
     }
 
-
     @Test
     public void openBdFinanceTest() {
         // Context of the app under test.
@@ -34,10 +33,9 @@ public class BdFinanceTest {
 
         BdFinaceOpenHelper openHelper = new BdFinaceOpenHelper(appContext);
 
-        SQLiteDatabase db = openHelper.getReadableDatabase(); //Db para leitura
+        SQLiteDatabase db = openHelper.getReadableDatabase();
 
-        assertTrue(db.isOpen()); //devolve a mensagem se não conseguir criar/abrir a Base de Dados
-       // db.close();
+        assertTrue(db.isOpen());
     }
 
     private Context getAppContext() {
@@ -47,8 +45,9 @@ public class BdFinanceTest {
 
     @Test
     public void OrcamentoCRUDTest() {
+
         //Abrir BD
-        BdFinaceOpenHelper openHelper = new BdFinaceOpenHelper(getContext());
+        BdFinaceOpenHelper openHelper = new BdFinaceOpenHelper(getAppContext());
         //Op. escrita
         SQLiteDatabase db = openHelper.getWritableDatabase();
 
@@ -57,12 +56,11 @@ public class BdFinanceTest {
         Orcamento orcamento = new Orcamento();
         orcamento.setValor(60.0);
 
-        //Insert/Create (C)RUD
-        long id = tableOrcamento.insert(BdTableOrcamento.getContentValues(orcamento));
-        assertNotEquals(-1,id); //Se der -1 é porque não foi possível inserir o registo
 
-        /*long id = tableOrcamento.insert(orcamento.getContentValues());
-        assertNotEquals(-1, id);*/
+        long id = tableOrcamento.insert(BdTableOrcamento.getContentValues(orcamento));
+        assertNotEquals(-1,id);
+
+
 
     }
 }

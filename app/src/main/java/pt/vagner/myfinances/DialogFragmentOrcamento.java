@@ -13,10 +13,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-public class DialogFragmentOrcamento {
-/**
+public class DialogFragmentOrcamento extends AppCompatDialogFragment {
+
     private EditText editTextInput;
-    private ExampleDialogListener listener;
+    private DialogFragmentOrcamento.ExampleDialogListener listener;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -26,30 +26,33 @@ public class DialogFragmentOrcamento {
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
         //Pass null as the parent view because its going in the dialog layout
-        View view = inflater.inflate(R.layout.dialog_categoria_layout, null);
+        View view = inflater.inflate(R.layout.dialog_orcamento_layout, null);
         builder.setView(view)
 
+                //Add action buttons
                 .setNegativeButton(R.string.cancelar_dialog_cat, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        GerirCategorias.clickedButtonCatReceita = false;
-                        GerirCategorias.clickButtonCatDespesa = false;
+
                     }
                 })
-                .setPositiveButton(R.string.inserir_1, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.definir_button, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //Verificar se o campo está vazio
-                        String categoria = editTextInput.getText().toString().trim();
-                        if (categoria.trim().isEmpty()){
-                            Toast.makeText(getContext(), R.string.sms_cat_n_inserida, Toast.LENGTH_LONG).show();
-                        }else {
-                            listener.setTexts(categoria);
+                        double orcamento = 0;
+                        try {
+                            orcamento = Double.parseDouble(editTextInput.getText().toString());
+                            listener.setValue(orcamento);
+                            goToMainActivity();
+                        } catch (NumberFormatException e) {
+                            Toast.makeText(getContext(), R.string.sms_orc_n_definido,Toast.LENGTH_LONG).show();
                         }
+
                     }
                 });
 
-        editTextInput = view.findViewById(R.id.editTextDialogCategoria);
+        editTextInput = view.findViewById(R.id.editTextDialogOrcamento);
 
         return builder.create();
     }
@@ -59,7 +62,7 @@ public class DialogFragmentOrcamento {
         super.onAttach(context);
 
         try {
-            listener = (ExampleDialogListener) context;
+            listener = (DialogFragmentOrcamento.ExampleDialogListener) context;
         } catch (ClassCastException e) {
             throw  new ClassCastException(context.toString() +
                     "must implement ExampleDialogListener");
@@ -67,7 +70,12 @@ public class DialogFragmentOrcamento {
     }
 
     public interface ExampleDialogListener {
-        void setTexts(String categoria);
-    }**/
+        void setValue(double orcamento);
+    }
+
+    private void goToMainActivity(){
+        Intent i = new Intent(getContext(), MainActivity.class);
+        startActivity(i);
+    }
 }
 

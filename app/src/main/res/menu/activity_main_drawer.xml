@@ -20,22 +20,22 @@
             android:id="@+id/nav_ltodos"
             android:icon="@drawable/ic_menu_sort_by_size"
             android:title="@string/listar_todos_1" />
-                            <!--<item
-                                android:id="@+id/nav_orca"
-                                android:icon="@drawable/ic_menu_add"
-                                android:title="@string/definir_orca" />-->
+        <item
+            android:id="@+id/nav_orca"
+            android:icon="@drawable/ic_menu_add"
+            android:title="@string/definir_orca" />
         <item
             android:id="@+id/nav_gestcategorias"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/gerir_cat" />
-    </group>
+         </group>
 
     <item android:title="@string/acerca">
         <menu>
             <item
                 android:id="@+id/nav_sobre"
                 android:icon="@drawable/ic_menu_info_details"
-                android:title="@string/action_sobre" />
+                android:title="@string/sobre" />
         </menu>
     </item>
 

@@ -17,10 +17,11 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, DialogFragmentOrcamento.ExampleDialogListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            novaReceita121();
+            //todo: Colocar as Definicoes da App
             return true;
         }
 
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_ldia) {
+       if (id == R.id.nav_ldia) {
             Intent i = new Intent(this, ListarDia.class);
             startActivity(i);
         } else if (id == R.id.nav_lmes) {
@@ -118,9 +119,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_ltodos) {
             Intent i = new Intent(this, ListarTodos.class);
             startActivity(i);
-       /**} else if (id == R.id.nav_orca) {
+        } else if (id == R.id.nav_orca) {
             DialogFragmentOrcamento dialogFragmentOrcamento = new DialogFragmentOrcamento();
-            dialogFragmentOrcamento.show(getSupportFragmentManager(), "DialogFragmentOrcamento");**/
+            dialogFragmentOrcamento.show(getSupportFragmentManager(), "DialogFragmentOrcamento");
         } else if (id == R.id.nav_sobre) {
             Intent i = new Intent(this, sobre.class);
             startActivity(i);
@@ -144,23 +145,27 @@ public class MainActivity extends AppCompatActivity
         Intent i = new Intent(this, NovaDespesa.class);
         startActivity(i);
     }
-    public void novaReceita121 (){
-        AlertDialog.Builder msBox = new AlertDialog.Builder(this);
-        msBox.setTitle("Excluindo.....");
-        msBox.setIcon(android.R.drawable.ic_menu_delete);
-        msBox.setMessage("Tens certeza do que estas a fazer?...");
-        msBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this, "Clicou em sim",Toast.LENGTH_LONG).show();
-            }
-        });
-        msBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this,"Clicou em não", Toast.LENGTH_LONG).show();
-            }
-        });
-        msBox.show();
+
+
+    @Override
+    public void setValue(double orcamento) {
+        //Ação do botão "DEFINIR ORÇAMENTO" do dialog fragment
+        try {
+            insertOrcamentoDb(orcamento);
+            Toast.makeText(MainActivity.this, R.string.valor_orca_definido_sucesso,Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, R.string.erro_inserir_valor_bd,Toast.LENGTH_LONG).show();
+        }
+
+    }
+    /**
+     *
+     * @param orcamento
+     *
+     * inserir valor orçamento na BD
+     */
+    private void insertOrcamentoDb(double orcamento) {
+        //todo:
+
     }
 }

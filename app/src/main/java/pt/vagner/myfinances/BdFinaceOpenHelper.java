@@ -40,7 +40,7 @@ public class BdFinaceOpenHelper extends SQLiteOpenHelper {
         new BdTableTipoReceita(db).cria();
 
         //Criação da Tabela Tipo de Despesa
-        new BdTableTipeDespesa(db).cria();
+        new BdTableTipoDespesa(db).cria();
     }
 
     /**

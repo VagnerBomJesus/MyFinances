@@ -53,6 +53,7 @@ public class BdFinanceTest {
 
         BdTableOrcamento tableOrcamento = new BdTableOrcamento(db);
 
+        //Insert/Create (C)RUD
         Orcamento orcamento = new Orcamento();
         orcamento.setValor(60.0);
 
@@ -60,7 +61,73 @@ public class BdFinanceTest {
         long id = tableOrcamento.insert(BdTableOrcamento.getContentValues(orcamento));
         assertNotEquals(-1,id);
 
+    }
 
+    @Test
+    public void RegistoMovimentosCRUDTest(){
+        //Abrir BD
+        BdFinaceOpenHelper openHelper = new BdFinaceOpenHelper(getAppContext());
+
+        //Op. escrita
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+
+        BdTableTipoDespesa tableTipoDespesa = new BdTableTipoDespesa(db);
+        BdTableRegistoMovimentos tableRegistoMovimentos = new BdTableRegistoMovimentos(db);
+
+        TipoDespesa tipoDespesa = new TipoDespesa();
+        tipoDespesa.setCategoria("Alimentação");
+
+        long idDespesa = tableTipoDespesa.insert(BdTableTipoDespesa.getContentValues(tipoDespesa));
+
+        //Insert/Create (C)RUD
+        RegistoMovimentos registoMovimentos = new RegistoMovimentos();
+        registoMovimentos.setId_movimento("0011100110011");
+        registoMovimentos.setDia(8);
+        registoMovimentos.setMes(6);
+        registoMovimentos.setAno(2019);
+        registoMovimentos.setReceitadespesa("Despesa");
+        registoMovimentos.setDesignacao("Almoço cantina");
+        registoMovimentos.setValor(10.99);
+        registoMovimentos.setTipodespesa((int)idDespesa);
+
+        tableRegistoMovimentos.insert(BdTableRegistoMovimentos.getContentValues(registoMovimentos));
+        assertNotEquals(-1,1);
+    }
+
+    @Test
+    public void TipoDespesaCRUDTest(){
+        //Abrir BD
+        BdFinaceOpenHelper openHelper = new BdFinaceOpenHelper(getAppContext());
+
+        //Op. escrita
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+
+        BdTableTipoDespesa tableTipoDespesa = new BdTableTipoDespesa(db);
+
+        TipoDespesa tipoDespesa = new TipoDespesa();
+        tipoDespesa.setCategoria("Compras");
+
+        //Insert/Create (C)RUD
+        long id = tableTipoDespesa.insert(BdTableTipoDespesa.getContentValues(tipoDespesa));
+        assertNotEquals(-1,id);
+    }
+
+
+    @Test
+    public void TipoReceitaCRUDTest(){
+        //Abrir BD
+        BdFinaceOpenHelper openHelper = new BdFinaceOpenHelper(getAppContext());
+
+        //Op. escrita
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        BdTableTipoReceita tableTipoReceita = new BdTableTipoReceita(db);
+
+        TipoReceita tipoReceita = new TipoReceita();
+        tipoReceita.setCategoria("Vencimento");
+
+        //Insert/Create (C)RUD
+        long id = tableTipoReceita.insert(BdTableTipoReceita.getContentValues(tipoReceita));
+        assertNotEquals(-1,id);
 
     }
 }

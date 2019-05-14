@@ -6,10 +6,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
 public class BdTableOrcamento implements BaseColumns {
-    public static final String _ID = "id_orcamento";
 
+    public static final String _ID = "id_orcamento";
     public static final String NOME_TABELA ="Orcamento";
     public static final String VALOR = "valor";
+
+    public static final String[] ALL_COLUMNS = new String[]{_ID, VALOR};
+    public static final String[] VALOR_COLUMN = new String[]{VALOR};
+    public static final String[] ID_COLUMN = new String[]{_ID};
+
     private SQLiteDatabase db;
 
     public BdTableOrcamento(SQLiteDatabase db){

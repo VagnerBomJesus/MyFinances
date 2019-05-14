@@ -55,11 +55,39 @@ public class BdFinanceTest {
 
         //Insert/Create (C)RUD
         Orcamento orcamento = new Orcamento();
-        orcamento.setValor(60.0);
+        orcamento.setValor(60.9);
+       // orcamento.setValor(700.0);
+       // orcamento.setValor(800.0);
 
 
         long id = tableOrcamento.insert(BdTableOrcamento.getContentValues(orcamento));
         assertNotEquals(-1,id);
+
+        //query/Read C/R)UD
+        orcamento = PrimeiroOrcamento(tableOrcamento, 60.9, id);
+
+        //update CR(U)D
+        orcamento.setValor(200.0);
+
+        int rowsAffected = tableOrcamento.update(
+                BdTableOrcamento.getContentValues(orcamento),
+                BdTableOrcamento._ID + "=?",
+                new String[]{Long.toString(id)}
+        );
+        //"Erro ao atualizar orçamento",
+        assertEquals(1,rowsAffected);
+
+        //delete CRU(D)
+        rowsAffected = tableOrcamento.delete(
+                BdTableOrcamento._ID+"=?",
+                new String[]{Long.toString(id)}
+        );
+        //"Erro ao eliminar orçamento",
+        assertEquals(1,rowsAffected);
+
+        Cursor cursor = tableOrcamento.query(BdTableOrcamento.ALL_COLUMNS, null, null, null, null, null);
+        //"Registos de orçamentos encontrados depois de eliminados..."
+        assertEquals(0,cursor.getCount());
 
     }
 
@@ -129,5 +157,23 @@ public class BdFinanceTest {
         long id = tableTipoReceita.insert(BdTableTipoReceita.getContentValues(tipoReceita));
         assertNotEquals(-1,id);
 
+    }
+
+    private Orcamento PrimeiroOrcamento(BdTableOrcamento tableOrcamento, double expectedValue, long expectedId) {
+        Cursor cursor = tableOrcamento.query(BdTableOrcamento.ALL_COLUMNS, null, null, null, null, null);
+        //Verificar se está a ler orçamento
+        assertEquals(1,cursor.getCount()); //caso não devolva 1 linha, dá erro
+
+        //Obter o primeiro registo de orçamento
+        //Erro ao ler o primeiro registo de orçamento
+        assertTrue(cursor.moveToNext());
+
+        Orcamento orcamento = BdTableOrcamento.getCurrentOrcamentoFromCursor(cursor);
+        //verficra se o Valor do orçamento incorreto
+        assertEquals(expectedValue, orcamento.getValor(), 0.001);
+        //Verfificar se Id do orçamento está incorreto
+        assertEquals(expectedId, orcamento.getId_orcamento());
+
+        return orcamento;
     }
 }

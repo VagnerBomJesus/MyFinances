@@ -137,7 +137,35 @@ public class BdFinanceTest {
 
         //Insert/Create (C)RUD
         long id = tableTipoDespesa.insert(BdTableTipoDespesa.getContentValues(tipoDespesa));
-        assertNotEquals(-1,id);
+        //Erro ao inserir categoria
+        assertNotEquals(-1,id); //Se der -1 é porque não foi possível inserir o registo
+
+        //query/Read C/R)UD
+        tipoDespesa = PrimeiroTipoDespesa(tableTipoDespesa,"Compras",id);
+
+        //update CR(U)D
+        tipoDespesa.setCategoria("Alimentação");
+
+        int rowsAffected = tableTipoDespesa.update(
+                BdTableTipoDespesa.getContentValues(tipoDespesa),
+                BdTableTipoDespesa._ID + "=?",
+                new String[]{Long.toString(id)}
+        );
+        //Erro ao atualizar categoria
+        assertEquals(1,rowsAffected);
+
+        //delete CRU(D)
+        rowsAffected = tableTipoDespesa.delete(
+                BdTableTipoDespesa._ID+"=?",
+                new String[]{Long.toString(id)}
+        );
+        //Erro ao eliminar categoria
+        assertEquals(1,rowsAffected);
+
+
+        Cursor cursor = tableTipoDespesa.query(BdTableTipoDespesa.ALL_COLUMNS, null, null, null, null, null);
+        //Categorias encontradas depois de eliminadas...
+        assertEquals(0,cursor.getCount());
     }
 
 
@@ -175,5 +203,23 @@ public class BdFinanceTest {
         assertEquals(expectedId, orcamento.getId_orcamento());
 
         return orcamento;
+    }
+
+    private TipoDespesa PrimeiroTipoDespesa(BdTableTipoDespesa tableTipoDespesa, String expectedName, long expectedId) {
+        Cursor cursor = tableTipoDespesa.query(BdTableTipoDespesa.ALL_COLUMNS, null, null, null, null, null);
+        //Erro ao ler tipo receita
+        assertEquals(1,cursor.getCount()); //caso não devolva 1 linha, dá erro
+
+        //Obter a primeira categoria de receitas
+        //Erro ao ler a categoria da receita
+        assertTrue(cursor.moveToNext());
+
+        TipoDespesa tipoDespesa = BdTableTipoDespesa.getCurrentTipoDespesaFromCursor(cursor);
+        //Nome da categoria incorreta
+        assertEquals(expectedName, tipoDespesa.getCategoria());
+        //Id da categoria incorreto
+        assertEquals(expectedId,tipoDespesa.getId_despesa());
+
+        return tipoDespesa;
     }
 }

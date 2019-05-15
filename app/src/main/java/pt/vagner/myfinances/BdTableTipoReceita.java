@@ -10,6 +10,10 @@ public class BdTableTipoReceita implements BaseColumns {
     public static final String _ID = "id_receita";
     public static final String CATEGORIA_RECEITA = "categoria";
 
+    public static final String[] ALL_COLUMNS = new String[]{_ID, CATEGORIA_RECEITA};
+    public static final String[] ID_COLUMN = new String[]{_ID};
+    public static final String[] CATEGORIA_COLUMN = new String[]{CATEGORIA_RECEITA};
+
 
     private final SQLiteDatabase db;
 

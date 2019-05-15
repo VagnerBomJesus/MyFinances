@@ -180,11 +180,38 @@ public class BdFinanceTest {
 
         TipoReceita tipoReceita = new TipoReceita();
         tipoReceita.setCategoria("Vencimento");
+       // tipoReceita.setCategoria("Depósito");
+       // tipoReceita.setCategoria("Economias");
 
         //Insert/Create (C)RUD
         long id = tableTipoReceita.insert(BdTableTipoReceita.getContentValues(tipoReceita));
-        assertNotEquals(-1,id);
+        //Erro ao inserir categoria
+        assertNotEquals(-1,id); //Se der -1 é porque não foi possível inserir o registo
 
+        //query/Read C/R)UD
+        tipoReceita = PrimeiroTipoReceita(tableTipoReceita,"Vencimento",id);
+        //update CR(U)D
+        tipoReceita.setCategoria("Salário");
+
+        int rowsAffected = tableTipoReceita.update(
+                BdTableTipoReceita.getContentValues(tipoReceita),
+                BdTableTipoReceita._ID + "=?",
+                new String[]{Long.toString(id)}
+        );
+        //Erro ao atualizar categoria
+        assertEquals(1,rowsAffected);
+
+        //delete CRU(D)
+        rowsAffected = tableTipoReceita.delete(
+                BdTableTipoReceita._ID+"=?",
+                new String[]{Long.toString(id)}
+        );
+        //Erro ao eliminar categoria
+        assertEquals(1,rowsAffected);
+
+        Cursor cursor = tableTipoReceita.query(BdTableTipoReceita.ALL_COLUMNS, null, null, null, null, null);
+        //Categorias encontradas depois de eliminadas...
+        assertEquals(0,cursor.getCount());
     }
 
     private Orcamento PrimeiroOrcamento(BdTableOrcamento tableOrcamento, double expectedValue, long expectedId) {
@@ -221,5 +248,23 @@ public class BdFinanceTest {
         assertEquals(expectedId,tipoDespesa.getId_despesa());
 
         return tipoDespesa;
+    }
+
+    private TipoReceita PrimeiroTipoReceita(BdTableTipoReceita tableTipoReceita, String expectedName, long expectedId) {
+        Cursor cursor = tableTipoReceita.query(BdTableTipoReceita.ALL_COLUMNS, null, null, null, null, null);
+        //Erro ao ler tipo receita
+        assertEquals(1,cursor.getCount()); //caso não devolva 1 linha, dá erro
+
+        //Obter a primeira categoria de receitas
+        //Erro ao ler a categoria da receita
+        assertTrue(cursor.moveToNext());
+
+        TipoReceita tipoReceita = BdTableTipoReceita.getCurrentTipoReceitaFromCursor(cursor);
+        //Nome da categoria incorreta
+        assertEquals(expectedName, tipoReceita.getCategoria());
+        //d do categoria incorreto
+        assertEquals(expectedId,tipoReceita.getId_receita());
+
+        return tipoReceita;
     }
 }

@@ -123,7 +123,7 @@ public class BdFinanceTest {
         assertNotEquals(-1,1); //Se der -1 é porque não foi possível inserir o registo
 
         //query/Read C/R)UD
-        registoMovimentos = ReadFirstRegisto(tableRegistoMovimentos,"080618113201",8,6,2019,"Despesa","Almoço cantina",10.99,(int) idDespesa);
+        registoMovimentos = ReadFirstRegisto(tableRegistoMovimentos,"0011100110011",8,6,2019,"Despesa","Almoço cantina",10.99,(int) idDespesa);
        // double valor =  getValorDespesas(tableRegistoMovimentos, 4.8);
 
 

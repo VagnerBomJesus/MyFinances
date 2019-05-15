@@ -119,7 +119,39 @@ public class BdFinanceTest {
         registoMovimentos.setTipodespesa((int)idDespesa);
 
         tableRegistoMovimentos.insert(BdTableRegistoMovimentos.getContentValues(registoMovimentos));
-        assertNotEquals(-1,1);
+        //Erro ao inserir registo
+        assertNotEquals(-1,1); //Se der -1 é porque não foi possível inserir o registo
+
+        //query/Read C/R)UD
+        registoMovimentos = ReadFirstRegisto(tableRegistoMovimentos,"080618113201",8,6,2019,"Despesa","Almoço cantina",10.99,(int) idDespesa);
+       // double valor =  getValorDespesas(tableRegistoMovimentos, 4.8);
+
+
+        //update CR(U)D
+        registoMovimentos.setDesignacao("Almoço churrasqueira");
+
+
+        int rowsAffected = tableRegistoMovimentos.update(
+                BdTableRegistoMovimentos.getContentValues(registoMovimentos),
+                BdTableRegistoMovimentos._ID + "=?",
+                new String[]{"0011100110011"}
+        );
+        //Erro ao atualizar categoria
+        assertEquals(1,rowsAffected);
+
+        //delete CRU(D)
+        rowsAffected = tableRegistoMovimentos.delete(
+                BdTableRegistoMovimentos._ID+"=?",
+                new String[]{"0011100110011"}
+        );
+        //Erro ao eliminar categoria
+        assertEquals(1,rowsAffected);
+
+
+        Cursor cursor = tableRegistoMovimentos.query(BdTableRegistoMovimentos.ALL_COLUMNS, null, null, null, null, null);
+        //Categorias encontradas depois de eliminadas...
+        assertEquals(0,cursor.getCount());
+
     }
 
     @Test
@@ -267,4 +299,58 @@ public class BdFinanceTest {
 
         return tipoReceita;
     }
+
+    private RegistoMovimentos ReadFirstRegisto(BdTableRegistoMovimentos tableRegistoMovimentos, String expectedId, int expectedDia, int expectedMes, int expectedAno, String expectedRecDes, String expectedDesig, double expectedValor, int expectedTipoDes) {
+        Cursor cursor = tableRegistoMovimentos.query(BdTableRegistoMovimentos.INSERT_DESPESA_COLUMNS, null, null, null, null, null);
+        //Erro ao ler tipo receita
+        assertEquals(1,cursor.getCount()); //caso não devolva 1 linha, dá erro
+
+        //Obter a primeiro registo
+        //Erro ao ler a categoria da receita
+        assertTrue(cursor.moveToNext());
+
+        RegistoMovimentos registoMovimentos = BdTableRegistoMovimentos.getCurrentRegistoMovimentoDespesaFromCursor(cursor);
+
+        assertEquals("Id registo incorreto",expectedId,registoMovimentos.getId_movimento());
+        assertEquals("Dia registo incorreto",expectedDia,registoMovimentos.getDia());
+        assertEquals("Mes registo incorreto",expectedMes,registoMovimentos.getMes());
+        assertEquals("Ano registo incorreto",expectedAno,registoMovimentos.getAno());
+        assertEquals("ReceitaDespesa registo incorreto",expectedRecDes,registoMovimentos.getReceitadespesa());
+        assertEquals("Designacao registo incorreto",expectedDesig,registoMovimentos.getDesignacao());
+        assertEquals("Valor registo incorreto",expectedValor,registoMovimentos.getValor(), 0.001);
+        assertEquals("Tipo despesa registo incorreto",expectedTipoDes,registoMovimentos.getTipodespesa());
+
+        return registoMovimentos;
+    }
+
+    private double getValorDespesas(BdTableRegistoMovimentos tableRegistoMovimentos, double expectedValue){
+        Cursor cursor = tableRegistoMovimentos.query(new String[]{"SUM(valor)"}, "receitadespesa =?", new String[]{"Despesa"}, null, null, null);
+        //Erro ao ler tipo receita
+        assertEquals(1,cursor.getCount()); //caso não devolva 1 linha, dá erro
+
+        //Obter a primeiro registo
+        //Erro ao ler a categoria da receita
+        assertTrue(cursor.moveToNext());
+        double valor = 0;
+        if (cursor.getCount() > 0){
+            cursor.moveToFirst();
+            valor = cursor.getDouble(cursor.getColumnIndex("valor"));
+        }
+        //Valor incorreto
+        assertEquals(expectedValue,valor,0.001);
+        return valor;
+
+    }
+
+    /*private int ReadIdCategoriaReceita(BdTableTipoReceita tableTipoReceita, String categoria, int expectedId){
+        Cursor cursor = tableTipoReceita.query(BdTableTipoReceita.ID_COLUMN,BdTableTipoReceita.CATEGORIA_RECEITA + "= '" + categoria + "'",null, null, null, null);
+
+        //int id = BdTableTipoReceita.getIdCategoriaReceita(cursor);
+
+        assertEquals("Id incorreto",expectedId,id);
+
+        return id;
+    }*/
+
+
 }

@@ -5,8 +5,8 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.ContentObserver;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.os.Build;
 
@@ -16,12 +16,21 @@ import androidx.annotation.Nullable;
 public class FinanceContentProvider extends ContentProvider {
 
     public static final String AUTHORITY = "pt.vagner.myfinances.FinanceContentProvider";
-
     public static final String CATEGORIAS_FINANCE = "categorias_receitas";
     //public static final String CATEGORIAS_FINANCE_R = "categorias_receitas";
 
+    public static final Uri BASE_URI = Uri.parse("content://"+AUTHORITY);
+
+    public static final Uri CONTAB_URI = Uri.withAppendedPath(BASE_URI,BdTableRegistoMovimentos.NOME_TABELA);
+    public static final Uri CATEGORIAS_RECEITAS_URI = Uri.withAppendedPath(BASE_URI, BdTableTipoReceita.NOME_TABELA);
+
+
+
     private static final int URI_CATEGORIAS_RECEITAS = 200;
     private static final int URI_CATEGORIAS_RECEITAS_ID = 201;
+
+    public static final String SINGLE_ITEM = "vnd.android.cursor.item/";
+    public static final String MULTIPLOS_ITEMS = "vnd.android.cursor.dir/";
 
     private BdFinaceOpenHelper bdFinaceOpenHelper;
 
@@ -58,11 +67,11 @@ public class FinanceContentProvider extends ContentProvider {
             case URI_CATEGORIAS_RECEITAS_ID:
                 return new BdTableTipoReceita(bd).query(projection, BdTableTipoReceita._ID+"=?",new String[]{id},null,null,sortOrder);
 
-            /*default:
-                throw new UnsupportedOperationException("Invalid URI: " + uri);*/
+            default:
+                throw new UnsupportedOperationException(" URI Invalida (QUERY) : " + uri.toString());
         }
 
-        return null;
+        //return null;
     }
 
     /**
@@ -105,7 +114,33 @@ public class FinanceContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        return null;
+        SQLiteDatabase db = bdFinaceOpenHelper.getWritableDatabase();
+
+        UriMatcher matcher = getUriMatcher();
+
+        long id = -1;
+
+        switch (matcher.match(uri)){
+            case URI_CATEGORIAS_RECEITAS:
+                id = new BdTableTipoReceita(db).insert(values);
+                break;
+            default:
+                throw new UnsupportedOperationException("Invalid URI: "+uri);
+        }
+
+        if (id > 0){ //foram inseridos registos
+            notifyChanges(uri);
+            return Uri.withAppendedPath(uri,Long.toString(id));
+        }
+        if (id == -1) {
+            throw new SQLException("Não foi possível inserir o registo");
+        }
+
+        return Uri.withAppendedPath(uri, String.valueOf(id));
+
+    }
+    private void notifyChanges(@NonNull Uri uri) {
+        getContext().getContentResolver().notifyChange(uri,null);
     }
 
     /**
@@ -131,7 +166,26 @@ public class FinanceContentProvider extends ContentProvider {
      */
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
+        SQLiteDatabase db = bdFinaceOpenHelper.getWritableDatabase();
+
+        // UriMatcher matcher = getUriMatcher();
+
+        String id = uri.getLastPathSegment();
+
+        int rows = 0;
+
+        switch (getUriMatcher().match(uri)){
+            case URI_CATEGORIAS_RECEITAS_ID:
+                rows = new BdTableTipoReceita(db).delete(BdTableTipoReceita._ID+"=?",new String[]{id});
+                break;
+
+            default:
+                throw new UnsupportedOperationException("URI inválida (DELETE): " + uri.toString());
+        }
+
+        if (rows > 0) notifyChanges(uri);
+
+        return rows;
     }
 
     /**
@@ -154,6 +208,26 @@ public class FinanceContentProvider extends ContentProvider {
      */
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
+        SQLiteDatabase db = bdFinaceOpenHelper.getWritableDatabase();
+
+        //UriMatcher matcher = getUriMatcher();
+
+        String id = uri.getLastPathSegment();
+
+        int rows = 0;
+
+        switch (getUriMatcher().match(uri)){
+            case URI_CATEGORIAS_RECEITAS_ID:
+                rows = new BdTableTipoReceita(db).update(values,BdTableTipoReceita._ID+"=?",new String[]{id});
+                break;
+
+            default:
+                throw new UnsupportedOperationException("URI inválida (UPDATE): " + uri.toString());
+
+        }
+
+        if (rows > 0) notifyChanges(uri);
+
+        return rows;
     }
 }

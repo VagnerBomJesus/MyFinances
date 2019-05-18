@@ -95,7 +95,18 @@ public class FinanceContentProvider extends ContentProvider {
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
-        return null;
+
+        // UriMatcher matcher = getContabUriMatcher();
+
+        switch (getUriMatcher().match(uri)){
+            case URI_CATEGORIAS_RECEITAS:
+                return MULTIPLOS_ITEMS +"/"+AUTHORITY+"/"+BdTableTipoReceita.NOME_TABELA;
+
+            case URI_CATEGORIAS_RECEITAS_ID:
+                return SINGLE_ITEM+"/"+AUTHORITY+"/"+BdTableTipoReceita.NOME_TABELA;
+            default:
+                return null;// throw new UnsupportedOperationException("Unknown URI: "+uri);
+        }
     }
 
     /**

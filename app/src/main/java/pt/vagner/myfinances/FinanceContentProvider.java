@@ -2,8 +2,10 @@ package pt.vagner.myfinances;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.ContentObserver;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.os.Build;
@@ -13,75 +15,53 @@ import androidx.annotation.Nullable;
 
 public class FinanceContentProvider extends ContentProvider {
 
-  
+    public static final String AUTHORITY = "pt.vagner.myfinances.FinanceContentProvider";
+
+    public static final String CATEGORIAS_FINANCE = "categorias_receitas";
+    //public static final String CATEGORIAS_FINANCE_R = "categorias_receitas";
+
+    private static final int URI_CATEGORIAS_RECEITAS = 200;
+    private static final int URI_CATEGORIAS_RECEITAS_ID = 201;
+
+    private BdFinaceOpenHelper bdFinaceOpenHelper;
+
+    private static UriMatcher getUriMatcher(){
+        UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
+        uriMatcher.addURI(AUTHORITY,CATEGORIAS_FINANCE,URI_CATEGORIAS_RECEITAS);
+
+        uriMatcher.addURI(AUTHORITY,CATEGORIAS_FINANCE + "/#", URI_CATEGORIAS_RECEITAS_ID);
+
+        return uriMatcher;
+    }
     @Override
     public boolean onCreate() {
-        return false;
+        bdFinaceOpenHelper = new BdFinaceOpenHelper(getContext());
+
+        return true;
     }
 
-    /**
-     * Implement this to handle query requests from clients.
-     *
-     * <p>Apps targeting {@link Build.VERSION_CODES#O} or higher should override
-     * {@link #query(Uri, String[], Bundle, CancellationSignal)} and provide a stub
-     * implementation of this method.
-     *
-     * <p>This method can be called from multiple threads, as described in
-     * <a href="{@docRoot}guide/topics/fundamentals/processes-and-threads.html#Threads">Processes
-     * and Threads</a>.
-     * <p>
-     * Example client call:<p>
-     * <pre>// Request a specific record.
-     * Cursor managedCursor = managedQuery(
-     * ContentUris.withAppendedId(Contacts.People.CONTENT_URI, 2),
-     * projection,    // Which columns to return.
-     * null,          // WHERE clause.
-     * null,          // WHERE clause value substitution
-     * People.NAME + " ASC");   // Sort order.</pre>
-     * Example implementation:<p>
-     * <pre>// SQLiteQueryBuilder is a helper class that creates the
-     * // proper SQL syntax for us.
-     * SQLiteQueryBuilder qBuilder = new SQLiteQueryBuilder();
-     *
-     * // Set the table we're querying.
-     * qBuilder.setTables(DATABASE_TABLE_NAME);
-     *
-     * // If the query ends in a specific record number, we're
-     * // being asked for a specific record, so set the
-     * // WHERE clause in our query.
-     * if((URI_MATCHER.match(uri)) == SPECIFIC_MESSAGE){
-     * qBuilder.appendWhere("_id=" + uri.getPathLeafId());
-     * }
-     *
-     * // Make the query.
-     * Cursor c = qBuilder.query(mDb,
-     * projection,
-     * selection,
-     * selectionArgs,
-     * groupBy,
-     * having,
-     * sortOrder);
-     * c.setNotificationUri(getContext().getContentResolver(), uri);
-     * return c;</pre>
-     *
-     * @param uri           The URI to query. This will be the full URI sent by the client;
-     *                      if the client is requesting a specific record, the URI will end in a record number
-     *                      that the implementation should parse and add to a WHERE or HAVING clause, specifying
-     *                      that _id value.
-     * @param projection    The list of columns to put into the cursor. If
-     *                      {@code null} all columns are included.
-     * @param selection     A selection criteria to apply when filtering rows.
-     *                      If {@code null} then all rows are included.
-     * @param selectionArgs You may include ?s in selection, which will be replaced by
-     *                      the values from selectionArgs, in order that they appear in the selection.
-     *                      The values will be bound as Strings.
-     * @param sortOrder     How the rows in the cursor should be sorted.
-     *                      If {@code null} then the provider is free to define the sort order.
-     * @return a Cursor or {@code null}.
-     */
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
+        SQLiteDatabase bd = bdFinaceOpenHelper.getReadableDatabase();
+
+        String id = uri.getLastPathSegment();
+
+        //UriMatcher matcher = getUriMatcher();
+
+        switch (getUriMatcher().match(uri)){
+
+            case URI_CATEGORIAS_RECEITAS:
+                return new BdTableTipoReceita(bd).query(projection,selection,selectionArgs,null,null,sortOrder);
+
+            case URI_CATEGORIAS_RECEITAS_ID:
+                return new BdTableTipoReceita(bd).query(projection, BdTableTipoReceita._ID+"=?",new String[]{id},null,null,sortOrder);
+
+            /*default:
+                throw new UnsupportedOperationException("Invalid URI: " + uri);*/
+        }
+
         return null;
     }
 

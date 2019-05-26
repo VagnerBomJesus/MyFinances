@@ -285,7 +285,7 @@ public class BdFinanceTest {
     private TipoReceita PrimeiroTipoReceita(BdTableTipoReceita tableTipoReceita, String expectedName, long expectedId) {
         Cursor cursor = tableTipoReceita.query(BdTableTipoReceita.ALL_COLUMNS, null, null, null, null, null);
         //Erro ao ler tipo receita
-        assertEquals(1,cursor.getCount()); //caso não devolva 1 linha, dá erro
+        assertEquals("Erro ao ler tipo receita",1,cursor.getCount()); //caso não devolva 1 linha, dá erro
 
         //Obter a primeira categoria de receitas
         //Erro ao ler a categoria da receita

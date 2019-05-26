@@ -16,10 +16,21 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, DialogFragmentOrcamento.ExampleDialogListener{
+    /*****************************Variáveis*****************************/
+
+    private static Boolean isClicked = false;
+    private static final String DESPESA = "Despesa";
+    private static TextView textViewStatusOrcamento;
+    private static  BdFinaceOpenHelper db;
+    private static TextView textViewShowSaldoMain;
+    private static TextView textViewShowDespesasMain;
+    private static TextView textViewShowReceitasMain;
+    private static TextView textViewShowDiaMesAno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +38,18 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        /*************************Construção dos objetos******************************/
+
+        db = new BdFinaceOpenHelper(getApplicationContext());
+        textViewShowSaldoMain = findViewById(R.id.textViewShowSaldoMain);
+        textViewShowDespesasMain = findViewById(R.id.textViewShowDespesasMain);
+        textViewShowReceitasMain = (TextView) findViewById(R.id.textViewShowReceitasMain);
+        textViewShowDiaMesAno = (TextView) findViewById(R.id.textViewShowDiaMesAno);
+        textViewStatusOrcamento = (TextView) findViewById(R.id.textViewStatusOrcamento);
+
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -38,7 +61,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onBackPressed() {
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    public void onBackPressed() {//botão back
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -105,7 +134,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-       if (id == R.id.nav_ldia) {
+        if (id == R.id.nav_ldia) {
             Intent i = new Intent(this, ListarDia.class);
             startActivity(i);
         } else if (id == R.id.nav_lmes) {
@@ -131,17 +160,6 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public void novaReceita(View view) { //Botão "NOVA RECEITA"
-        Intent i = new Intent(this, NovaReceita.class);
-
-        startActivity(i);
-    }
-
-    public void novaDespesa(View view) { //Botão "NOVA DESPESA"
-        Intent i = new Intent(this, NovaDespesa.class);
-        startActivity(i);
     }
 
 

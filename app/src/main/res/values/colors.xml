@@ -6,4 +6,7 @@
     <color name="facebookColor">#3B5998</color>
     <color name="backgraundMenufab">#F0F0F0</color>
     <color name="ColorInternacionalise">#FF384C</color>
+    <color name="ColorVert">#93D67C</color>
+    <color name="ColorRed">#ff384c</color>
+    <color name="colorItemSelecionado">#00BCD4</color>
 </resources>

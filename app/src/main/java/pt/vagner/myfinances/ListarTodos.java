@@ -2,6 +2,10 @@ package pt.vagner.myfinances;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,75 +16,62 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class ListarTodos extends AppCompatActivity {
+    /******************Variáveis**********************/
+
+    private RegistoMovimentosAdapter adapter;
+    private RecyclerView recyclerViewRegistos;
+    private BdFinaceOpenHelper bdFinaceOpenHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_todos);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mostraDesignacao();
-        mostraMensagem();
-        sendMessage();
+        /********************Construção dos objetos***********************/
+        bdFinaceOpenHelper = new BdFinaceOpenHelper(this);
+        recyclerViewRegistos = (RecyclerView) findViewById(R.id.recyclerViewListarTodos);
 
-    }
-    public void sendMessage() {
-
-        Toast.makeText(this,R.string.registo_inserido_success,
-                Toast.LENGTH_LONG).show();
-
-    }
-    private void mostraMensagem() {
-
-        int dia = getCurrentDay();
-        int mes = getCurrentMonth();
-        int ano = getCurrentYear();
-
-
-        Intent intent = getIntent();
-
-        String mensagem = intent.getStringExtra(DefinicoesApp.MENSAGEM);
-        Date data = (Date) intent.getSerializableExtra(DefinicoesApp.DATA);
-
-        TextView textViewValor = (TextView) findViewById(R.id.textViewValor);
-        TextView textViewData = (TextView) findViewById(R.id.textViewData);
-
-
-        textViewData.setText(""+dia+"/"+mes+"/"+ano);
-        textViewValor.setText(mensagem+"€");
+        initComponents();
     }
 
-    private void mostraDesignacao() {
-        Intent intent = getIntent();
-        String designacao = intent.getStringExtra(DefinicoesApp.Designacao);
-        TextView textViewDesignacao = (TextView) findViewById(R.id.textViewDesignacao);
-        textViewDesignacao.setText(designacao);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initComponents();
     }
-    /**
-     * @return dia atual
-     */
-    private int getCurrentDay(){
-        Calendar c = Calendar.getInstance();
-        int dia = c.get(Calendar.DAY_OF_MONTH);
-        return dia;
-    }
+
+    /************************************Buttons actions*******************************************/
 
     /**
-     * @return mes atual
+     * Take care of popping the fragment back stack or finishing the activity
+     * as appropriate.
      */
-    private int getCurrentMonth(){
-        Calendar c = Calendar.getInstance();
-        int month = c.get(Calendar.MONTH)+1;
-        return month;
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
+    /*********************************Funtions and Methods******************************************/
+
     /**
-     * @return ano atual
+     * Inicializa todos os componentes
      */
-    private int getCurrentYear(){
-        Calendar c = Calendar.getInstance();
-        int ano = c.get(Calendar.YEAR);
-        return ano;
+    private void initComponents() {
+        adapter = new RegistoMovimentosAdapter(bdFinaceOpenHelper.getListRegistoMovimentos(), this, recyclerViewRegistos);
+
+        //verificar se há registos
+        if (bdFinaceOpenHelper.getListRegistoMovimentos().size() == 0) {
+            Toast.makeText(this, R.string.nao_foram_encontrados_registos_todos, Toast.LENGTH_LONG).show();
+        }
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerViewRegistos.setLayoutManager(layoutManager);
+        recyclerViewRegistos.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewRegistos.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        recyclerViewRegistos.setAdapter(adapter);
+
     }
 
 }

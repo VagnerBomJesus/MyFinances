@@ -5,9 +5,11 @@ import android.provider.BaseColumns;
 
 public class BdTabelaDespesa implements BaseColumns {
 
-    public BdTabelaDespesa db;
-    public BdTabelaDespesa(BdTabelaDespesa db) {
+    public SQLiteDatabase db;
+    public BdTabelaDespesa(SQLiteDatabase db) {
         this.db = db;
     }
 
+    public void criar() {
+    }
 }

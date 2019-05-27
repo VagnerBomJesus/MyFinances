@@ -13,4 +13,7 @@ public class BdTabelaOrcamento implements BaseColumns {
     }
 
 
+    public void criar() {
+
+    }
 }

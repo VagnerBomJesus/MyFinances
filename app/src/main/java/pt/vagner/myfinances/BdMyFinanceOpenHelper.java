@@ -34,6 +34,14 @@ public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        new BdTabelaOrcamento(db).criar();
+
+        new BdTabelaDespesa(db).criar();
+
+        new BdTabelaReceita(db).criar();
+
+
+
     }
 
     /**

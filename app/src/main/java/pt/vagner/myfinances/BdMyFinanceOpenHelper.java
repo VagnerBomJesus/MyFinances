@@ -7,21 +7,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
+
+    public static final String NOME_BASE_DADOS = "myFinaces.db";
+    private static final int VERSAO_BASE_DADOS = 1;
+
+
+
     /**
      * Create a helper object to create, open, and/or manage a database.
      * This method always returns very quickly.  The database is not actually
      * created or opened until one of {@link #getWritableDatabase} or
      * {@link #getReadableDatabase} is called.
      *
-     * @param context to use for locating paths to the the database
-     * @param name    of the database file, or null for an in-memory database
-     * @param factory to use for creating cursor objects, or null for the default
-     * @param version number of the database (starting at 1); if the database is older,
-     *                {@link #onUpgrade} will be used to upgrade the database; if the database is
-     *                newer, {@link #onDowngrade} will be used to downgrade the database
+     * 
      */
-    public BdMyFinanceOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public BdMyFinanceOpenHelper(@Nullable Context context) {
+        super(context, NOME_BASE_DADOS, null, VERSAO_BASE_DADOS);
     }
 
     /**

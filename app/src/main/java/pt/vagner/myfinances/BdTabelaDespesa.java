@@ -5,9 +5,10 @@ import android.provider.BaseColumns;
 
 public class BdTabelaDespesa implements BaseColumns {
 
-    public static final String TABLE_NAME = "TipoDespesa";
-    public static final String _ID = "id_despesa";
-    public static final String CATEGORIA_DESPESAS = "categoria";
+    public static final String NOME_TABELA = "despesa";
+    public static final String CAMPO_DESCRICAO = "titulo";
+    public static final String CAMPO_VALOR = "valor";
+    public static final String CAMPO_CATEGORIA = "categoria";
 
     public SQLiteDatabase db;
     public BdTabelaDespesa(SQLiteDatabase db) {
@@ -18,9 +19,13 @@ public class BdTabelaDespesa implements BaseColumns {
     public void criar() {
 
         db.execSQL(
-                "CREATE TABLE " + TABLE_NAME + " (" +
+                "CREATE TABLE " + NOME_TABELA + "(" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                        CATEGORIA_DESPESAS + " TEXT NOT NULL)"
+                        CAMPO_DESCRICAO + " TEXT NOT NULL," +
+                        CAMPO_VALOR + " INTEGER NOT NULL," +
+                        CAMPO_CATEGORIA + " INTEGER NOT NULL," +
+                        "FOREIGN KEY (" + CAMPO_CATEGORIA + ") REFERENCES " + BdTabelaCategoria.NOME_TABELA + "(" + BdTabelaCategoria._ID + ")" +
+                        ")"
         );
 
     }

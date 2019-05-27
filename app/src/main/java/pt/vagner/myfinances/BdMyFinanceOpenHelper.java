@@ -40,6 +40,8 @@ public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
 
         new BdTabelaReceita(db).criar();
 
+        new BdTabelaCategoria(db).criar();
+
 
 
     }

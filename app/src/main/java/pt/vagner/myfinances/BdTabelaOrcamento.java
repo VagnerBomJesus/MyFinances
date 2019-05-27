@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
 public class BdTabelaOrcamento implements BaseColumns {
-    public static final String _ID = "id_orcamento";
+    //public static final String _ID = "id_orcamento";
     public static final String VALOR = "valor";
     public static final String TABLE_NAME = "Orcamento";
 

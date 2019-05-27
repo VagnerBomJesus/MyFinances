@@ -1,32 +1,95 @@
 package pt.vagner.myfinances;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+
 public class TipoDespesa {
-    int id_despesa;
-    String categoria;
+        private long id;
+        private String descricao;
+        private double valor;
+        private long categoria;
 
-    //Construtores
-    public TipoDespesa() {}
+        private String nomeCategoria;//Campo ""externo""
 
 
-    public TipoDespesa(int id_despesa, String categoria){
-        this.id_despesa = id_despesa;
-        this.categoria = categoria;
-    }
+        public String getNomeCategoria() {
+            return nomeCategoria;
+        }
 
-    //Setters and Getters
-    public int getId_despesa() {
-        return id_despesa;
-    }
+        public long getId() {
+            return id;
+        }
 
-    public void setId_despesa(int id_despesa) {
-        this.id_despesa = id_despesa;
-    }
+        public void setId(long id) {
+            this.id = id;
+        }
 
-    public String getCategoria() {
-        return categoria;
-    }
+        public String getDescricao() {
+            return descricao;
+        }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
+        public void setDescricao(String descricao) {
+            this.descricao = descricao;
+        }
+
+        public double getValor() {
+            return valor;
+        }
+
+        public void setValor(double valor) {
+            this.valor = valor;
+        }
+
+        public long getCategoria() {
+            return categoria;
+        }
+
+        public void setCategoria(long categoria) {
+            this.categoria = categoria;
+        }
+
+
+
+        public ContentValues getContentValues() {
+            ContentValues valores = new ContentValues();
+
+            valores.put(BdTabelaReceita.CAMPO_DESCRICAO, descricao);
+            valores.put(BdTabelaReceita.CAMPO_VALOR, valor);
+            valores.put(BdTabelaReceita.CAMPO_CATEGORIA, categoria);
+
+            return valores;
+        }
+
+        ////CRUD
+        public TipoDespesa fromCursor(Cursor cursor) {
+            long id = cursor.getLong(
+                    cursor.getColumnIndex(BdTabelaReceita._ID)
+            );
+
+            String descricao = cursor.getString(
+                    cursor.getColumnIndex(BdTabelaReceita.CAMPO_DESCRICAO)
+            );
+
+            int valor = cursor.getInt(
+                    cursor.getColumnIndex(BdTabelaReceita.CAMPO_VALOR)
+            );
+
+            long categoria = cursor.getLong(
+                    cursor.getColumnIndex(BdTabelaReceita.CAMPO_CATEGORIA)
+            );
+
+            String nomeCategoria = cursor.getString(
+                    cursor.getColumnIndex(BdTabelaReceita.ALIAS_NOME_CATEGORIA)
+            );
+
+            TipoDespesa tipoReceita = new TipoDespesa();
+
+            tipoReceita.setId(id);
+            tipoReceita.setDescricao(descricao);
+            tipoReceita.setValor(valor);
+            tipoReceita.setCategoria(categoria);
+            tipoReceita.nomeCategoria = nomeCategoria;
+
+            return tipoReceita;
+        }
 }

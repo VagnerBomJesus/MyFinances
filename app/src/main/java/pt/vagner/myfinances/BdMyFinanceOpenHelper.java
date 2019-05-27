@@ -19,7 +19,7 @@ public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
      * created or opened until one of {@link #getWritableDatabase} or
      * {@link #getReadableDatabase} is called.
      *
-     * 
+     *
      */
     public BdMyFinanceOpenHelper(@Nullable Context context) {
         super(context, NOME_BASE_DADOS, null, VERSAO_BASE_DADOS);

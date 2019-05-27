@@ -23,14 +23,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, DialogFragmentOrcamento.ExampleDialogListener{
     /*****************************Variáveis*****************************/
 
-    private static Boolean isClicked = false;
-    private static final String DESPESA = "Despesa";
-    private static TextView textViewStatusOrcamento;
-    private static  BdFinaceOpenHelper db;
-    private static TextView textViewShowSaldoMain;
-    private static TextView textViewShowDespesasMain;
-    private static TextView textViewShowReceitasMain;
-    private static TextView textViewShowDiaMesAno;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +32,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*************************Construção dos objetos******************************/
-
-        db = new BdFinaceOpenHelper(getApplicationContext());
-        textViewShowSaldoMain = findViewById(R.id.textViewShowSaldoMain);
-        textViewShowDespesasMain = findViewById(R.id.textViewShowDespesasMain);
-        textViewShowReceitasMain = (TextView) findViewById(R.id.textViewShowReceitasMain);
-        textViewShowDiaMesAno = (TextView) findViewById(R.id.textViewShowDiaMesAno);
-        textViewStatusOrcamento = (TextView) findViewById(R.id.textViewStatusOrcamento);
 
 
 
@@ -134,7 +119,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_ldia) {
+        /*if (id == R.id.nav_ldia) {
             Intent i = new Intent(this, ListarDia.class);
             startActivity(i);
         } else if (id == R.id.nav_lmes) {
@@ -143,7 +128,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_lano) {
             Intent i = new Intent(this, ListarAno.class);
             startActivity(i);
-        } else if (id == R.id.nav_ltodos) {
+        } else */
+        if (id == R.id.nav_ltodos) {
             Intent i = new Intent(this, ListarTodos.class);
             startActivity(i);
         } else if (id == R.id.nav_orca) {

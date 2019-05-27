@@ -26,21 +26,6 @@
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ListarAno"
-            android:label="@string/listar_ano"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ListarMes"
-            android:label="@string/listar_mes"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ListarDia"
-            android:label="@string/listar_dia"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".GerirCategorias"
             android:label="@string/gerir_cat"
             android:parentActivityName=".MainActivity"
@@ -88,10 +73,6 @@
             </intent-filter>
         </activity>
 
-        <provider
-            android:authorities="pt.vagner.myfinances"
-            android:name=".FinanceContentProvider"
-            android:exported="false" />
     </application>
 
 </manifest>

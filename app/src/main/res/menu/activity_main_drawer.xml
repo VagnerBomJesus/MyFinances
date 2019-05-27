@@ -4,7 +4,7 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
+        <!---<item
             android:id="@+id/nav_ldia"
             android:icon="@drawable/ic_menu_sort_by_size"
             android:title="@string/listar_por_dia" />
@@ -15,7 +15,7 @@
         <item
             android:id="@+id/nav_lano"
             android:icon="@drawable/ic_menu_sort_by_size"
-            android:title="@string/listar_por_ano" />
+            android:title="@string/listar_por_ano" />-->
         <item
             android:id="@+id/nav_ltodos"
             android:icon="@drawable/ic_menu_sort_by_size"
@@ -28,7 +28,7 @@
             android:id="@+id/nav_gestcategorias"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/gerir_cat" />
-         </group>
+    </group>
 
     <item android:title="@string/acerca">
         <menu>

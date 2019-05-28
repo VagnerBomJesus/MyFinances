@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,39 +16,64 @@
 
     <TextView
         android:id="@+id/textViewDesignacao"
-        android:layout_width="279dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewData"
         android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textViewData"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Comando" />
 
     <TextView
         android:id="@+id/textViewTipo"
         android:layout_width="65dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textViewDesignacao"
         android:layout_below="@+id/textViewDesignacao"
+        android:layout_alignStart="@+id/textViewDesignacao"
+        android:layout_marginTop="16dp"
         android:textColor="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/textViewDesignacao"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDesignacao"
         tools:text="Despesa" />
 
     <TextView
         android:id="@+id/textViewData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="38dp"
+        android:layout_height="22dp"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:textSize="16sp"
-        tools:text="@string/_1996" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/_1996"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/textViewValor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textViewData"
         android:layout_below="@+id/textViewDesignacao"
+        android:layout_alignEnd="@+id/textViewData"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewDesignacao"
+        app:layout_constraintTop_toBottomOf="@+id/textViewData"
         tools:text="80.00€" />
 
     <TextView
@@ -55,7 +81,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewDesignacao"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_toEndOf="@+id/textViewTipo"
+        app:layout_constraintStart_toEndOf="@+id/textViewTipo"
+        app:layout_constraintTop_toTopOf="@+id/textViewTipo"
         tools:text="Receita" />
 
     <TextView
@@ -64,6 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewDesignacao"
         android:layout_toEndOf="@+id/textViewTipo"
+        app:layout_constraintStart_toStartOf="@+id/textViewCategoriaReceita"
+        app:layout_constraintTop_toTopOf="@+id/textViewCategoriaReceita"
         tools:text="Despesa" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

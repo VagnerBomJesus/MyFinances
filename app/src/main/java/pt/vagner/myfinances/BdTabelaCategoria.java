@@ -7,23 +7,24 @@ import android.provider.BaseColumns;
 
 public class BdTabelaCategoria implements BaseColumns {
     public static final String NOME_TABELA = "categorias";
+
     public static final String CAMPO_DESCRICAO = "descricao";
 
+    public static final String[] TODAS_COLUNAS = new String[] { _ID, CAMPO_DESCRICAO };
 
-    public SQLiteDatabase db;
+    private SQLiteDatabase db;
+
     public BdTabelaCategoria(SQLiteDatabase db) {
         this.db = db;
     }
 
-
-    public void criar() {
+    public void cria() {
         db.execSQL(
-                        "CREATE TABLE " + NOME_TABELA + "(" +
+                "CREATE TABLE " + NOME_TABELA + "(" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         CAMPO_DESCRICAO + " TEXT NOT NULL" +
                         ")"
         );
-
     }
 
     public Cursor query(String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy) {

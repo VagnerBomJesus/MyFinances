@@ -4,18 +4,14 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 public class TipoReceita {
-
-
     private long id;
-    private String descricao;
-    private double valor;
+    private String descricaoReceita;
+    private int valor;
     private long categoria;
+    private String nomeCategoria1; // Campo "externo"
 
-    private String nomeCategoria;//Campo ""externo""
-
-
-    public String getNomeCategoria() {
-        return nomeCategoria;
+    public String getNomeCategoria1() {
+        return nomeCategoria1;
     }
 
     public long getId() {
@@ -26,19 +22,19 @@ public class TipoReceita {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescricaoReceita() {
+        return descricaoReceita;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricaoReceita(String descricaoReceita) {
+        this.descricaoReceita = descricaoReceita;
     }
 
-    public double getValor() {
+    public int getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(int valor) {
         this.valor = valor;
     }
 
@@ -50,12 +46,10 @@ public class TipoReceita {
         this.categoria = categoria;
     }
 
-
-    ////CRUD
     public ContentValues getContentValues() {
         ContentValues valores = new ContentValues();
 
-        valores.put(BdTabelaReceita.CAMPO_DESCRICAO, descricao);
+        valores.put(BdTabelaReceita.CAMPO_DESCRICAO_RECEITA, descricaoReceita);
         valores.put(BdTabelaReceita.CAMPO_VALOR, valor);
         valores.put(BdTabelaReceita.CAMPO_CATEGORIA, categoria);
 
@@ -67,11 +61,11 @@ public class TipoReceita {
                 cursor.getColumnIndex(BdTabelaReceita._ID)
         );
 
-        String descricao = cursor.getString(
-                cursor.getColumnIndex(BdTabelaReceita.CAMPO_DESCRICAO)
+        String titulo = cursor.getString(
+                cursor.getColumnIndex(BdTabelaReceita.CAMPO_DESCRICAO_RECEITA)
         );
 
-        int valor = cursor.getInt(
+        int pagina = cursor.getInt(
                 cursor.getColumnIndex(BdTabelaReceita.CAMPO_VALOR)
         );
 
@@ -86,13 +80,11 @@ public class TipoReceita {
         TipoReceita tipoReceita = new TipoReceita();
 
         tipoReceita.setId(id);
-        tipoReceita.setDescricao(descricao);
-        tipoReceita.setValor(valor);
+        tipoReceita.setDescricaoReceita(titulo);
+        tipoReceita.setValor(pagina);
         tipoReceita.setCategoria(categoria);
-        tipoReceita.nomeCategoria = nomeCategoria;
+        tipoReceita.nomeCategoria1 = nomeCategoria;
 
         return tipoReceita;
     }
-
-
 }

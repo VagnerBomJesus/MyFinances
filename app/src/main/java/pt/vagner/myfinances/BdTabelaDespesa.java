@@ -8,39 +8,35 @@ import android.text.TextUtils;
 import android.util.Log;
 
 public class BdTabelaDespesa implements BaseColumns {
-
     public static final String NOME_TABELA = "despesa";
 
     public static final String ALIAS_NOME_CATEGORIA = "nome_categ";
 
-    public static final String CAMPO_DESCRICAO = "descricao";
+    public static final String CAMPO_DESCRICAO_DESPESA = "descricaoDespesa";
     public static final String CAMPO_VALOR = "valor";
     public static final String CAMPO_CATEGORIA = "categoria";
-
     public static final String CAMPO_NOME_CATEGORIA = BdTabelaCategoria.NOME_TABELA + "." + BdTabelaCategoria.CAMPO_DESCRICAO + " AS " + ALIAS_NOME_CATEGORIA; // tabela de categorias (só de leitura)
 
-    public static final String[] TODAS_COLUNAS = new String[] { NOME_TABELA + "." + _ID, CAMPO_DESCRICAO, CAMPO_VALOR, CAMPO_CATEGORIA, CAMPO_NOME_CATEGORIA };
+    public static final String[] TODAS_COLUNAS = new String[] { NOME_TABELA + "." + _ID, CAMPO_DESCRICAO_DESPESA, CAMPO_VALOR, CAMPO_CATEGORIA, CAMPO_NOME_CATEGORIA };
 
+    private SQLiteDatabase db;
 
-    public SQLiteDatabase db;
     public BdTabelaDespesa(SQLiteDatabase db) {
         this.db = db;
     }
 
-    //criação da tabela
-    public void criar() {
-
+    public void cria() {
         db.execSQL(
                 "CREATE TABLE " + NOME_TABELA + "(" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                        CAMPO_DESCRICAO + " TEXT NOT NULL," +
+                        CAMPO_DESCRICAO_DESPESA + " TEXT NOT NULL," +
                         CAMPO_VALOR + " INTEGER NOT NULL," +
                         CAMPO_CATEGORIA + " INTEGER NOT NULL," +
                         "FOREIGN KEY (" + CAMPO_CATEGORIA + ") REFERENCES " + BdTabelaCategoria.NOME_TABELA + "(" + BdTabelaCategoria._ID + ")" +
                         ")"
         );
-
     }
+
     public Cursor query(String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy) {
         String colunasSelect = TextUtils.join(",", columns);
 
@@ -52,7 +48,7 @@ public class BdTabelaDespesa implements BaseColumns {
             sql += " AND " + selection;
         }
 
-        Log.d("Tabela Despesa", "query: " + sql);
+        Log.d("Tabela Tipo Despesa", "query: " + sql);
 
         return db.rawQuery(sql, selectionArgs);
     }

@@ -8,10 +8,8 @@ import androidx.annotation.Nullable;
 
 public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
 
-    public static final String NOME_BASE_DADOS = "myFinaces.db";
+    public static final String NOME_BASE_DADOS = "myFinances.db";
     private static final int VERSAO_BASE_DADOS = 1;
-
-
 
     /**
      * Create a helper object to create, open, and/or manage a database.
@@ -19,7 +17,7 @@ public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
      * created or opened until one of {@link #getWritableDatabase} or
      * {@link #getReadableDatabase} is called.
      *
-     *
+     * @param context to use for locating paths to the the database
      */
     public BdMyFinanceOpenHelper(@Nullable Context context) {
         super(context, NOME_BASE_DADOS, null, VERSAO_BASE_DADOS);
@@ -33,17 +31,9 @@ public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        new BdTabelaOrcamento(db).criar();
-
-        new BdTabelaDespesa(db).criar();
-
-        new BdTabelaReceita(db).criar();
-
-        new BdTabelaCategoria(db).criar();
-
-
-
+        new BdTabelaCategoria(db).cria();
+        new BdTabelaReceita(db).cria();
+        new BdTabelaDespesa(db).cria();
     }
 
     /**

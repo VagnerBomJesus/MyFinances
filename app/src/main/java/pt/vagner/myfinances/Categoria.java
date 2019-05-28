@@ -24,7 +24,6 @@ public class Categoria {
         this.descricao = descricao;
     }
 
-    ////CRUD
     public ContentValues getContentValues() {
         ContentValues valores = new ContentValues();
 
@@ -49,5 +48,4 @@ public class Categoria {
 
         return categoria;
     }
-
 }

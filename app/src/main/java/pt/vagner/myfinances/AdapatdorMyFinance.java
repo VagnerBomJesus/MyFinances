@@ -1,14 +1,31 @@
 package pt.vagner.myfinances;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapatdorMyFinance extends RecyclerView.Adapter<AdapatdorMyFinance.ViewHolderFinance> {
 
+    private Cursor cursor;
+    private Context context;
+
+    public AdapatdorMyFinance(Context context) {
+        this.context = context;
+    }
+
+    public void setCursor(Cursor cursor) {
+        if (this.cursor != cursor) {
+            this.cursor = cursor;
+            notifyDataSetChanged();
+        }
+    }
     /**
      * Called when RecyclerView needs a new {@link ViewHolder} of the given type to represent
      * an item.
@@ -33,6 +50,9 @@ public class AdapatdorMyFinance extends RecyclerView.Adapter<AdapatdorMyFinance.
     @Override
     public ViewHolderFinance onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
+        View item = LayoutInflater.from(context).inflate(R.layout.layout_view_listar_todos, parent, false);
+
+        return new ViewHolderFinance(item);
 
     }
 
@@ -58,7 +78,9 @@ public class AdapatdorMyFinance extends RecyclerView.Adapter<AdapatdorMyFinance.
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolderFinance holder, int position) {
-
+        cursor.moveToPosition(position);
+        TipoReceita receita = TipoReceita.fromCursor(cursor);
+        holder.setTipoReceita(receita);
     }
 
     /**
@@ -71,11 +93,57 @@ public class AdapatdorMyFinance extends RecyclerView.Adapter<AdapatdorMyFinance.
         return 0;
     }
 
-    public class ViewHolderFinance extends RecyclerView.ViewHolder {
+    private static ViewHolderFinance viewHolderFinanceSelecionado = null;
 
+
+    public class ViewHolderFinance extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private TextView textViewDesignacao;
+        private TextView textViewCategoria;
+        private TextView textViewValor;
+        private TextView textViewCategoriaDespesa;
+        private TextView textViewCategoriaReceita;
+
+        private TipoReceita tipoReceita;
 
         public ViewHolderFinance(@NonNull View itemView) {
             super(itemView);
+
+            textViewDesignacao = (TextView)itemView.findViewById(R.id.textViewDesignacao);
+            textViewCategoriaDespesa =  (TextView)itemView.findViewById(R.id.textViewCategoriaDespesa);
+            textViewCategoriaReceita =  (TextView)itemView.findViewById(R.id.textViewCategoriaReceita);
+            textViewValor =  (TextView)itemView.findViewById(R.id.textViewValor);
+            //textViewPagina =  (TextView)itemView.findViewById(R.id.textViewPagina);
+            itemView.setOnClickListener(this);
+        }
+        public void setTipoReceita(TipoReceita tipoReceita) {
+            this.tipoReceita = tipoReceita;
+
+            textViewDesignacao.setText(tipoReceita.getDescricaoReceita());
+            textViewValor.setText(String.valueOf(tipoReceita.getValor()));
+            textViewCategoria.setText(tipoReceita.getNomeCategoria1());
+        }
+
+        /**
+         * Called when a view has been clicked.
+         *
+         * @param v The view that was clicked.
+         */
+        @Override
+        public void onClick(View v) {
+            if (viewHolderFinanceSelecionado != null) {
+                viewHolderFinanceSelecionado.desSeleciona();
+            }
+
+            viewHolderFinanceSelecionado = this;
+
+            seleciona();
+        }
+        private void desSeleciona() {
+            itemView.setBackgroundResource(android.R.color.white);
+        }
+
+        private void seleciona() {
+            itemView.setBackgroundResource(R.color.colorItemSelecionado);
         }
     }
 }

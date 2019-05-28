@@ -73,6 +73,11 @@
             </intent-filter>
         </activity>
 
+        <provider
+            android:authorities="pt.vagner.myfinances"
+            android:name=".MyFinanceContentProvider"
+            android:exported="false" />
+
     </application>
 
 </manifest>

@@ -6,12 +6,12 @@ import android.database.Cursor;
 public class TipoDespesa {
     private long id;
     private String descricaoDespesa;
-    private int valor;
+    private double valor;
     private long categoria;
-    private String nomeCategoria1; // Campo "externo"
+    private String nomeCategoria; // Campo "externo"
 
-    public String getNomeCategoria1() {
-        return nomeCategoria1;
+    public String getNomeCategoria() {
+        return nomeCategoria;
     }
 
     public long getId() {
@@ -30,11 +30,11 @@ public class TipoDespesa {
         this.descricaoDespesa = descricaoDespesa;
     }
 
-    public int getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(int valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
@@ -49,41 +49,41 @@ public class TipoDespesa {
     public ContentValues getContentValues() {
         ContentValues valores = new ContentValues();
 
-        valores.put(BdTabelaReceita.CAMPO_DESCRICAO_RECEITA, descricaoDespesa);
-        valores.put(BdTabelaReceita.CAMPO_VALOR, valor);
-        valores.put(BdTabelaReceita.CAMPO_CATEGORIA, categoria);
+        valores.put(BdTabelaTipoDespesa.CAMPO_DESCRICAO_DESPESA, descricaoDespesa);
+        valores.put(BdTabelaTipoDespesa.CAMPO_VALOR, valor);
+        valores.put(BdTabelaTipoDespesa.CAMPO_CATEGORIA, categoria);
 
         return valores;
     }
 
     public static TipoDespesa fromCursor(Cursor cursor) {
         long id = cursor.getLong(
-                cursor.getColumnIndex(BdTabelaReceita._ID)
+                cursor.getColumnIndex(BdTabelaTipoDespesa._ID)
         );
 
-        String titulo = cursor.getString(
-                cursor.getColumnIndex(BdTabelaReceita.CAMPO_DESCRICAO_RECEITA)
+        String descricaoDespesa = cursor.getString(
+                cursor.getColumnIndex(BdTabelaTipoDespesa.CAMPO_DESCRICAO_DESPESA)
         );
 
-        int pagina = cursor.getInt(
-                cursor.getColumnIndex(BdTabelaReceita.CAMPO_VALOR)
+        int valor = cursor.getInt(
+                cursor.getColumnIndex(BdTabelaTipoDespesa.CAMPO_VALOR)
         );
 
         long categoria = cursor.getLong(
-                cursor.getColumnIndex(BdTabelaReceita.CAMPO_CATEGORIA)
+                cursor.getColumnIndex(BdTabelaTipoDespesa.CAMPO_CATEGORIA)
         );
 
-        String nomeCategoria1 = cursor.getString(
-                cursor.getColumnIndex(BdTabelaReceita.ALIAS_NOME_CATEGORIA)
+        String nomeCategoria = cursor.getString(
+                cursor.getColumnIndex(BdTabelaTipoDespesa.ALIAS_NOME_CATEGORIA)
         );
 
         TipoDespesa tipoDespesa = new TipoDespesa();
 
         tipoDespesa.setId(id);
-        tipoDespesa.setDescricaoDespesa(titulo);
-        tipoDespesa.setValor(pagina);
+        tipoDespesa.setDescricaoDespesa(descricaoDespesa);
+        tipoDespesa.setValor(valor);
         tipoDespesa.setCategoria(categoria);
-        tipoDespesa.nomeCategoria1 = nomeCategoria1;
+        tipoDespesa.nomeCategoria = nomeCategoria;
 
         return tipoDespesa;
     }

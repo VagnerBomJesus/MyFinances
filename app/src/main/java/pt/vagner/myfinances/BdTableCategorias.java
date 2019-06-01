@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
-public class BdTabelaCategoria implements BaseColumns {
+public class BdTableCategorias implements BaseColumns {
     public static final String NOME_TABELA = "categorias";
 
     public static final String CAMPO_DESCRICAO = "descricao";
@@ -14,7 +14,7 @@ public class BdTabelaCategoria implements BaseColumns {
 
     private SQLiteDatabase db;
 
-    public BdTabelaCategoria(SQLiteDatabase db) {
+    public BdTableCategorias(SQLiteDatabase db) {
         this.db = db;
     }
 

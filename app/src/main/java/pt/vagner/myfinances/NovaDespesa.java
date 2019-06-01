@@ -71,7 +71,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
 
 
 
-        Intent intent = new Intent(this, ListarTodos.class);
+        Intent intent = new Intent(this, ListarTodosMainActivity.class);
 
         intent.putExtra(DefinicoesApp.Designacao, designacao);
 

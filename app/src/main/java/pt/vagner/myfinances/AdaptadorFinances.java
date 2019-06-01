@@ -11,12 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdapatdorMyFinance extends RecyclerView.Adapter<AdapatdorMyFinance.ViewHolderFinance> {
-
+public class AdaptadorFinances extends RecyclerView.Adapter<AdaptadorFinances.ViewHolderFinance> {
     private Cursor cursor;
     private Context context;
 
-    public AdapatdorMyFinance(Context context) {
+    public AdaptadorFinances(Context context) {
         this.context = context;
     }
 
@@ -49,11 +48,9 @@ public class AdapatdorMyFinance extends RecyclerView.Adapter<AdapatdorMyFinance.
     @NonNull
     @Override
     public ViewHolderFinance onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemFinance = LayoutInflater.from(context).inflate(R.layout.layout_view_listar_todos, parent, false);
 
-        View item = LayoutInflater.from(context).inflate(R.layout.layout_view_listar_todos, parent, false);
-
-        return new ViewHolderFinance(item);
-
+        return new ViewHolderFinance(itemFinance);
     }
 
     /**
@@ -79,8 +76,8 @@ public class AdapatdorMyFinance extends RecyclerView.Adapter<AdapatdorMyFinance.
     @Override
     public void onBindViewHolder(@NonNull ViewHolderFinance holder, int position) {
         cursor.moveToPosition(position);
-        TipoReceita receita = TipoReceita.fromCursor(cursor);
-        holder.setTipoReceita(receita);
+        TipoDespesa tipoDespesa = TipoDespesa.fromCursor(cursor);
+        holder.setTipoDespesa(tipoDespesa);
     }
 
     /**
@@ -90,37 +87,42 @@ public class AdapatdorMyFinance extends RecyclerView.Adapter<AdapatdorMyFinance.
      */
     @Override
     public int getItemCount() {
-        return 0;
+        if (cursor == null) return 0;
+
+        return cursor.getCount();
+    }
+
+    public TipoDespesa getLivroSelecionado() {
+        if (viewHolderFinanceSelecionado == null) return null;
+
+        return viewHolderFinanceSelecionado.tipoDespesa;
     }
 
     private static ViewHolderFinance viewHolderFinanceSelecionado = null;
 
-
     public class ViewHolderFinance extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView textViewDesignacao;
-        private TextView textViewCategoria;
-        private TextView textViewValor;
         private TextView textViewCategoriaDespesa;
-        private TextView textViewCategoriaReceita;
+        private TextView textViewValor;
 
-        private TipoReceita tipoReceita;
+        private TipoDespesa tipoDespesa;
 
         public ViewHolderFinance(@NonNull View itemView) {
             super(itemView);
 
             textViewDesignacao = (TextView)itemView.findViewById(R.id.textViewDesignacao);
             textViewCategoriaDespesa =  (TextView)itemView.findViewById(R.id.textViewCategoriaDespesa);
-            textViewCategoriaReceita =  (TextView)itemView.findViewById(R.id.textViewCategoriaReceita);
             textViewValor =  (TextView)itemView.findViewById(R.id.textViewValor);
-            //textViewPagina =  (TextView)itemView.findViewById(R.id.textViewPagina);
+
             itemView.setOnClickListener(this);
         }
-        public void setTipoReceita(TipoReceita tipoReceita) {
-            this.tipoReceita = tipoReceita;
 
-            textViewDesignacao.setText(tipoReceita.getDescricaoReceita());
-            textViewValor.setText(String.valueOf(tipoReceita.getValor()));
-            textViewCategoria.setText(tipoReceita.getNomeCategoria1());
+        public void setTipoDespesa(TipoDespesa tipoDespesa) {
+            this.tipoDespesa = tipoDespesa;
+
+            textViewDesignacao.setText(tipoDespesa.getDescricaoDespesa());
+            textViewValor.setText(String.valueOf(tipoDespesa.getValor()));
+            textViewCategoriaDespesa.setText(tipoDespesa.getNomeCategoria());
         }
 
         /**
@@ -136,8 +138,11 @@ public class AdapatdorMyFinance extends RecyclerView.Adapter<AdapatdorMyFinance.
 
             viewHolderFinanceSelecionado = this;
 
+            ((ListarTodosMainActivity) context).atualizaOpcoesMenu();
+
             seleciona();
         }
+
         private void desSeleciona() {
             itemView.setBackgroundResource(android.R.color.white);
         }

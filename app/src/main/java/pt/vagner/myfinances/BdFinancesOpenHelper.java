@@ -6,9 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
+public class BdFinancesOpenHelper extends SQLiteOpenHelper {
 
-    public static final String NOME_BASE_DADOS = "myFinances.db";
+    public static final String NOME_BASE_DADOS = "finances.db";
     private static final int VERSAO_BASE_DADOS = 1;
 
     /**
@@ -19,7 +19,7 @@ public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
      *
      * @param context to use for locating paths to the the database
      */
-    public BdMyFinanceOpenHelper(@Nullable Context context) {
+    public BdFinancesOpenHelper(@Nullable Context context) {
         super(context, NOME_BASE_DADOS, null, VERSAO_BASE_DADOS);
     }
 
@@ -31,9 +31,8 @@ public class BdMyFinanceOpenHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        new BdTabelaCategoria(db).cria();
-        new BdTabelaReceita(db).cria();
-        new BdTabelaDespesa(db).cria();
+        new BdTableCategorias(db).cria();
+        new BdTabelaTipoDespesa(db).cria();
     }
 
     /**

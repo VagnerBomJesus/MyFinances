@@ -73,7 +73,7 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
             return;
         }
         Date data = new Date();
-        Intent intent = new Intent(this, ListarTodos.class);
+        Intent intent = new Intent(this, ListarTodosMainActivity.class);
 
         intent.putExtra(DefinicoesApp.Designacao, designacao);
 

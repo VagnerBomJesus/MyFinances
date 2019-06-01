@@ -7,7 +7,6 @@ public class Categoria {
     private long id;
     private String descricao;
 
-
     public long getId() {
         return id;
     }
@@ -27,18 +26,18 @@ public class Categoria {
     public ContentValues getContentValues() {
         ContentValues valores = new ContentValues();
 
-        valores.put(BdTabelaCategoria.CAMPO_DESCRICAO, descricao);
+        valores.put(BdTableCategorias.CAMPO_DESCRICAO, descricao);
 
         return valores;
     }
 
     public static Categoria fromCursor(Cursor cursor) {
         long id = cursor.getLong(
-                cursor.getColumnIndex(BdTabelaCategoria._ID)
+                cursor.getColumnIndex(BdTableCategorias._ID)
         );
 
         String descricao = cursor.getString(
-                cursor.getColumnIndex(BdTabelaCategoria.CAMPO_DESCRICAO)
+                cursor.getColumnIndex(BdTableCategorias.CAMPO_DESCRICAO)
         );
 
         Categoria categoria = new Categoria();

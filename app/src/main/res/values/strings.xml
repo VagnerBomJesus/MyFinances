@@ -171,4 +171,24 @@
 
 
 
+
+
+
+
+    <string name="inserir">Inserir</string>
+    <string name="alterar">Alterar</string>
+
+    <string name="title_activity_inserir_livro">InserirLivroActivity</string>
+    <string name="descricaoDespesa">Título</string>
+
+
+    <string name="preecha_titulo">Preencha o título</string>
+    <string name="preecha_pagina">Preecha a página</string>
+    <string name="pagina_invalida">Página inválida</string>
+    <string name="erro_guardar_livro">Erro: Não foi possível guardar o tipoDespesa</string>
+    <string name="livro_guardado_sucesso">Livro guardado com suceeso</string>
+    <string name="title_activity_alterar_livro">AlterarLivroActivity</string>
+
+
+
 </resources>

@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         } else */
         if (id == R.id.nav_ltodos) {
-            Intent i = new Intent(this, ListarTodos.class);
+            Intent i = new Intent(this, ListarTodosMainActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_orca) {
             DialogFragmentOrcamento dialogFragmentOrcamento = new DialogFragmentOrcamento();

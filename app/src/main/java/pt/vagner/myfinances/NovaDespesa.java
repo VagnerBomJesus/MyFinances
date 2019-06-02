@@ -2,23 +2,36 @@ package pt.vagner.myfinances;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.SimpleCursorAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
 
-public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.OnDateSetListener, DialogFragmentCategoria.ExampleDialogListener{
+public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.OnDateSetListener, DialogFragmentCategoria.ExampleDialogListener, LoaderManager.LoaderCallbacks<Cursor> {
+
+    private static  final int ID_CURSO_LOADER_CATEGORIAS = 0;
 
     private EditText editTextDesignacaoDespesa;
-    private TextView textViewSelectedDateDespesa;
+    private Spinner spinnerCategoriaDespesa;
+    private EditText editTextValorDespesa;
+    private EditText textViewSelectedDateDespesa;
 
 
     @Override
@@ -31,14 +44,33 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        /************************Construção dos objetos***************************/
+        getSupportLoaderManager().initLoader(ID_CURSO_LOADER_CATEGORIAS, null, this);
 
+
+        /************************Construção dos objetos***************************/
         editTextDesignacaoDespesa = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
-        textViewSelectedDateDespesa = (TextView) findViewById(R.id.textViewSelectedDateDespesja);
+        spinnerCategoriaDespesa = (Spinner) findViewById(R.id.spinnerCategoriaDespesa);
+        editTextValorDespesa = (EditText) findViewById(R.id.editTextValorDespesa);
 
         setDefaultDateToTextView(); //data atual na textview data
     }
+    @Override
+    protected void onResume() {
+        getSupportLoaderManager().restartLoader(ID_CURSO_LOADER_CATEGORIAS, null, this);
 
+        super.onResume();
+    }
+
+    private void mostraCategoriasSpinner(Cursor cursorCategorias) {
+        SimpleCursorAdapter adaptadorCategorias = new SimpleCursorAdapter(
+                this,
+                android.R.layout.simple_list_item_1,
+                cursorCategorias,
+                new String[]{BdTableCategorias.CAMPO_DESCRICAO},
+                new int[]{android.R.id.text1}
+        );
+        spinnerCategoriaDespesa.setAdapter(adaptadorCategorias);
+    }
 
     public void inserirDespesaDb(View view) {//button inserir vai a base de dados
         EditText editTextDesignacaoDespesa = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
@@ -69,8 +101,9 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
             return;
         }
 
+        long idCategoria = spinnerCategoriaDespesa.getSelectedItemId();
 
-
+    /*
         Intent intent = new Intent(this, ListarTodosMainActivity.class);
 
         intent.putExtra(DefinicoesApp.Designacao, designacao);
@@ -80,7 +113,35 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
 
         startActivity(intent);
+    */
+        TipoDespesa tipoDespesa = new TipoDespesa();
+        tipoDespesa.setDescricaoDespesa(designacao);
+        tipoDespesa.setCategoria(idCategoria);
+        tipoDespesa.setValor(valor);
 
+        try {
+            getContentResolver().insert(FinanceContentProvider.ENDERECO_TIPO_DESPESA, tipoDespesa.getContentValues());
+
+            Toast.makeText(this, getString(R.string.registo_inserido_success), Toast.LENGTH_SHORT).show();
+            finish();
+        } catch (Exception e) {
+            Snackbar.make(
+                    editTextDesignacaoDespesa,
+                    getString(R.string.erro_inserir_registo_bd),
+                    Snackbar.LENGTH_LONG)
+                    .show();
+
+            e.printStackTrace();
+        }
+        Intent intent = new Intent(this, ListarTodosMainActivity.class);
+
+        intent.putExtra(DefinicoesApp.Designacao, designacao);
+
+        startActivity(intent);
+
+        intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
+
+        startActivity(intent);
 
     }
 
@@ -165,4 +226,22 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
     }
 
 
+    @NonNull
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
+        androidx.loader.content.CursorLoader cursorLoader = new androidx.loader.content.CursorLoader(this, FinanceContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODAS_COLUNAS, null, null, BdTableCategorias.CAMPO_DESCRICAO
+        );
+
+        return cursorLoader;    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
+        mostraCategoriasSpinner(data);
+
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
+        mostraCategoriasSpinner(null);
+    }
 }

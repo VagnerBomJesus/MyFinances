@@ -1,6 +1,7 @@
 package pt.vagner.myfinances;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
@@ -53,7 +54,8 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
 
         boolean mostraAlterarEliminar = (tipoDespesa != null);
 
-        menu.findItem(R.id.action_alterar).setVisible(mostraAlterarEliminar);
+
+        menu.findItem(R.id.action_Editar).setVisible(mostraAlterarEliminar);
        // menu.findItem(R.id.action_eliminar).setVisible(mostraAlterarEliminar);
     }
 
@@ -74,20 +76,31 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
+        if (id == R.id.action_IserirReceita){
+            Intent i = new Intent (this, NovaReceita.class);
+            startActivity(i);
             return true;
-
-        } else if (id == R.id.action_alterar) {
-            Toast.makeText(this, "Alterar", Toast.LENGTH_SHORT).show();
+        }
+        if (id ==R.id.action_InserirDespesa){
+            Intent i = new Intent(this, NovaDespesa.class);
+            startActivity(i);
             return true;
-        } else if (id == R.id.action_eliminar) {
-            Toast.makeText(this, "Eliminar", Toast.LENGTH_SHORT).show();
+        }
+        if (id == R.id.action_EditarReceita) {//com sua ação Editar
+            Intent i = new Intent(this, EditReceita.class);
+            startActivity(i);
             return true;
-        }*/
+        }
+        if (id == R.id.action_EditarDespesa) {//com sua ação Editar
+            Intent i = new Intent(this, EditDespesa.class);
+            startActivity(i);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     /**
      * Instantiate and return a new Loader for the given ID.

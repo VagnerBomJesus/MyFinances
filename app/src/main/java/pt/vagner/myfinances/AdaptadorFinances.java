@@ -2,6 +2,7 @@ package pt.vagner.myfinances;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static java.lang.Double.valueOf;
 
 public class AdaptadorFinances extends RecyclerView.Adapter<AdaptadorFinances.ViewHolderFinance> {
     private Cursor cursor;
@@ -121,7 +124,8 @@ public class AdaptadorFinances extends RecyclerView.Adapter<AdaptadorFinances.Vi
             this.tipoDespesa = tipoDespesa;
 
             textViewDesignacao.setText(tipoDespesa.getDescricaoDespesa());
-            textViewValor.setText(String.valueOf(tipoDespesa.getValor()));
+            textViewValor.setText("-" +String.format("%.2f",tipoDespesa.getValor()) + "€");
+            //textViewValor.setTextColor(Color.parseColor(String.valueOf(R.color.ColorRed)));
             textViewCategoriaDespesa.setText(tipoDespesa.getNomeCategoria());
         }
 

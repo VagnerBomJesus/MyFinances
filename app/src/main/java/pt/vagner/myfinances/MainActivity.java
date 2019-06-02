@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, DialogFragmentOrcamento.ExampleDialogListener{
+        implements NavigationView.OnNavigationItemSelectedListener{
     /*****************************Variáveis*****************************/
 
 
@@ -149,25 +149,13 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @Override
-    public void setValue(double orcamento) {
-        //Ação do botão "DEFINIR ORÇAMENTO" do dialog fragment
-        try {
-            insertOrcamentoDb(orcamento);
-            Toast.makeText(MainActivity.this, R.string.valor_orca_definido_sucesso,Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-            Toast.makeText(MainActivity.this, R.string.erro_inserir_valor_bd,Toast.LENGTH_LONG).show();
-        }
-
+    public void novaReceita(View view) { //Botão "NOVA RECEITA"
+        Intent i = new Intent(this, NovaReceita.class);
+        startActivity(i);
     }
-    /**
-     *
-     * @param orcamento
-     *
-     * inserir valor orçamento na BD
-     */
-    private void insertOrcamentoDb(double orcamento) {
-        //todo:
 
+    public void novaDespesa(View view) { //Botão "NOVA DESPESA"
+        Intent i = new Intent(this, NovaDespesa.class);
+        startActivity(i);
     }
 }

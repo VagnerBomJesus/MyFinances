@@ -12,7 +12,7 @@
       <li>Receita</li>
       <li>Despesa</li>
     </ul>
-    
+   
   </ul>
   <br>
 <li>-> Adicionar registros (despesa ou receita) extremamente rápido.</li>
@@ -20,3 +20,8 @@
 <li>-> Adicionar novas categorias.</li>
 <li>-> Visualizar um relatório de despesas e receitas.</li>
 </ul>
+<p>
+ <img src="https://user-images.githubusercontent.com/48354097/58759682-0f181a00-8526-11e9-9a81-551341af6faf.JPG
+        " alt="alt text" style="max-width:100%;"> 
+ 
+</p>

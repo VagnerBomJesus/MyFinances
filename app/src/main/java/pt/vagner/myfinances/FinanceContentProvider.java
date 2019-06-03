@@ -154,8 +154,7 @@ public class FinanceContentProvider extends ContentProvider {
                 return new BdTabelaTipoDespesa(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
 
             case URI_TIPO_DESPESA_ESPECIFICO:
-                return  new BdTabelaTipoDespesa(bd).query(projection, BdTabelaTipoDespesa._ID + "=?", new String[] { id }, null, null, null);
-
+                return  new BdTabelaTipoDespesa(bd).query(projection,  BdTabelaTipoDespesa.NOME_TABELA + "." + BdTabelaTipoDespesa._ID + "=?", new String[] { id }, null, null, null);
             default:
                 throw new UnsupportedOperationException("URI inválida (QUERY): " + uri.toString());
         }

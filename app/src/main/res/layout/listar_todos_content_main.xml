@@ -9,7 +9,7 @@
     tools:showIn="@layout/listar_todos_activity_main">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewLivros"
+        android:id="@+id/recyclerViewFinances"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>

@@ -95,7 +95,7 @@ public class AdaptadorFinances extends RecyclerView.Adapter<AdaptadorFinances.Vi
         return cursor.getCount();
     }
 
-    public TipoDespesa getLivroSelecionado() {
+    public TipoDespesa getFinacesSelecionado() {
         if (viewHolderFinanceSelecionado == null) return null;
 
         return viewHolderFinanceSelecionado.tipoDespesa;

@@ -28,16 +28,16 @@ public class EditDespesa extends AppCompatActivity implements LoaderManager.Load
 
     private static final int ID_CURSO_LOADER_CATEGORIAS = 0;
 
-    private EditText editTextTitulo;
+    private EditText editTextDescricao;
     private Spinner spinnerCategorias;
-    private EditText editTextPagina;
+    private EditText editTextValor;
 
     private TipoDespesa tipoDespesa = null;
 
     private boolean categoriasCarregadas = false;
     private boolean categoriaAtualizada = false;
 
-    private Uri enderecoLivroEditar;
+    private Uri enderecoFinanceEditar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,26 +48,26 @@ public class EditDespesa extends AppCompatActivity implements LoaderManager.Load
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        editTextTitulo = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
+        editTextDescricao = (EditText) findViewById(R.id.editTextDesignacaoDespesa);
         spinnerCategorias = (Spinner) findViewById(R.id.spinnerCategoriaDespesa);
-        editTextPagina = (EditText) findViewById(R.id.editTextValorDespesa);
+        editTextValor = (EditText) findViewById(R.id.editTextValorDespesa);
 
         getSupportLoaderManager().initLoader(ID_CURSO_LOADER_CATEGORIAS, null, this);
 
 
         Intent intent = getIntent();
 
-        long idLivro = intent.getLongExtra(ListarTodosMainActivity.ID_TIPO_DESPESA, -1);
+        long idFinance = intent.getLongExtra(ListarTodosMainActivity.ID_TIPO_DESPESA, -1);
 
-        if (idLivro == -1) {
+        if (idFinance == -1) {
             Toast.makeText(this, "Erro: não foi possível ler o tipoDespesa", Toast.LENGTH_LONG).show();
             finish();
             return;
         }
 
-        enderecoLivroEditar = Uri.withAppendedPath(FinanceContentProvider.ENDERECO_TIPO_DESPESA, String.valueOf(idLivro));
+        enderecoFinanceEditar = Uri.withAppendedPath(FinanceContentProvider.ENDERECO_TIPO_DESPESA, String.valueOf(idFinance));
 
-        Cursor cursor = getContentResolver().query(enderecoLivroEditar, BdTabelaTipoDespesa.TODAS_COLUNAS, null, null, null);
+        Cursor cursor = getContentResolver().query(enderecoFinanceEditar, BdTabelaTipoDespesa.TODAS_COLUNAS, null, null, null);
 
         if (!cursor.moveToNext()) {
             Toast.makeText(this, "Erro: não foi possível ler o tipoDespesa", Toast.LENGTH_LONG).show();
@@ -77,8 +77,8 @@ public class EditDespesa extends AppCompatActivity implements LoaderManager.Load
 
         tipoDespesa = TipoDespesa.fromCursor(cursor);
 
-        editTextTitulo.setText(tipoDespesa.getDescricaoDespesa());
-        editTextPagina.setText(String.valueOf(tipoDespesa.getValor()));
+        editTextDescricao.setText(tipoDespesa.getDescricaoDespesa());
+        editTextValor.setText(String.valueOf(tipoDespesa.getValor()));
 
         actualizaCategoriaSelecionada();
     }
@@ -183,13 +183,13 @@ public class EditDespesa extends AppCompatActivity implements LoaderManager.Load
         tipoDespesa.setValor(valor);
 
         try {
-            getContentResolver().update(enderecoLivroEditar, tipoDespesa.getContentValues(), null, null);
+            getContentResolver().update(enderecoFinanceEditar, tipoDespesa.getContentValues(), null, null);
 
-            Toast.makeText(this, getString(R.string.livro_guardado_sucesso), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.livro_guardado_sucesso), Toast.LENGTH_LONG).show();
             finish();
         } catch (Exception e) {
             Snackbar.make(
-                    editTextTitulo,
+                    editTextDescricao,
                     getString(R.string.erro_guardar_livro),
                     Snackbar.LENGTH_LONG)
                     .show();

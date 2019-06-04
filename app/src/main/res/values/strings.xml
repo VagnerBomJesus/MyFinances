@@ -39,7 +39,7 @@
 
     <string name="inserir_despesa">Inserir Despesa</string>
     <string name="valor_despesa">Valor €</string>
-    <string name="valor">Valor</string>
+    <string name="valor">Valor: </string>
     <string name="descricao_despesa">Descrição da despesa (opcional)</string>
     <string name="descricao_Edite">Descrição (opcional)</string>
     <string name="tipo">Despesa / Receita</string>
@@ -170,7 +170,9 @@
 
 
 
-
+<string name="elminarRegisto">Alerta, Eliminar Registo</string>
+    <string name="alertaEliminar">Tem certeza que deseja Eliminar!   </string>
+    <string name="naorecopera"> Ao eliminar não poderas o recoperar.</string>
 
 
 
@@ -185,10 +187,10 @@
     <string name="preecha_titulo">Preencha o título</string>
     <string name="preecha_pagina">Preecha a página</string>
     <string name="pagina_invalida">Página inválida</string>
-    <string name="erro_guardar_livro">Erro: Não foi possível guardar o tipoDespesa</string>
-    <string name="livro_guardado_sucesso">Livro guardado com suceeso</string>
+    <string name="erro_guardar_livro">Erro: Não foi possível guardar o Registo!</string>
+    <string name="livro_guardado_sucesso">Registo guardado com suceeso</string>
     <string name="title_activity_alterar_livro">AlterarLivroActivity</string>
-
+    <string name="nao_e_possimve_eliminar">Erro: não foi possível apagar o Registo</string>
 
 
 </resources>

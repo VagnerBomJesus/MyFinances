@@ -7,40 +7,6 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_opcao"
-        android:orderInCategory="100"
-        android:title="@string/action_opcao"
-        app:showAsAction="never">
-
-        <menu>
-            <item
-                android:id="@+id/action_Editar"
-                android:orderInCategory="100"
-                android:title="@string/action_Editar"
-                app:showAsAction="never" >
-                <menu>
-                    <item
-                        android:id="@+id/action_EditarReceita"
-                        android:orderInCategory="100"
-                        android:title="@string/Editar_receita"
-                        app:showAsAction="never" />
-                    <item
-                        android:id="@+id/action_EditarDespesa"
-                        android:orderInCategory="100"
-                        android:title="@string/Editar_despesa"
-                        app:showAsAction="never" />
-
-                </menu>
-            </item>
-            <item
-                android:id="@+id/action_Eliminar"
-                android:orderInCategory="100"
-                android:title="@string/action_Eliminar"
-                app:showAsAction="never">
-            </item>
-        </menu>
-    </item>
-    <item
         android:id="@+id/action_sobre"
         android:orderInCategory="100"
         android:title="@string/action_sobre"

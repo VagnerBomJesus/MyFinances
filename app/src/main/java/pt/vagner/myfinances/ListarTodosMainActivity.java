@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ListarTodosMainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final int ID_CURSO_LOADER_TIPO_DESPESA = 0;
+    public  static final String ID_TIPO_DESPESA = "ID_TIPO_DESPESA";
 
     private RecyclerView recyclerViewLivros;
     private AdaptadorFinances adaptadorFinances;
@@ -55,7 +56,7 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
         boolean mostraAlterarEliminar = (tipoDespesa != null);
 
 
-        menu.findItem(R.id.action_Editar).setVisible(mostraAlterarEliminar);
+        menu.findItem(R.id.action_EditarDespesa).setVisible(mostraAlterarEliminar);
        // menu.findItem(R.id.action_eliminar).setVisible(mostraAlterarEliminar);
     }
 
@@ -83,16 +84,20 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
         }
         if (id ==R.id.action_InserirDespesa){
             Intent i = new Intent(this, NovaDespesa.class);
+
             startActivity(i);
             return true;
         }
         if (id == R.id.action_EditarReceita) {//com sua ação Editar
             Intent i = new Intent(this, EditReceita.class);
+            //i.putExtra(ID_TIPO_DESPESA, adaptadorFinances.getLivroSelecionado().getId());
             startActivity(i);
             return true;
         }
         if (id == R.id.action_EditarDespesa) {//com sua ação Editar
             Intent i = new Intent(this, EditDespesa.class);
+            i.putExtra(ID_TIPO_DESPESA, adaptadorFinances.getLivroSelecionado().getId());
+
             startActivity(i);
             return true;
         }

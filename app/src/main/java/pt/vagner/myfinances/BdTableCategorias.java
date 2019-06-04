@@ -11,6 +11,7 @@ public class BdTableCategorias implements BaseColumns {
     public static final String CAMPO_DESCRICAO = "descricao";
 
     public static final String[] TODAS_COLUNAS = new String[] { _ID, CAMPO_DESCRICAO };
+    public static final String[] COLUNAS = new String[]{CAMPO_DESCRICAO};
 
     private SQLiteDatabase db;
 

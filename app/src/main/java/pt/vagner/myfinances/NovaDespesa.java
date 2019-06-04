@@ -3,8 +3,10 @@ package pt.vagner.myfinances;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
@@ -22,7 +24,10 @@ import androidx.loader.content.Loader;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import static pt.vagner.myfinances.BdTableCategorias.CAMPO_DESCRICAO;
 
 public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.OnDateSetListener, DialogFragmentCategoria.ExampleDialogListener, LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -32,6 +37,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
     private Spinner spinnerCategoriaDespesa;
     private EditText editTextValorDespesa;
     private EditText textViewSelectedDateDespesa;
+
 
 
     @Override
@@ -66,7 +72,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
                 this,
                 android.R.layout.simple_list_item_1,
                 cursorCategorias,
-                new String[]{BdTableCategorias.CAMPO_DESCRICAO},
+                new String[]{CAMPO_DESCRICAO},
                 new int[]{android.R.id.text1}
         );
         spinnerCategoriaDespesa.setAdapter(adaptadorCategorias);
@@ -136,8 +142,6 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         Intent intent = new Intent(this, ListarTodosMainActivity.class);
 
         intent.putExtra(DefinicoesApp.Designacao, designacao);
-
-        startActivity(intent);
 
         intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
 
@@ -215,21 +219,13 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
 
 
 
-    @Override
-    public void setTexts(String categoria) { //Ação do botão "addCategoriaDespesa"
 
-        try {
-             Toast.makeText(NovaDespesa.this,R.string.sms_cat_inserida_success,Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-            Toast.makeText(NovaDespesa.this,R.string.sms_error_inserir_cat_db,Toast.LENGTH_LONG).show();
-        }
-    }
 
 
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        androidx.loader.content.CursorLoader cursorLoader = new androidx.loader.content.CursorLoader(this, FinanceContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODAS_COLUNAS, null, null, BdTableCategorias.CAMPO_DESCRICAO
+        androidx.loader.content.CursorLoader cursorLoader = new androidx.loader.content.CursorLoader(this, FinanceContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODAS_COLUNAS, null, null, CAMPO_DESCRICAO
         );
 
         return cursorLoader;    }
@@ -244,4 +240,95 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
     public void onLoaderReset(@NonNull Loader<Cursor> loader) {
         mostraCategoriasSpinner(null);
     }
+
+    private void insertCategoria(String categoria) {
+        //Abrir BD
+        Categoria addcategoria = new Categoria();
+        addcategoria.setDescricao(categoria);
+
+
+        try {
+            getContentResolver().insert(FinanceContentProvider.ENDERECO_CATEGORIAS, addcategoria.getContentValues());
+        } catch (Exception e) {
+            Snackbar.make(
+                    editTextDesignacaoDespesa,
+                    getString(R.string.erro_inserir_registo_bd),
+                    Snackbar.LENGTH_LONG)
+                    .show();
+
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void setTexts(String categoria) { //Ação do botão "addCategoriaDespesa"
+
+        try {
+            if (checkCategoriaDespesa(categoria) != -1){ //Se devolver um id != -1 é porque já exite uma categoria com o nome que vamos inserir
+                Toast.makeText(NovaDespesa.this,R.string.cate_ja_exist,Toast.LENGTH_LONG).show();
+                return;
+            }
+            insertCategoria(categoria);
+            Toast.makeText(NovaDespesa.this,R.string.sms_cat_inserida_success,Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(NovaDespesa.this,R.string.sms_error_inserir_cat_db,Toast.LENGTH_LONG).show();
+        }
+       atualizarSpinner(); //Atualizar spinner
+
+    }
+    public int checkCategoriaDespesa(String categoria){
+        //Abrir a BD
+        BdFinancesOpenHelper OpenHelper = new BdFinancesOpenHelper(getApplicationContext());
+        //Leitura
+        SQLiteDatabase db = OpenHelper.getReadableDatabase();
+
+        String query = "SELECT "+BdTableCategorias._ID+" FROM "+BdTableCategorias.NOME_TABELA+" WHERE "+ CAMPO_DESCRICAO+" =?";
+        Cursor cursor = db.rawQuery(query,new String[]{categoria});
+
+        int id = -1;
+
+        if (cursor.getCount() > 0){
+            cursor.moveToFirst();
+            id = cursor.getInt(cursor.getColumnIndex(BdTableCategorias._ID));
+        }
+
+        cursor.close();
+        db.close();
+        return id;
+    }
+
+    private void atualizarSpinner(){
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, getCategoriasFrom());
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategoriaDespesa.setAdapter(adapter);
+    }
+    private ArrayList<String> getCategoriasFrom(){
+        //Abrir BD
+        BdFinancesOpenHelper OpenHelper = new BdFinancesOpenHelper(getApplicationContext());
+        //Leitura
+        SQLiteDatabase db = OpenHelper.getReadableDatabase();
+
+        BdTableCategorias bdTabelaCategoria = new BdTableCategorias(db);
+
+        Cursor cursor = bdTabelaCategoria.query(BdTableCategorias.COLUNAS, null, null, null, null, BdTableCategorias._ID);
+
+        ArrayList<String> list = NovaDespesa.getCategoriasFrom(cursor);
+
+        cursor.close();
+        db.close();
+        return list;
+    }
+    public static ArrayList<String> getCategoriasFrom(Cursor cursor){ //lista de cat. despesa
+        final int posCatDes = cursor.getColumnIndex(CAMPO_DESCRICAO);
+
+        ArrayList<String> list = new ArrayList<>();
+
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(posCatDes));
+            }while (cursor.moveToNext());
+        }
+
+        return list;
+    }
+
 }

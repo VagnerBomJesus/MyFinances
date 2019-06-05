@@ -27,7 +27,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import static pt.vagner.myfinances.BdTableCategorias.CAMPO_DESCRICAO;
+import static pt.vagner.myfinances.BdTabelaCategoria.CAMPO_DESCRICAO;
 
 public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.OnDateSetListener, DialogFragmentCategoria.ExampleDialogListener, LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -225,7 +225,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        androidx.loader.content.CursorLoader cursorLoader = new androidx.loader.content.CursorLoader(this, FinanceContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODAS_COLUNAS, null, null, CAMPO_DESCRICAO
+        androidx.loader.content.CursorLoader cursorLoader = new androidx.loader.content.CursorLoader(this, FinanceContentProvider.ENDERECO_CATEGORIAS, BdTabelaCategoria.TODAS_COLUNAS, null, null, CAMPO_DESCRICAO
         );
 
         return cursorLoader;    }
@@ -281,14 +281,14 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         //Leitura
         SQLiteDatabase db = OpenHelper.getReadableDatabase();
 
-        String query = "SELECT "+BdTableCategorias._ID+" FROM "+BdTableCategorias.NOME_TABELA+" WHERE "+ CAMPO_DESCRICAO+" =?";
+        String query = "SELECT "+ BdTabelaCategoria._ID+" FROM "+ BdTabelaCategoria.NOME_TABELA+" WHERE "+ CAMPO_DESCRICAO+" =?";
         Cursor cursor = db.rawQuery(query,new String[]{categoria});
 
         int id = -1;
 
         if (cursor.getCount() > 0){
             cursor.moveToFirst();
-            id = cursor.getInt(cursor.getColumnIndex(BdTableCategorias._ID));
+            id = cursor.getInt(cursor.getColumnIndex(BdTabelaCategoria._ID));
         }
 
         cursor.close();
@@ -307,9 +307,9 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         //Leitura
         SQLiteDatabase db = OpenHelper.getReadableDatabase();
 
-        BdTableCategorias bdTabelaCategoria = new BdTableCategorias(db);
+        BdTabelaCategoria bdTabelaCategoria = new BdTabelaCategoria(db);
 
-        Cursor cursor = bdTabelaCategoria.query(BdTableCategorias.COLUNAS, null, null, null, null, BdTableCategorias._ID);
+        Cursor cursor = bdTabelaCategoria.query(BdTabelaCategoria.COLUNAS, null, null, null, null, BdTabelaCategoria._ID);
 
         ArrayList<String> list = NovaDespesa.getCategoriasFrom(cursor);
 

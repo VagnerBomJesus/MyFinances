@@ -18,15 +18,20 @@ public class FinanceContentProvider extends ContentProvider {
     public static final String AUTHORITY = "pt.vagner.myfinances";
     public static final String CATEGORIAS = "categorias";
     public static final String TIPO_DESPESA = "tipoDespesa";
+    public static final String TIPO_RECEITA = "tipoReceita";
+
 
     private static final Uri ENDERECO_BASE = Uri.parse("content://" + AUTHORITY);
     public static final Uri ENDERECO_CATEGORIAS = Uri.withAppendedPath(ENDERECO_BASE, CATEGORIAS);
     public static final Uri ENDERECO_TIPO_DESPESA = Uri.withAppendedPath(ENDERECO_BASE, TIPO_DESPESA);
+    public static  final Uri ENDERECO_TIPO_RECEITA = Uri.withAppendedPath(ENDERECO_BASE, TIPO_RECEITA);
 
     public static final int URI_CATEGORIAS = 100;
     public static final int URI_CATEGORIA_ESPECIFICA = 101;
     public static final int URI_TIPO_DESPESA = 200;
     public static final int URI_TIPO_DESPESA_ESPECIFICO = 201;
+    public static final int URI_TIPO_RECEITA = 300;
+    public static final int URI_TIPO_RECEITA_ESPECIFICA = 301;
 
     public static final String UNICO_ITEM = "vnd.android.cursor.item/";
     public static final String MULTIPLOS_ITEMS = "vnd.android.cursor.dir/";
@@ -40,6 +45,8 @@ public class FinanceContentProvider extends ContentProvider {
         uriMatcher.addURI(AUTHORITY, CATEGORIAS + "/#", URI_CATEGORIA_ESPECIFICA);
         uriMatcher.addURI(AUTHORITY, TIPO_DESPESA, URI_TIPO_DESPESA);
         uriMatcher.addURI(AUTHORITY, TIPO_DESPESA + "/#", URI_TIPO_DESPESA_ESPECIFICO);
+        uriMatcher.addURI(AUTHORITY, TIPO_RECEITA, URI_TIPO_RECEITA);
+        uriMatcher.addURI(AUTHORITY, TIPO_RECEITA + "/#", URI_TIPO_RECEITA_ESPECIFICA);
 
         return uriMatcher;
     }
@@ -145,16 +152,20 @@ public class FinanceContentProvider extends ContentProvider {
 
         switch (getUriMatcher().match(uri)) {
             case URI_CATEGORIAS:
-                return new BdTableCategorias(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
-
+                return new BdTabelaCategoria(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
             case URI_CATEGORIA_ESPECIFICA:
-                return new BdTableCategorias(bd).query(projection, BdTableCategorias._ID + "=?", new String[] { id }, null, null, null);
+                return new BdTabelaCategoria(bd).query(projection, BdTabelaCategoria._ID + "=?", new String[] { id }, null, null, null);
 
             case URI_TIPO_DESPESA:
                 return new BdTabelaTipoDespesa(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
-
             case URI_TIPO_DESPESA_ESPECIFICO:
                 return  new BdTabelaTipoDespesa(bd).query(projection,  BdTabelaTipoDespesa.NOME_TABELA + "." + BdTabelaTipoDespesa._ID + "=?", new String[] { id }, null, null, null);
+
+            case URI_TIPO_RECEITA:
+                return new BdTabelaTipoReceita(bd).query(projection, selection, selectionArgs, null,null, sortOrder);
+            case URI_TIPO_RECEITA_ESPECIFICA:
+                return  new BdTabelaTipoReceita(bd).query(projection,  BdTabelaTipoReceita.NOME_TABELA + "." + BdTabelaTipoReceita._ID + "=?", new String[] { id }, null, null, null);
+
             default:
                 throw new UnsupportedOperationException("URI inválida (QUERY): " + uri.toString());
         }
@@ -186,10 +197,17 @@ public class FinanceContentProvider extends ContentProvider {
                 return MULTIPLOS_ITEMS + CATEGORIAS;
             case URI_CATEGORIA_ESPECIFICA:
                 return UNICO_ITEM + CATEGORIAS;
+
             case URI_TIPO_DESPESA:
                 return MULTIPLOS_ITEMS + TIPO_DESPESA;
             case URI_TIPO_DESPESA_ESPECIFICO:
                 return UNICO_ITEM + TIPO_DESPESA;
+
+            case URI_TIPO_RECEITA:
+                return  MULTIPLOS_ITEMS +TIPO_RECEITA;
+            case URI_TIPO_RECEITA_ESPECIFICA:
+                return UNICO_ITEM + TIPO_RECEITA;
+
             default:
                 return null;
         }
@@ -217,11 +235,15 @@ public class FinanceContentProvider extends ContentProvider {
 
         switch (getUriMatcher().match(uri)) {
             case URI_CATEGORIAS:
-                id = new BdTableCategorias(bd).insert(values);
+                id = new BdTabelaCategoria(bd).insert(values);
                 break;
 
             case URI_TIPO_DESPESA:
                 id = new BdTabelaTipoDespesa(bd).insert(values);
+                break;
+
+            case URI_TIPO_RECEITA:
+                id = new BdTabelaTipoReceita(bd).insert(values);
                 break;
 
             default:
@@ -264,9 +286,12 @@ public class FinanceContentProvider extends ContentProvider {
 
         switch (getUriMatcher().match(uri)) {
             case URI_CATEGORIA_ESPECIFICA:
-                return new BdTableCategorias(bd).delete( BdTableCategorias._ID + "=?", new String[] {id});
+                return new BdTabelaCategoria(bd).delete( BdTabelaCategoria._ID + "=?", new String[] {id});
             case URI_TIPO_DESPESA_ESPECIFICO:
                 return new BdTabelaTipoDespesa(bd).delete(BdTabelaTipoDespesa._ID + "=?", new String[] {id});
+            case URI_TIPO_RECEITA_ESPECIFICA:
+                return new BdTabelaTipoReceita(bd).delete(BdTabelaTipoReceita._ID + "=?", new String[] {id});
+
             default:
                 throw new UnsupportedOperationException("URI inválida (DELETE): " + uri.toString());
         }
@@ -298,9 +323,13 @@ public class FinanceContentProvider extends ContentProvider {
 
         switch (getUriMatcher().match(uri)) {
             case URI_CATEGORIA_ESPECIFICA:
-                return new BdTableCategorias(bd).update(values, BdTableCategorias._ID + "=?", new String[] {id});
+                return new BdTabelaCategoria(bd).update(values, BdTabelaCategoria._ID + "=?", new String[] {id});
             case URI_TIPO_DESPESA_ESPECIFICO:
                 return new BdTabelaTipoDespesa(bd).update(values, BdTabelaTipoDespesa._ID + "=?", new String[] {id});
+            case URI_TIPO_RECEITA_ESPECIFICA:
+                return new BdTabelaTipoReceita(bd).update(values, BdTabelaTipoReceita._ID + "=?", new String[] {id});
+
+
             default:
                 throw new UnsupportedOperationException("URI inválida (UPDATE): " + uri.toString());
         }

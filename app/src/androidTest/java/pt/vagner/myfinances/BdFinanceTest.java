@@ -47,7 +47,7 @@ public class BdFinanceTest {
         BdFinancesOpenHelper openHelper = new BdFinancesOpenHelper(getAppContext());
         SQLiteDatabase db = openHelper.getWritableDatabase();
 
-        BdTableCategorias tabelaCategorias = new BdTableCategorias(db);
+        BdTabelaCategoria tabelaCategorias = new BdTabelaCategoria(db);
 
         // Teste read categorias (cRud)
         Cursor cursorCategorias = getCategorias(tabelaCategorias);
@@ -78,7 +78,7 @@ public class BdFinanceTest {
         nome = "Inposto / Faturas";
         categoria.setDescricao(nome);
 
-        int registosAlterados = tabelaCategorias.update(categoria.getContentValues(), BdTableCategorias._ID + "=?", new String[]{String.valueOf(idSaude)});
+        int registosAlterados = tabelaCategorias.update(categoria.getContentValues(), BdTabelaCategoria._ID + "=?", new String[]{String.valueOf(idSaude)});
 
         assertEquals(1, registosAlterados);
 
@@ -92,7 +92,7 @@ public class BdFinanceTest {
         cursorCategorias = getCategorias(tabelaCategorias);
         assertEquals(3, cursorCategorias.getCount());
 
-        tabelaCategorias.delete(BdTableCategorias._ID + "=?", new String[]{String.valueOf(id)});
+        tabelaCategorias.delete(BdTabelaCategoria._ID + "=?", new String[]{String.valueOf(id)});
         cursorCategorias = getCategorias(tabelaCategorias);
         assertEquals(2, cursorCategorias.getCount());
 
@@ -157,7 +157,7 @@ public class BdFinanceTest {
         assertEquals(2, cursorTipoDespesa.getCount());
     }
 
-    private long criaCategoria(BdTableCategorias tabelaCategorias, String nome) {
+    private long criaCategoria(BdTabelaCategoria tabelaCategorias, String nome) {
         Categoria categoria = new Categoria();
         categoria.setDescricao(nome);
 
@@ -167,8 +167,8 @@ public class BdFinanceTest {
         return id;
     }
 
-    private Cursor getCategorias(BdTableCategorias tabelaCategorias) {
-        return tabelaCategorias.query(BdTableCategorias.TODAS_COLUNAS, null, null, null, null, null);
+    private Cursor getCategorias(BdTabelaCategoria tabelaCategorias) {
+        return tabelaCategorias.query(BdTabelaCategoria.TODAS_COLUNAS, null, null, null, null, null);
     }
 
     private Categoria getCategoriaComID(Cursor cursor, long id) {

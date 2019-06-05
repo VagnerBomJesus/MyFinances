@@ -2,7 +2,6 @@ package pt.vagner.myfinances;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import static java.lang.Double.valueOf;
 
-public class AdaptadorFinances extends RecyclerView.Adapter<AdaptadorFinances.ViewHolderFinance> {
+public class AdaptadorFinanceTipoDespesa extends RecyclerView.Adapter<AdaptadorFinanceTipoDespesa.ViewHolderFinance> {
     private Cursor cursor;
     private Context context;
 
-    public AdaptadorFinances(Context context) {
+    public AdaptadorFinanceTipoDespesa(Context context) {
         this.context = context;
     }
 

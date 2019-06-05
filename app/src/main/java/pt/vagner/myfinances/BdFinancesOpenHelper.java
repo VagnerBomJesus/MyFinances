@@ -31,8 +31,9 @@ public class BdFinancesOpenHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        new BdTableCategorias(db).cria();
+        new BdTabelaCategoria(db).cria();
         new BdTabelaTipoDespesa(db).cria();
+        new BdTabelaTipoReceita(db).cria();
     }
 
     /**

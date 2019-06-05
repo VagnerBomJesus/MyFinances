@@ -6,25 +6,25 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main"
-    android:background="#e7e7e7"
+    android:background="#E7E7E7"
     tools:context="pt.vagner.myfinances.MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="375dp"
         android:layout_height="521dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonNovaReceita"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.567"
         app:srcCompat="@drawable/status_main" />
 
     <Button
@@ -77,6 +77,7 @@
         android:text="@string/saldo"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
+        app:fontFamily="@font/advent_pro_semibold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,13 +87,14 @@
         android:id="@+id/textViewReceitasMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="8dp"
         android:text="@string/receitas"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        app:fontFamily="@font/advent_pro_semibold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewShowSaldoMain" />
 
@@ -100,13 +102,14 @@
         android:id="@+id/textViewDespesasMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="4dp"
         android:text="@string/despesas"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        app:fontFamily="@font/advent_pro_semibold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewReceitasMain" />
 
@@ -114,53 +117,56 @@
         android:id="@+id/textViewShowSaldoMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/_1024_78"
+        android:layout_marginStart="8dp"
+        android:text="1024,78€"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/background_dark"
+        app:fontFamily="@font/advent_pro_semibold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSaldoMain"
-        tools:text="@string/_1024_78" />
+        tools:text="1024,78€" />
 
     <TextView
         android:id="@+id/textViewShowReceitasMain"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/_24_78"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="24,78€"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp"
+        app:fontFamily="@font/advent_pro_semibold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewReceitasMain"
         app:layout_constraintTop_toBottomOf="@+id/textViewShowSaldoMain"
-        tools:text="@string/_24_78" />
+        tools:text="24,78€" />
 
     <TextView
         android:id="@+id/textViewShowDespesasMain"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/_284_82"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="284,82€"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
+        app:fontFamily="@font/advent_pro_semibold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewDespesasMain"
         app:layout_constraintTop_toBottomOf="@+id/textViewShowReceitasMain"
-        tools:text="@string/_284_82" />
+        tools:text="284,82€" />
 
     <TextView
         android:id="@+id/textViewShowDiaMesAno"
@@ -188,15 +194,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewShowDiaMesAno" />
-
-    <TextView
-        android:id="@+id/fab"
-        android:layout_width="413dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNovaDespesa" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

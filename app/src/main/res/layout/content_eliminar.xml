@@ -15,8 +15,8 @@
         android:id="@+id/buttonGuardarEitado"
         android:layout_width="131dp"
         android:layout_height="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:background="@drawable/buttoncancelar_shape"
         android:onClick="Eliminar"
         android:text="@string/eliminar"
@@ -72,18 +72,17 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="129dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
         android:background="@drawable/buttoncancelar_shape"
         android:onClick="cancel"
         android:text="@string/cancelar"
         android:textColor="#FFFFFF"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintStart_toEndOf="@+id/buttonGuardarEitado"
-        app:layout_constraintTop_toBottomOf="@+id/textViewValor" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <TextView
         android:id="@+id/textView21"

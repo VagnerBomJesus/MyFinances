@@ -24,7 +24,7 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
     public  static final String ID_TIPO_DESPESA = "ID_TIPO_DESPESA";
 
     private RecyclerView recyclerViewFinances;
-    private AdaptadorFinances adaptadorFinances;
+    private AdaptadorFinanceTipoDespesa adaptadorFinanceTipoDespesa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +36,8 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
         getSupportLoaderManager().initLoader(ID_CURSO_LOADER_TIPO_DESPESA, null, this);
 
         recyclerViewFinances = (RecyclerView) findViewById(R.id.recyclerViewFinances);
-        adaptadorFinances = new AdaptadorFinances(this);
-        recyclerViewFinances.setAdapter(adaptadorFinances);
+        adaptadorFinanceTipoDespesa = new AdaptadorFinanceTipoDespesa(this);
+        recyclerViewFinances.setAdapter(adaptadorFinanceTipoDespesa);
         recyclerViewFinances.setLayoutManager(new LinearLayoutManager(this));
     }
 
@@ -51,7 +51,7 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
     private Menu menu;
 
     public void atualizaOpcoesMenu() {
-        TipoDespesa tipoDespesa = adaptadorFinances.getFinacesSelecionado();
+        TipoDespesa tipoDespesa = adaptadorFinanceTipoDespesa.getFinacesSelecionado();
 
         boolean mostraAlterarEliminar = (tipoDespesa != null);
 
@@ -90,20 +90,20 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
         }
         if (id == R.id.action_EditarReceita) {//com sua ação Editar
             Intent i = new Intent(this, EditReceita.class);
-            //i.putExtra(ID_TIPO_DESPESA, adaptadorFinances.getFinacesSelecionado().getId());
+            //i.putExtra(ID_TIPO_DESPESA, adaptadorFinanceTipoDespesa.getFinacesSelecionado().getId());
             startActivity(i);
             return true;
         }
         if (id == R.id.action_EditarDespesa) {//com sua ação Editar
             Intent i = new Intent(this, EditDespesa.class);
-            i.putExtra(ID_TIPO_DESPESA, adaptadorFinances.getFinacesSelecionado().getId());
+            i.putExtra(ID_TIPO_DESPESA, adaptadorFinanceTipoDespesa.getFinacesSelecionado().getId());
 
             startActivity(i);
             return true;
         }
         if(id == R.id.action_Eliminar){
             Intent i = new Intent(this, Eliminar.class);
-            i.putExtra(ID_TIPO_DESPESA, adaptadorFinances.getFinacesSelecionado().getId());
+            i.putExtra(ID_TIPO_DESPESA, adaptadorFinanceTipoDespesa.getFinacesSelecionado().getId());
             startActivity(i);
             return true;
         }
@@ -174,7 +174,7 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
      */
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
-        adaptadorFinances.setCursor(data);
+        adaptadorFinanceTipoDespesa.setCursor(data);
     }
 
     /**
@@ -188,6 +188,6 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
      */
     @Override
     public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-        adaptadorFinances.setCursor(null);
+        adaptadorFinanceTipoDespesa.setCursor(null);
     }
 }

@@ -109,7 +109,7 @@ public class EditDespesa extends AppCompatActivity implements LoaderManager.Load
                 this,
                 android.R.layout.simple_list_item_1,
                 cursorCategorias,
-                new String[]{BdTableCategorias.CAMPO_DESCRICAO},
+                new String[]{BdTabelaCategoria.CAMPO_DESCRICAO},
                 new int[]{android.R.id.text1}
         );
         spinnerCategorias.setAdapter(adaptadorCategorias);
@@ -212,7 +212,7 @@ public class EditDespesa extends AppCompatActivity implements LoaderManager.Load
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        androidx.loader.content.CursorLoader cursorLoader = new androidx.loader.content.CursorLoader(this, FinanceContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODAS_COLUNAS, null, null, BdTableCategorias.CAMPO_DESCRICAO
+        androidx.loader.content.CursorLoader cursorLoader = new androidx.loader.content.CursorLoader(this, FinanceContentProvider.ENDERECO_CATEGORIAS, BdTabelaCategoria.TODAS_COLUNAS, null, null, BdTabelaCategoria.CAMPO_DESCRICAO
         );
 
         return cursorLoader;

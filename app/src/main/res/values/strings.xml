@@ -169,12 +169,9 @@
     <string name="nova_cat">Nova Categoria</string>
 
 
-
-<string name="elminarRegisto">Alerta, Eliminar Registo</string>
+    <string name="elminarRegisto">Alerta, Eliminar Registo</string>
     <string name="alertaEliminar">Tem certeza que deseja Eliminar!   </string>
     <string name="naorecopera"> Ao eliminar não poderas o recoperar.</string>
-
-
 
 
     <string name="inserir">Inserir</string>
@@ -191,6 +188,13 @@
     <string name="livro_guardado_sucesso">Registo guardado com suceeso</string>
     <string name="title_activity_alterar_livro">AlterarLivroActivity</string>
     <string name="nao_e_possimve_eliminar">Erro: não foi possível apagar o Registo</string>
+    <string name="title_activity_listar_todos_tipo_receita">ListarTodosTipoReceitaActivity</string>
 
-
+    <string name="TITULO_receita">Listar Receita...</string>
+    <string name="TITULO_despesa">Listar Despesa...</string>
+    <string name="acion_receita">Listar Receita</string>
+    <string name="acion_despesa">Listar Despesa</string>
+    <string name="receita">Receita</string>
+    <string name="despesa">Despesa</string>
+    <string name="title_activity_listar_todo_tipo_receita">ListarTodoTipoReceitaActivity</string>
 </resources>

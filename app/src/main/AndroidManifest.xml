@@ -11,18 +11,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ListarTodoTipoReceitaActivity"
+            android:label="@string/TITULO_receita"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.vagner.myfinances.MainActivity" />
+        </activity>
+        <activity
             android:name=".EditReceita"
             android:label="@string/editar_receita"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".EditDespesa"
             android:label="@string/editar_despesa"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ListarTodosMainActivity"
-            android:label="@string/title_activity_listar_todos"
+            android:name=".ListarTodoTipoDespesaActivity"
+            android:label="@string/TITULO_despesa"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -72,6 +81,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
             android:name=".FinanceContentProvider"
             android:authorities="pt.vagner.myfinances"

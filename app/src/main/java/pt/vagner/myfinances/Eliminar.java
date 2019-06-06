@@ -3,14 +3,12 @@ package pt.vagner.myfinances;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.TextView;
@@ -35,7 +33,7 @@ public class Eliminar extends AppCompatActivity {
         TextView textViewValor = (TextView) findViewById(R.id.textViewValor);
 
         Intent intent = getIntent();
-        long idTipoDespesa = intent.getLongExtra(ListarTodosMainActivity.ID_TIPO_DESPESA, -1);
+        long idTipoDespesa = intent.getLongExtra(ListarTodoTipoDespesaActivity.ID_TIPO_DESPESA, -1);
         if (idTipoDespesa == -1) {
             Toast.makeText(this, getString(R.string.nao_e_possimve_eliminar), Toast.LENGTH_LONG).show();
             finish();
@@ -112,7 +110,7 @@ public class Eliminar extends AppCompatActivity {
         Toast.makeText(this,R.string.registo_eliminado_success,
                 Toast.LENGTH_LONG).show();
 
-        Intent intent = new Intent(this, ListarTodosMainActivity.class);
+        Intent intent = new Intent(this, ListarTodoTipoDespesaActivity.class);
         startActivity(intent);
     }
 }

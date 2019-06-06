@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdaptadorFinanceTipoReceita extends RecyclerView.Adapter<AdaptadorFinanceTipoReceita.ViewHolderFinance> {
+public class AdaptadorFinanceTipoReceita extends RecyclerView.Adapter<AdaptadorFinanceTipoReceita.ViewHolderFinanceR> {
 
     private Cursor cursor;
     private Context context;
@@ -27,18 +27,16 @@ public class AdaptadorFinanceTipoReceita extends RecyclerView.Adapter<AdaptadorF
     }
 
 
-
-
     @NonNull
     @Override
-    public ViewHolderFinance onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemFinance = LayoutInflater.from(context).inflate(R.layout.layout_view_listar_todos, parent, false);
+    public AdaptadorFinanceTipoReceita.ViewHolderFinanceR onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemFinaceReceita = LayoutInflater.from(context).inflate(R.layout.layout_view_listar_todos_r, parent, false);
 
-        return new ViewHolderFinance(itemFinance);
+        return new ViewHolderFinanceR(itemFinaceReceita);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderFinance holder, int position) {
+    public void onBindViewHolder(@NonNull AdaptadorFinanceTipoReceita.ViewHolderFinanceR holder, int position) {
         cursor.moveToPosition(position);
         TipoReceita tipoReceita = TipoReceita.fromCursor(cursor);
         holder.setTipoReceita(tipoReceita);
@@ -46,34 +44,33 @@ public class AdaptadorFinanceTipoReceita extends RecyclerView.Adapter<AdaptadorF
 
     @Override
     public int getItemCount() {
-        if (cursor == null) return 0;
+        if(cursor == null)return 0;
 
         return cursor.getCount();
     }
 
-    public TipoReceita getFinacesSelecionado() {
-        if (viewHolderFinanceSelecionado == null) return null;
 
-        return viewHolderFinanceSelecionado.tipoReceita;
+    public TipoReceita getLivroSelecionado() {
+        if (viewHolderLivroSelecionado == null) return null;
+
+        return viewHolderLivroSelecionado.tipoReceita;
     }
 
-    private static ViewHolderFinance viewHolderFinanceSelecionado = null;
+    private static ViewHolderFinanceR viewHolderLivroSelecionado = null;
 
+    public class ViewHolderFinanceR extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public class ViewHolderFinance extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-        private TextView textViewDesignacao;
-        private TextView textViewCategoriaDespesa;
+        private TextView textViewDesignacaoReceita;
+        private TextView textViewCategoriaReceita;
         private TextView textViewValor;
 
         private TipoReceita tipoReceita;
 
-
-        public ViewHolderFinance(@NonNull View itemView) {
+        public ViewHolderFinanceR(@NonNull View itemView) {
             super(itemView);
 
-            textViewDesignacao = (TextView)itemView.findViewById(R.id.textViewDesignacao);
-            textViewCategoriaDespesa =  (TextView)itemView.findViewById(R.id.textViewCategoriaDespesa);
+            textViewDesignacaoReceita = (TextView)itemView.findViewById(R.id.textViewDesignacaoReceita);
+            textViewCategoriaReceita =  (TextView)itemView.findViewById(R.id.textViewCategoriaReceita);
             textViewValor =  (TextView)itemView.findViewById(R.id.textViewValor);
 
             itemView.setOnClickListener(this);
@@ -82,23 +79,23 @@ public class AdaptadorFinanceTipoReceita extends RecyclerView.Adapter<AdaptadorF
         public void setTipoReceita(TipoReceita tipoReceita) {
             this.tipoReceita = tipoReceita;
 
-            textViewDesignacao.setText(tipoReceita.getDescricaoReceita());
-            textViewValor.setText("" +String.format("%.2f",tipoReceita.getValor()) + "€");
-            //textViewValor.setTextColor(Color.parseColor(String.valueOf(R.color.ColorRed)));
-            textViewCategoriaDespesa.setText(tipoReceita.getNomeCategoria());
+            textViewDesignacaoReceita.setText(tipoReceita.getDescricaoReceita());
+            textViewValor.setText(String.format("%.2f",tipoReceita.getValor()) + "€");
+            textViewCategoriaReceita.setText(tipoReceita.getNomeCategoria());
         }
 
         @Override
         public void onClick(View v) {
-            if (viewHolderFinanceSelecionado != null) {
-                viewHolderFinanceSelecionado.desSeleciona();
+            if (viewHolderLivroSelecionado != null) {
+                viewHolderLivroSelecionado.desSeleciona();
             }
 
-            viewHolderFinanceSelecionado = this;
+            viewHolderLivroSelecionado = this;
 
-            ((ListarTodosMainActivity) context).atualizaOpcoesMenu();
+            //((ListarTodoTipoReceitaActivity) context).atualizaOpcoesMenu();
 
-            seleciona();        }
+            seleciona();
+        }
 
         private void desSeleciona() {
             itemView.setBackgroundResource(android.R.color.white);

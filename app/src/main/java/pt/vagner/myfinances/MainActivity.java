@@ -16,8 +16,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -129,12 +127,12 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(this, ListarAno.class);
             startActivity(i);
         } else */
-        if (id == R.id.nav_ltodos) {
-            Intent i = new Intent(this, ListarTodosMainActivity.class);
+        if (id == R.id.nav_ltodosD) {
+            Intent i = new Intent(this, ListarTodoTipoDespesaActivity.class);
             startActivity(i);
-        } else if (id == R.id.nav_orca) {
-            DialogFragmentOrcamento dialogFragmentOrcamento = new DialogFragmentOrcamento();
-            dialogFragmentOrcamento.show(getSupportFragmentManager(), "DialogFragmentOrcamento");
+        } else if (id == R.id.nav_ltodosR) {
+            Intent i = new Intent(this, ListarTodoTipoReceitaActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_sobre) {
             Intent i = new Intent(this, sobre.class);
             startActivity(i);

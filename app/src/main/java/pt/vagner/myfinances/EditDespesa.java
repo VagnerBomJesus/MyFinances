@@ -57,7 +57,7 @@ public class EditDespesa extends AppCompatActivity implements LoaderManager.Load
 
         Intent intent = getIntent();
 
-        long idFinance = intent.getLongExtra(ListarTodosMainActivity.ID_TIPO_DESPESA, -1);
+        long idFinance = intent.getLongExtra(ListarTodoTipoDespesaActivity.ID_TIPO_DESPESA, -1);
 
         if (idFinance == -1) {
             Toast.makeText(this, "Erro: não foi possível ler o tipoDespesa", Toast.LENGTH_LONG).show();

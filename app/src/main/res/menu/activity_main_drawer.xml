@@ -4,26 +4,16 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <!---<item
-            android:id="@+id/nav_ldia"
-            android:icon="@drawable/ic_menu_sort_by_size"
-            android:title="@string/listar_por_dia" />
+
         <item
-            android:id="@+id/nav_lmes"
+            android:id="@+id/nav_ltodosR"
             android:icon="@drawable/ic_menu_sort_by_size"
-            android:title="@string/listar_por_mes" />
+            android:title="@string/acion_receita" />
         <item
-            android:id="@+id/nav_lano"
+            android:id="@+id/nav_ltodosD"
             android:icon="@drawable/ic_menu_sort_by_size"
-            android:title="@string/listar_por_ano" />-->
-        <item
-            android:id="@+id/nav_ltodos"
-            android:icon="@drawable/ic_menu_sort_by_size"
-            android:title="@string/listar_todos_1" />
-        <item
-            android:id="@+id/nav_orca"
-            android:icon="@drawable/ic_menu_add"
-            android:title="@string/definir_orca" />
+            android:title="@string/acion_despesa" />
+
         <item
             android:id="@+id/nav_gestcategorias"
             android:icon="@drawable/ic_menu_manage"

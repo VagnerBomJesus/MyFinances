@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -157,35 +158,7 @@ public class BdFinanceTest {
         assertEquals(2, cursorTipoDespesa.getCount());
     }
 
-    private long criaCategoria(BdTabelaCategoria tabelaCategorias, String nome) {
-        Categoria categoria = new Categoria();
-        categoria.setDescricao(nome);
 
-        long id = tabelaCategorias.insert(categoria.getContentValues());
-        assertNotEquals(-1, id);
-
-        return id;
-    }
-
-    private Cursor getCategorias(BdTabelaCategoria tabelaCategorias) {
-        return tabelaCategorias.query(BdTabelaCategoria.TODAS_COLUNAS, null, null, null, null, null);
-    }
-
-    private Categoria getCategoriaComID(Cursor cursor, long id) {
-        Categoria categoria = null;
-
-        while (cursor.moveToNext()) {
-            categoria = Categoria.fromCursor(cursor);
-
-            if (categoria.getId() == id) {
-                break;
-            }
-        }
-
-        assertNotNull(categoria);
-
-        return categoria;
-    }
 
     private long criaTipoDespesa(BdTabelaTipoDespesa tabelaTipoDespesa, String descricaoDespesa, double valor, long categoria) {
         TipoDespesa tipoDespesa = new TipoDespesa();
@@ -218,5 +191,183 @@ public class BdFinanceTest {
         assertNotNull(tipoDespesa);
 
         return tipoDespesa;
+    }
+    /************************************************************************/
+    @Test
+    public void BdTipoReceitaTest() {
+        BdFinancesOpenHelper openHelper = new BdFinancesOpenHelper(getAppContext());
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+
+        BdTabelaCategoria tabelaCategorias = new BdTabelaCategoria(db);
+
+        // Teste read categorias (cRud)
+        Cursor cursorCategorias = getCategorias(tabelaCategorias);
+        Assert.assertEquals(0, cursorCategorias.getCount());
+
+        // Teste create/read categorias (CRud)
+        String nome = "Depósito";
+        long idDeposito = criaCategoria(tabelaCategorias, nome);
+
+        cursorCategorias = getCategorias(tabelaCategorias);
+        Assert.assertEquals(1, cursorCategorias.getCount());
+
+        Categoria categoria = getCategoriaComID(cursorCategorias, idDeposito);
+
+        Assert.assertEquals(nome, categoria.getDescricao());
+
+        nome = "Economias";
+        long idEconomias = criaCategoria(tabelaCategorias, nome);
+
+        cursorCategorias = getCategorias(tabelaCategorias);
+        Assert.assertEquals(2, cursorCategorias.getCount());
+
+        categoria = getCategoriaComID(cursorCategorias, idEconomias);
+
+        Assert.assertEquals(nome, categoria.getDescricao());
+
+        // Teste Update/Read categorias (cRUd)
+        nome = "Transporte";
+        categoria.setDescricao(nome);
+
+        int registosAlterados = tabelaCategorias.update(categoria.getContentValues(), BdTabelaCategoria._ID + "=?", new String[]{String.valueOf(idEconomias)});
+
+        Assert.assertEquals(1, registosAlterados);
+
+        cursorCategorias = getCategorias(tabelaCategorias);
+        categoria = getCategoriaComID(cursorCategorias, idEconomias);
+
+        Assert.assertEquals(nome, categoria.getDescricao());
+
+        // Teste Create/Delete/Read categorias (CRuD)
+        long id = criaCategoria(tabelaCategorias, "TESTE");
+        cursorCategorias = getCategorias(tabelaCategorias);
+        Assert.assertEquals(3, cursorCategorias.getCount());
+
+        tabelaCategorias.delete(BdTabelaCategoria._ID + "=?", new String[]{String.valueOf(id)});
+        cursorCategorias = getCategorias(tabelaCategorias);
+        Assert.assertEquals(2, cursorCategorias.getCount());
+
+        getCategoriaComID(cursorCategorias, idDeposito);
+        getCategoriaComID(cursorCategorias, idEconomias);
+
+        BdTabelaTipoReceita bdTabelaTipoReceita = new BdTabelaTipoReceita(db);
+
+        // Teste read Receita (cRud)
+        Cursor cursorTipoReceita = getTipoReceita(bdTabelaTipoReceita);
+        Assert.assertEquals(0, cursorTipoReceita.getCount());
+
+        // Teste create/read categorias (CRud)
+        String descricaoReceita = "Manutenção";
+        double valor = 23.9;
+
+        id = criaTipoReceita(bdTabelaTipoReceita, descricaoReceita, valor, idDeposito);
+        cursorTipoReceita = getTipoReceita(bdTabelaTipoReceita);
+        Assert.assertEquals(1, cursorTipoReceita.getCount());
+
+        TipoReceita tipoReceita = getTipoReceitaComID(cursorTipoReceita, id);
+        Assert.assertEquals(descricaoReceita, tipoReceita.getDescricaoReceita());
+        Assert.assertEquals(valor, tipoReceita.getValor());
+        Assert.assertEquals(idDeposito, tipoReceita.getCategoria());
+
+        descricaoReceita = "Bateria";
+        valor = 100.9;
+        id = criaTipoReceita(bdTabelaTipoReceita, descricaoReceita, valor, idEconomias);
+        cursorTipoReceita = getTipoReceita(bdTabelaTipoReceita);
+        Assert.assertEquals(2, cursorTipoReceita.getCount());
+
+        tipoReceita = getTipoReceitaComID(cursorTipoReceita, id);
+        Assert.assertEquals(descricaoReceita, tipoReceita.getDescricaoReceita());
+        Assert.assertEquals(valor, tipoReceita.getValor());
+        Assert.assertEquals(idEconomias, tipoReceita.getCategoria());
+
+        id = criaTipoReceita(bdTabelaTipoReceita, "Teste", 1, idDeposito);
+        cursorTipoReceita = getTipoReceita(bdTabelaTipoReceita);
+        Assert.assertEquals(3, cursorTipoReceita.getCount());
+
+        // Teste read/update Receita (cRUd)
+        tipoReceita = getTipoReceitaComID(cursorTipoReceita, id);
+        descricaoReceita = "Pintura";
+        valor = 700.9;
+
+        tipoReceita.setDescricaoReceita(descricaoReceita);
+        tipoReceita.setValor(valor);
+        tipoReceita.setCategoria(idEconomias);
+
+        bdTabelaTipoReceita.update(tipoReceita.getContentValues(), BdTabelaTipoReceita._ID + "=?", new String[]{String.valueOf(id)});
+
+        cursorTipoReceita = getTipoReceita(bdTabelaTipoReceita);
+
+        tipoReceita = getTipoReceitaComID(cursorTipoReceita, id);
+        Assert.assertEquals(descricaoReceita, tipoReceita.getDescricaoReceita());
+        Assert.assertEquals(valor, tipoReceita.getValor());
+        Assert.assertEquals(idEconomias, tipoReceita.getCategoria());
+
+        // Teste read/delete Receita (cRuD)
+        bdTabelaTipoReceita.delete(BdTabelaTipoReceita._ID + "=?", new String[]{String.valueOf(id)});
+        cursorTipoReceita = getTipoReceita(bdTabelaTipoReceita);
+        Assert.assertEquals(2, cursorTipoReceita.getCount());
+    }
+
+    private long criaCategoria(BdTabelaCategoria tabelaCategorias, String nome) {
+        Categoria categoria = new Categoria();
+        categoria.setDescricao(nome);
+
+        long id = tabelaCategorias.insert(categoria.getContentValues());
+        assertNotEquals(-1, id);
+
+        return id;
+    }
+
+    private Cursor getCategorias(BdTabelaCategoria tabelaCategorias) {
+        return tabelaCategorias.query(BdTabelaCategoria.TODAS_COLUNAS, null, null, null, null, null);
+    }
+
+    private Categoria getCategoriaComID(Cursor cursor, long id) {
+        Categoria categoria = null;
+
+        while (cursor.moveToNext()) {
+            categoria = Categoria.fromCursor(cursor);
+
+            if (categoria.getId() == id) {
+                break;
+            }
+        }
+
+        assertNotNull(categoria);
+
+        return categoria;
+    }
+
+    private long criaTipoReceita(BdTabelaTipoReceita tabelaTipoReceita, String descricaoReceita, double valor, long categoria) {
+        TipoReceita tipoReceita = new TipoReceita();
+
+        tipoReceita.setDescricaoReceita(descricaoReceita);
+        tipoReceita.setValor(valor);
+        tipoReceita.setCategoria(categoria);
+
+        long id = tabelaTipoReceita.insert(tipoReceita.getContentValues());
+        assertNotEquals(-1, id);
+
+        return id;
+    }
+
+    private Cursor getTipoReceita(BdTabelaTipoReceita tabelaTipoReceita) {
+        return tabelaTipoReceita.query(BdTabelaTipoReceita.TODAS_COLUNAS, null, null, null, null, null);
+    }
+
+    private TipoReceita getTipoReceitaComID(Cursor cursor, long id) {
+        TipoReceita tipoReceita = null;
+
+        while (cursor.moveToNext()) {
+            tipoReceita = TipoReceita.fromCursor(cursor);
+
+            if (tipoReceita.getId() == id) {
+                break;
+            }
+        }
+
+        assertNotNull(tipoReceita);
+
+        return tipoReceita;
     }
 }

@@ -50,7 +50,7 @@ public class AdaptadorFinanceTipoDespesa extends RecyclerView.Adapter<AdaptadorF
     @NonNull
     @Override
     public ViewHolderFinance onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemFinance = LayoutInflater.from(context).inflate(R.layout.layout_view_listar_todos, parent, false);
+        View itemFinance = LayoutInflater.from(context).inflate(R.layout.layout_view_listar_todosd, parent, false);
 
         return new ViewHolderFinance(itemFinance);
     }
@@ -141,7 +141,7 @@ public class AdaptadorFinanceTipoDespesa extends RecyclerView.Adapter<AdaptadorF
 
             viewHolderFinanceSelecionado = this;
 
-            ((ListarTodosMainActivity) context).atualizaOpcoesMenu();
+            ((ListarTodoTipoDespesaActivity) context).atualizaOpcoesMenu();
 
             seleciona();
         }

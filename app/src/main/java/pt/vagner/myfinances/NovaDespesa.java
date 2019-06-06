@@ -110,7 +110,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         long idCategoria = spinnerCategoriaDespesa.getSelectedItemId();
 
     /*
-        Intent intent = new Intent(this, ListarTodosMainActivity.class);
+        Intent intent = new Intent(this, ListarTodoTipoDespesaActivity.class);
 
         intent.putExtra(DefinicoesApp.Designacao, designacao);
 
@@ -139,7 +139,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
 
             e.printStackTrace();
         }
-        Intent intent = new Intent(this, ListarTodosMainActivity.class);
+        Intent intent = new Intent(this, ListarTodoTipoDespesaActivity.class);
 
         intent.putExtra(DefinicoesApp.Designacao, designacao);
 

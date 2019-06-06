@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingLeft="6dp"
+    android:paddingTop="2dp"
+    android:paddingRight="3dp"
+    android:paddingBottom="10dp">
+
+
+    <TextView
+        android:id="@+id/textViewDesignacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textViewData"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textViewData"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Comando" />
+
+    <TextView
+        android:id="@+id/textViewTipo"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewDesignacao"
+        android:layout_alignStart="@+id/textViewDesignacao"
+        android:layout_marginTop="8dp"
+        android:text="@string/despesa"
+        android:textColor="@color/ColorRed"
+        app:layout_constraintStart_toStartOf="@+id/textViewDesignacao"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDesignacao"
+        tools:text="Despesa" />
+
+    <TextView
+        android:id="@+id/textViewData"
+        android:layout_width="38dp"
+        android:layout_height="22dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="8dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/_1996" />
+
+    <TextView
+        android:id="@+id/textViewValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewDesignacao"
+        android:layout_alignEnd="@+id/textViewData"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewData"
+        tools:text="80.00€" />
+
+    <TextView
+        android:id="@+id/textViewCategoriaDespesa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewDesignacao"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_toEndOf="@+id/textViewTipo"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTipo"
+        app:layout_constraintStart_toEndOf="@+id/textViewTipo"
+        tools:text="Despesa" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

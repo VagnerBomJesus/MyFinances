@@ -1,29 +1,16 @@
 package pt.vagner.myfinances;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentManager;
-
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.CursorLoader;
-import androidx.loader.content.Loader;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.CursorAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -78,7 +65,7 @@ public class EditReceita extends AppCompatActivity implements DatePickerDialog.O
             return;
         }
         Date data = new Date();
-        Intent intent = new Intent(this, ListarTodosMainActivity.class);
+        Intent intent = new Intent(this, ListarTodoTipoReceitaActivity.class);
 
         intent.putExtra(DefinicoesApp.Designacao, designacao);
 

@@ -18,7 +18,7 @@ import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ListarTodosMainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class ListarTodoTipoDespesaActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final int ID_CURSO_LOADER_TIPO_DESPESA = 0;
     public  static final String ID_TIPO_DESPESA = "ID_TIPO_DESPESA";
@@ -175,7 +175,7 @@ public class ListarTodosMainActivity extends AppCompatActivity implements Loader
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         adaptadorFinanceTipoDespesa.setCursor(data);
-    }
+}
 
     /**
      * Called when a previously created loader is being reset, and thus

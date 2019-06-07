@@ -152,8 +152,8 @@
     <string name="text_definicoes">The balance value is the diference between the income\'s value and the expense\'s value and is always updated presented, independently  of the type of the data view.</string>
     <string name="text2_defenicoes">In the List Day, List Month and List Year options, click on the income/expense to delete or update it.</string>
 
-    <string name="cat_receitas">Incomes Categories</string>
-    <string name="cat_despesas">Expenses Categories</string>
+    <string name="cat_receitas">Categories</string>
+    <string name="cat_despesas">Categories</string>
     <string name="toque_na_cat_eliminar">Touch the category you want to delete</string>
     <string name="deslize_ver_cat_restantes">Scroll down to see other categories</string>
     <string name="nova_cat">New Category</string>

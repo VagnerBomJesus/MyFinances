@@ -3,7 +3,9 @@ package pt.vagner.myfinances;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-public class Categoria {
+import java.util.ArrayList;
+
+public class Categoria extends ArrayList<String> {
     private long id;
     private String descricao;
 

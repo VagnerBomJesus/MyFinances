@@ -31,8 +31,8 @@ public class DialogFragmentCategoria extends AppCompatDialogFragment {
                 .setNegativeButton(R.string.cancelar_dialog_cat, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        GerirCategorias.clickedButtonCatReceita = false;
-                        GerirCategorias.clickButtonCatDespesa = false;
+                        //GerirCategorias.clickedButtonCatReceita = false;
+                        //GerirCategorias.clickButtonCatDespesa = false;
                     }
                 })
                 .setPositiveButton(R.string.inserir_1, new DialogInterface.OnClickListener() {

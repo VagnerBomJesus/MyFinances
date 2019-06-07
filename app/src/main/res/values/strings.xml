@@ -162,8 +162,8 @@
     <string name="ano">Ano</string>
     <string name="text_definicoes">O valor do saldo é a diferença entre o valor das receitas e o valor das despesas e é apresentado sempre o valor atualizado, independentemente do tipo de visualização escolhido (Ano, Mês, Dia).</string>
     <string name="text2_defenicoes">Nas opções Listar Dia, Listar Mês, Listar Ano e Listar Todos, clique sobre a receita/despesa para poder eliminá-la ou alterá-la.</string>
-    <string name="cat_receitas">Categorias Receitas</string>
-    <string name="cat_despesas">Categorias Despesas</string>
+    <string name="cat_receitas">Categorias </string>
+    <string name="cat_despesas">Categorias </string>
     <string name="toque_na_cat_eliminar">Toque na categoria que pretende eliminar</string>
     <string name="deslize_ver_cat_restantes">Deslize para ver as restantes categorias</string>
     <string name="nova_cat">Nova Categoria</string>

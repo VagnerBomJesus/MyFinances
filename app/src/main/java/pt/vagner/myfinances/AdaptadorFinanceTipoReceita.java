@@ -69,7 +69,7 @@ public class AdaptadorFinanceTipoReceita extends RecyclerView.Adapter<AdaptadorF
         public ViewHolderFinanceR(@NonNull View itemView) {
             super(itemView);
 
-            textViewDesignacaoReceita = (TextView)itemView.findViewById(R.id.textViewDesignacaoReceita);
+            textViewDesignacaoReceita = (TextView)itemView.findViewById(R.id.textViewCategoria);
             textViewCategoriaReceita =  (TextView)itemView.findViewById(R.id.textViewCategoriaReceita);
             textViewValor =  (TextView)itemView.findViewById(R.id.textViewValor);
 

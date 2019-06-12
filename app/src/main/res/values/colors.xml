@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#73D169</color>
-    <color name="colorPrimaryDark">#5CC167</color>
+    <color name="colorPrimary">#8569D1</color>
+    <color name="colorPrimaryDark">#775CC1</color>
     <color name="colorAccent">#050505</color>
     <color name="facebookColor">#3B5998</color>
     <color name="backgraundMenufab">#F0F0F0</color>
     <color name="ColorInternacionalise">#FF384C</color>
     <color name="ColorVert">#93D67C</color>
     <color name="ColorRed">#FF384C</color>
-    <color name="colorItemSelecionado">#F1EEEE</color>
+    <color name="colorItemSelecionado">#C2BFBF</color>
 </resources>

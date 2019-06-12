@@ -50,7 +50,7 @@ public class AdaptadorFinanceTipoReceita extends RecyclerView.Adapter<AdaptadorF
     }
 
 
-    public TipoReceita getLivroSelecionado() {
+    public TipoReceita getReceitaSelecionado() {
         if (viewHolderLivroSelecionado == null) return null;
 
         return viewHolderLivroSelecionado.tipoReceita;
@@ -69,7 +69,7 @@ public class AdaptadorFinanceTipoReceita extends RecyclerView.Adapter<AdaptadorF
         public ViewHolderFinanceR(@NonNull View itemView) {
             super(itemView);
 
-            textViewDesignacaoReceita = (TextView)itemView.findViewById(R.id.textViewCategoria);
+            textViewDesignacaoReceita = (TextView)itemView.findViewById(R.id.textViewDescricaoReceita);
             textViewCategoriaReceita =  (TextView)itemView.findViewById(R.id.textViewCategoriaReceita);
             textViewValor =  (TextView)itemView.findViewById(R.id.textViewValor);
 
@@ -92,7 +92,7 @@ public class AdaptadorFinanceTipoReceita extends RecyclerView.Adapter<AdaptadorF
 
             viewHolderLivroSelecionado = this;
 
-            //((ListarTodoTipoReceitaActivity) context).atualizaOpcoesMenu();
+            ((ListarTodoTipoReceitaActivity) context).atualizaOpcoesMenu();
 
             seleciona();
         }

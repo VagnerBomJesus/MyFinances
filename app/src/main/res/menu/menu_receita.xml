@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_EditarReceita"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_edit_black_24dp"
+        android:title="@string/Editar_receita"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_Eliminar"
+        android:orderInCategory="100"
+        android:title="@string/action_Eliminar"
+        android:icon="@drawable/ic_delete_black_24dp"
+        android:visible="false"
+        app:showAsAction="ifRoom"></item>
+    <item
+        android:id="@+id/action_IserirReceita"
+        android:orderInCategory="100"
+        android:title="@string/inserir_receita"
+        android:icon="@drawable/ic_add_black_24dp"
+        app:showAsAction="ifRoom" />
+</menu>

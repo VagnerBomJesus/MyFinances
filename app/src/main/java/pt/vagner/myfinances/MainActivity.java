@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
-        if (id == R.id.action_Eliminar) {//com sua ação Eliminar
-            Intent i = new Intent(this, Eliminar.class);
+        if (id == R.id.action_Eliminar) {//com sua ação EliminarDespesa
+            Intent i = new Intent(this, EliminarDespesa.class);
             startActivity(i);
             return true;
         }

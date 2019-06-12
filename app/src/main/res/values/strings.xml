@@ -71,25 +71,16 @@
     <string name="eliminar">Eliminar</string>
 
     <string name="qto_pode_gastar_mes">Quanto pode gastar por mês?</string>
-    <string name="listar_por_dia">Listar por dia</string>
-    <string name="listar_por_mes">Listar por mês</string>
-    <string name="listar_por_ano">Listar por ano</string>
-    <string name="listar_todos_1">Listar todos</string>
+
     <string name="definir_orca">Definir orçamento</string>
     <string name="acerca">Acerca</string>
-    <string name="gerir_cat">Gerir Categorias</string>
+    <string name="gerir_cat">Listar Categorias</string>
     <string name="sms_cat_n_inserida">Categoria não inserida!</string>
     <string name="cancelar_dialog_cat">Cancelar</string>
     <string name="inserir_1">Inserir</string>
     <string name="inserir_cat_dialog">Inserir Categoria</string>
     <string name="adicione_uma_categoria">Por favor, adicione uma categoria!</string>
-    <string name="ano_dois_pontos">Ano:</string>
-    <string name="dia_dois_pontos">Dia:</string>
-    <string name="mes_dois_pontos">Mês:</string>
 
-    <string name="listar_ano">Listar por Ano...</string>
-    <string name="listar_mes">Listar por Mês...</string>
-    <string name="listar_dia">Listar por Dia...</string>
 
 
     <string name="show_saldo_main" translatable="false">TextView</string>

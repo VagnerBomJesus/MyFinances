@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 public class ListarTodoTipoReceitaActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -51,13 +47,23 @@ public class ListarTodoTipoReceitaActivity extends AppCompatActivity implements 
             super.onResume();
         }
 
+    private Menu menu;
 
+    public void atualizaOpcoesMenu() {
+        TipoReceita tipoReceita = adaptadorFinanceTipoReceita.getReceitaSelecionado();
+
+        boolean mostraAlterarEliminar = (tipoReceita != null);
+
+
+        menu.findItem(R.id.action_EditarReceita).setVisible(mostraAlterarEliminar);
+        menu.findItem(R.id.action_Eliminar).setVisible(mostraAlterarEliminar);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_receita, menu);
 
-        //this.menu = menu;
+        this.menu = menu;
 
         return true;
     }
@@ -69,29 +75,23 @@ public class ListarTodoTipoReceitaActivity extends AppCompatActivity implements 
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_IserirReceita){
+            Intent i = new Intent (this, NovaReceita.class);
+            startActivity(i);
             return true;
-        } /*else if (id == R.id.action_inserir) {
-           /* Intent intent = new Intent(this, InserirLivroActivity.class);
-            startActivity(intent);
-
+        }
+        if (id == R.id.action_EditarReceita) {//com sua ação Editar
+            Intent i = new Intent(this, EditReceita.class);
+            i.putExtra(ID_RECEITA, adaptadorFinanceTipoReceita.getReceitaSelecionado().getId());
+            startActivity(i);
             return true;
-        } else if (id == R.id.action_alterar) {
-            Intent intent = new Intent(this, AlterarLivroActivity.class);
-            intent.putExtra(ID_LIVRO, adaptadorLivros.getLivroSelecionado().getId());
-
-            startActivity(intent);
-
+        }
+        if(id == R.id.action_Eliminar){
+            Intent i = new Intent(this, EliminarReceita.class);
+            i.putExtra(ID_RECEITA, adaptadorFinanceTipoReceita.getReceitaSelecionado().getId());
+            startActivity(i);
             return true;
-        } else if (id == R.id.action_eliminar) {
-            Intent intent = new Intent(this, EliminarLivroActivity.class);
-            intent.putExtra(ID_LIVRO, adaptadorLivros.getLivroSelecionado().getId());
-
-            startActivity(intent);
-
-            return true;
-        }*/
+        }
 
         return super.onOptionsItemSelected(item);
     }

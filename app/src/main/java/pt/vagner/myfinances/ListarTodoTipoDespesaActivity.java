@@ -63,7 +63,7 @@ public class ListarTodoTipoDespesaActivity extends AppCompatActivity implements 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_despesa, menu);
 
         this.menu = menu;
 
@@ -77,32 +77,21 @@ public class ListarTodoTipoDespesaActivity extends AppCompatActivity implements 
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.action_IserirReceita){
-            Intent i = new Intent (this, NovaReceita.class);
-            startActivity(i);
-            return true;
-        }
+
         if (id ==R.id.action_InserirDespesa){
             Intent i = new Intent(this, NovaDespesa.class);
 
             startActivity(i);
             return true;
         }
-        if (id == R.id.action_EditarReceita) {//com sua ação Editar
-            Intent i = new Intent(this, EditReceita.class);
-            //i.putExtra(ID_TIPO_DESPESA, adaptadorFinanceTipoDespesa.getFinacesSelecionado().getId());
-            startActivity(i);
-            return true;
-        }
         if (id == R.id.action_EditarDespesa) {//com sua ação Editar
             Intent i = new Intent(this, EditDespesa.class);
             i.putExtra(ID_TIPO_DESPESA, adaptadorFinanceTipoDespesa.getFinacesSelecionado().getId());
-
             startActivity(i);
             return true;
         }
         if(id == R.id.action_Eliminar){
-            Intent i = new Intent(this, Eliminar.class);
+            Intent i = new Intent(this, EliminarDespesa.class);
             i.putExtra(ID_TIPO_DESPESA, adaptadorFinanceTipoDespesa.getFinacesSelecionado().getId());
             startActivity(i);
             return true;

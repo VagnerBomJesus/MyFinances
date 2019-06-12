@@ -15,7 +15,7 @@
 
 
     <TextView
-        android:id="@+id/textViewCategoria"
+        android:id="@+id/textViewDescricaoReceita"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewData"
@@ -41,8 +41,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/receita"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintStart_toStartOf="@+id/textViewCategoria"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCategoria" />
+        app:layout_constraintStart_toStartOf="@+id/textViewDescricaoReceita"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescricaoReceita" />
 
     <TextView
         android:id="@+id/textViewData"

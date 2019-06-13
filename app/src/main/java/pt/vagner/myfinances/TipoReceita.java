@@ -65,7 +65,7 @@ public class TipoReceita {
                 cursor.getColumnIndex(BdTabelaTipoReceita.CAMPO_DESCRIACO_RECEITA)
         );
 
-        int valor = cursor.getInt(
+        double valor = cursor.getInt(
                 cursor.getColumnIndex(BdTabelaTipoReceita.CAMPO_VALOR)
         );
 

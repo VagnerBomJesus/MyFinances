@@ -65,7 +65,7 @@ public class TipoDespesa {
                 cursor.getColumnIndex(BdTabelaTipoDespesa.CAMPO_DESCRICAO_DESPESA)
         );
 
-        int valor = cursor.getInt(
+        double valor = cursor.getInt(
                 cursor.getColumnIndex(BdTabelaTipoDespesa.CAMPO_VALOR)
         );
 

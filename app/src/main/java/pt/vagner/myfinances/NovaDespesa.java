@@ -141,9 +141,9 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         }
         Intent intent = new Intent(this, ListarTodoTipoDespesaActivity.class);
 
-        intent.putExtra(DefinicoesApp.Designacao, designacao);
+       // intent.putExtra(DefinicoesApp.Designacao, designacao);
 
-        intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
+        //intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
 
         startActivity(intent);
 
@@ -317,7 +317,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         db.close();
         return list;
     }
-    public static ArrayList<String> getCategoriasFrom(Cursor cursor){ //lista de cat. despesa
+    public static ArrayList<String> getCategoriasFrom(Cursor cursor){ //list catte
         final int posCatDes = cursor.getColumnIndex(CAMPO_DESCRICAO);
 
         ArrayList<String> list = new ArrayList<>();

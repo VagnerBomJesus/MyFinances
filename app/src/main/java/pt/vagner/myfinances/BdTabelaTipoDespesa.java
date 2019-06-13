@@ -30,7 +30,7 @@ public class BdTabelaTipoDespesa implements BaseColumns {
                 "CREATE TABLE " + NOME_TABELA + "(" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         CAMPO_DESCRICAO_DESPESA + " TEXT NOT NULL," +
-                        CAMPO_VALOR + " INTEGER NOT NULL," +
+                        CAMPO_VALOR + " REAL NOT NULL," +
                         CAMPO_CATEGORIA + " INTEGER NOT NULL," +
                         "FOREIGN KEY (" + CAMPO_CATEGORIA + ") REFERENCES " + BdTabelaCategoria.NOME_TABELA + "(" + BdTabelaCategoria._ID + ")" +
                         ")"

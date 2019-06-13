@@ -45,7 +45,7 @@ public class AdaptadorFinanceCategoria extends RecyclerView.Adapter<AdaptadorFin
 
         return cursor.getCount();
     }
-    public Categoria getLivroSelecionado() {
+    public Categoria getCategoriaSelecionado() {
         if (viewHolderLivroSelecionado == null) return null;
 
         return viewHolderLivroSelecionado.categoria;
@@ -78,7 +78,7 @@ public class AdaptadorFinanceCategoria extends RecyclerView.Adapter<AdaptadorFin
 
             viewHolderLivroSelecionado = this;
 
-            //((GerirCategorias) context).atualizaOpcoesMenu();
+            ((GerirCategorias) context).atualizaOpcoesMenu();
 
             seleciona();
         }

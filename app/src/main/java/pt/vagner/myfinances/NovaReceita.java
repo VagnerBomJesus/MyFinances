@@ -243,11 +243,6 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
     }
 
 
-
-
-
-
-
     private void insertCategoria(String categoria) {
         //Abrir BD
         Categoria addcategoria = new Categoria();

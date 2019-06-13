@@ -11,6 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".EliminarCategoriaActivity"
+            android:label="@string/title_activity_eliminar_categoria"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.vagner.myfinances.MainActivity" />
+        </activity>
+        <activity
             android:name=".ListarTodoTipoReceitaActivity"
             android:label="@string/TITULO_receita"
             android:parentActivityName=".MainActivity"

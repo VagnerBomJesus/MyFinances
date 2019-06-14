@@ -82,7 +82,7 @@ public class EditReceita extends AppCompatActivity implements DatePickerDialog.O
 
 
         actualizaCategoriaSelecionada();
-        setDefaultDateToTextView();///visualizar data atual
+       // setDefaultDateToTextView();///visualizar data atual
     }
 
     private void actualizaCategoriaSelecionada() {
@@ -166,28 +166,7 @@ public class EditReceita extends AppCompatActivity implements DatePickerDialog.O
             e.printStackTrace();
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         Intent intent = new Intent(this, ListarTodoTipoReceitaActivity.class);
-
-//        //intent.putExtra(DefinicoesApp.Designacao, designacao);
-//
-//        startActivity(intent);
-//
-//        intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
-//        intent.putExtra(DefinicoesApp.DATA, data);
 
         startActivity(intent);
     }
@@ -221,7 +200,7 @@ public class EditReceita extends AppCompatActivity implements DatePickerDialog.O
     /**
      * coloca na textview da data a data atual dd/mm/yyyy
      */
-    private void setDefaultDateToTextView(){
+  /*  private void setDefaultDateToTextView(){
         TextView textViewDate = (TextView) findViewById(R.id.textViewSelectedDate);
 
         int dia = getCurrentDay();
@@ -229,7 +208,7 @@ public class EditReceita extends AppCompatActivity implements DatePickerDialog.O
         int ano = getCurrentYear();
 
         textViewDate.setText(""+dia+"/"+mes+"/"+ano);
-    }
+    }*/
 
     public void cancel(View view) { //Botão "cancelar"
         finish();

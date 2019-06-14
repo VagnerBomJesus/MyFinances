@@ -63,7 +63,7 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
         spinnerCategoriaRceita = (Spinner) findViewById(R.id.spinnerCategoriaReceita);
         editTextValorReceita = (EditText) findViewById(R.id.editTextValorReceita);
 
-        setDefaultDateToTextView(); ///visualizar data atual
+//        setDefaultDateToTextView(); ///visualizar data atual
     }
 
     @Override
@@ -145,11 +145,6 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
             e.printStackTrace();
         }
         Intent intent = new Intent(this, ListarTodoTipoReceitaActivity.class);
-
-        intent.putExtra(DefinicoesApp.Designacao, designacao);
-
-        intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
-
         startActivity(intent);
     }
 
@@ -182,7 +177,7 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
     /**
      * coloca na textview da data a data atual dd/mm/yyyy
      */
-    private void setDefaultDateToTextView(){
+   /* private void setDefaultDateToTextView(){
         TextView textViewDate = (TextView) findViewById(R.id.textViewSelectedDate);
 
         int dia = getCurrentDay();
@@ -190,7 +185,7 @@ public class NovaReceita extends AppCompatActivity implements DatePickerDialog.O
         int ano = getCurrentYear();
 
         textViewDate.setText(""+dia+"/"+mes+"/"+ano);
-    }
+    }*/
 
     public void cancel(View view) { //Botão "cancelar"
         finish();

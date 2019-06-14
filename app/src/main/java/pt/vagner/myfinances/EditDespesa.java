@@ -281,4 +281,7 @@ public class EditDespesa extends AppCompatActivity implements LoaderManager.Load
         categoriaAtualizada = false;
         mostraCategoriasSpinner(null);
     }
+
+    public void addCategoriaEditDespesa(View view) {
+    }
 }

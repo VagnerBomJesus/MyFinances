@@ -110,33 +110,34 @@
             android:id="@+id/relativeLayoutAno"
             android:layout_width="187dp"
             android:layout_height="34dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="80dp"
             android:layout_weight=".28"
             android:background="@drawable/spinnercategoria_shape"
             android:orientation="horizontal"
             app:layout_constraintStart_toEndOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/textView18">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <Spinner
-                android:id="@+id/spinnerCategoriaDespesa"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:spinnerMode="dropdown"/>
+                <Spinner
+                    android:id="@+id/spinnerCategoriaDespesa"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
 
-            <ImageView
-                android:layout_width="33dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:src="@drawable/drop"
-                android:layout_alignParentEnd="true" />
+                <ImageView
+                    android:layout_width="33dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/drop"
+                    android:contentDescription="TODO" />
 
         </RelativeLayout>
 
@@ -144,61 +145,15 @@
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginLeft="8dp"
             android:text="@string/categoria"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@android:color/background_dark"
             android:textSize="24sp"
             app:fontFamily="@font/advent_pro_semibold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-        <TextView
-            android:id="@+id/textViewSelectedDateDespesja"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:textSize="24sp"
-            app:fontFamily="sans-serif-condensed"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/datePickerButtonDespesa"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/escolha_a_data"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@android:color/background_dark"
-            android:textSize="24sp"
-            app:fontFamily="@font/advent_pro_semibold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/datePickerButtonDespesa"
-            android:layout_width="49dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="301dp"
-            android:layout_marginRight="301dp"
-            android:onClick="definirDataEditDespesa"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView18"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_day" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/adicionarCategoriaDespesaButton"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textViewDataReadyInsertDb"

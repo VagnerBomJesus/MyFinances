@@ -58,7 +58,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         spinnerCategoriaDespesa = (Spinner) findViewById(R.id.spinnerCategoriaDespesa);
         editTextValorDespesa = (EditText) findViewById(R.id.editTextValorDespesa);
 
-        setDefaultDateToTextView(); //data atual na textview data
+       // setDefaultDateToTextView(); //data atual na textview data
     }
     @Override
     protected void onResume() {
@@ -140,11 +140,6 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
             e.printStackTrace();
         }
         Intent intent = new Intent(this, ListarTodoTipoDespesaActivity.class);
-
-       // intent.putExtra(DefinicoesApp.Designacao, designacao);
-
-        //intent.putExtra(DefinicoesApp.MENSAGEM, mensagem);
-
         startActivity(intent);
 
     }
@@ -178,7 +173,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
     /**
      * coloca na textview da data a data atual dd/mm/yyyy
      */
-    private void setDefaultDateToTextView(){
+   /* private void setDefaultDateToTextView(){
         TextView textViewDate = (TextView) findViewById(R.id.textViewSelectedDateDespesja);
 
         int dia = getCurrentDay();
@@ -186,7 +181,7 @@ public class NovaDespesa extends AppCompatActivity implements  DatePickerDialog.
         int ano = getCurrentYear();
 
         textViewDate.setText(""+dia+"/"+mes+"/"+ano);
-    }
+    }*/
 
 
 

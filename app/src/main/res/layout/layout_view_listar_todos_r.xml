@@ -40,7 +40,7 @@
         android:layout_alignStart="@+id/textViewDesignacao"
         android:layout_marginTop="8dp"
         android:text="@string/receita"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/ColorVert"
         app:layout_constraintStart_toStartOf="@+id/textViewDescricaoReceita"
         app:layout_constraintTop_toBottomOf="@+id/textViewDescricaoReceita" />
 

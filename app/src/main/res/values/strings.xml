@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="title_activity_main" translatable="false">Finanças</string>
-    <string name="app_name">Finanças</string>
+    <string name="app_name">BJ F</string>
     <string name="nav_header_title" translatable="false">Vagner Bom Jesus</string>
     <string name="nav_header_subtitle" translatable="false">vagneripg@gmail.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>

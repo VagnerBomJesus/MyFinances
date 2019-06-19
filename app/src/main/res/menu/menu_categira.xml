@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/action_EditarCategoria"
+        android:orderInCategory="100"
+        android:title="@string/Editar_Categoria"
+        android:icon="@drawable/ic_edit_black_24dp"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
     <item
         android:icon="@drawable/ic_delete_black_24dp"
         android:id="@+id/action_Eliminar"
@@ -10,4 +16,11 @@
         app:showAsAction="ifRoom">
 
     </item>
+    <item
+        android:id="@+id/action_InserirCAtegoria"
+        android:orderInCategory="100"
+        android:title="@string/inserir_Categoria"
+        android:icon="@drawable/ic_add_black_24dp"
+        app:showAsAction="ifRoom" />
+
 </menu>

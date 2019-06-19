@@ -188,4 +188,7 @@
     <string name="despesa">Despesa</string>
     <string name="title_activity_listar_todo_tipo_receita">ListarTodoTipoReceitaActivity</string>
     <string name="title_activity_eliminar_categoria">EliminarCategoriaActivity</string>
+
+    <string name="Editar_Categoria">Editar Categorias</string>
+    <string name="inserir_Categoria">Iserir Categorias</string>
 </resources>

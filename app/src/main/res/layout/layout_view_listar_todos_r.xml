@@ -13,7 +13,6 @@
     android:paddingRight="3dp"
     android:paddingBottom="10dp">
 
-
     <TextView
         android:id="@+id/textViewDescricaoReceita"
         android:layout_width="0dp"

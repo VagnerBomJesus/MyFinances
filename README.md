@@ -21,3 +21,6 @@
 <h5>Diagra das Tabelas</h5>
 
 ![DiagramaRelacoes](https://user-images.githubusercontent.com/48354097/58759682-0f181a00-8526-11e9-9a81-551341af6faf.JPG)
+
+<h4>Interface Principle</h4>
+

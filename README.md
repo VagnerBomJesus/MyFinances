@@ -30,3 +30,9 @@
 <h2>Sobre o Programador</h2>
 
 ![Capturar](https://user-images.githubusercontent.com/48354097/60036374-00e19780-96a7-11e9-8a59-f054e2dd259e.PNG)
+
+<h2>Inserir Despesas e Receitas</h2>
+
+![Capturar1](https://user-images.githubusercontent.com/48354097/60036624-8b29fb80-96a7-11e9-898a-696613989dae.PNG)
+![Capturar2](https://user-images.githubusercontent.com/48354097/60036664-a09f2580-96a7-11e9-853c-0909956bc78f.PNG)
+

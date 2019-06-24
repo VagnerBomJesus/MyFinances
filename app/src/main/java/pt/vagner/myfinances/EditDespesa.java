@@ -129,15 +129,7 @@ public class EditDespesa extends AppCompatActivity implements LoaderManager.Load
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        if (id == R.id.action_sobre) {//com sua ação Sobre
-            Intent i = new Intent(this, sobre.class);
-            startActivity(i);
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

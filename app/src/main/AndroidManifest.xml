@@ -10,6 +10,13 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".EliminarCategoriaActivity"
             android:label="@string/title_activity_eliminar_categoria"
@@ -68,7 +75,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pt.vagner.myfinances.MainActivity" />
         </activity>
-        <activity android:name=".sobre" />
+        <activity android:name=".sobre"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".NovaDespesa"
             android:label="@string/title_activity_nova_despesa"
@@ -92,13 +101,9 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:parentActivityName=".SplashScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <provider

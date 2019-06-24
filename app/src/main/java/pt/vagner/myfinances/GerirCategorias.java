@@ -1,12 +1,13 @@
 package pt.vagner.myfinances;
 
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,8 +18,12 @@ import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 
-public class GerirCategorias extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+import static pt.vagner.myfinances.BdTabelaCategoria.CAMPO_DESCRICAO;
+
+
+public class GerirCategorias extends AppCompatActivity implements DialogFragmentCategoria.ExampleDialogListener, LoaderManager.LoaderCallbacks<Cursor> {
 
 
     private static final int ID_CURSO_LOADER_CATEGORIA = 0;
@@ -82,6 +87,10 @@ public class GerirCategorias extends AppCompatActivity implements LoaderManager.
             startActivity(i);
             return true;
         }
+        if(id == R.id.action_InserirCAtegoria){
+            DialogFragmentCategoria dialogFragmentCategoria = new DialogFragmentCategoria();
+            dialogFragmentCategoria.show(getSupportFragmentManager(), "DialogFragmentCategoria");
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -105,4 +114,66 @@ public class GerirCategorias extends AppCompatActivity implements LoaderManager.
     public void onLoaderReset(@NonNull Loader<Cursor> loader) {
         adaptadorFinanceCategoria.setCursor(null);
     }
+
+    private void insertCategoria(String categoria) {
+        //Abrir BD
+        Categoria addcategoria = new Categoria();
+        addcategoria.setDescricao(categoria);
+
+
+        try {
+            getContentResolver().insert(FinanceContentProvider.ENDERECO_CATEGORIAS, addcategoria.getContentValues());
+            addcategoria.setDescricao(categoria);
+        } catch (Exception e) {
+            Snackbar.make(
+                    recyclerViewCategoria,
+                    getString(R.string.erro_inserir_registo_bd),
+                    Snackbar.LENGTH_LONG)
+                    .show();
+
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void setTexts(String categoria) { //Ação do botão "addCategoriaDespesa"
+
+        try {
+            if (checkCategoria(categoria) != -1){ //Se devolver um id != -1 é porque já exite uma categoria com o nome que vamos inserir
+                Toast.makeText(GerirCategorias.this,R.string.cate_ja_exist,Toast.LENGTH_LONG).show();
+                return;
+            }
+            insertCategoria(categoria);
+            goToMainActivity();
+            Toast.makeText(GerirCategorias.this,R.string.sms_cat_inserida_success,Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(GerirCategorias.this,R.string.sms_error_inserir_cat_db,Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+    public int checkCategoria(String categoria){
+        //Abrir a BD
+        BdFinancesOpenHelper OpenHelper = new BdFinancesOpenHelper(getApplicationContext());
+        //Leitura
+        SQLiteDatabase db = OpenHelper.getReadableDatabase();
+
+        String query = "SELECT "+ BdTabelaCategoria._ID+" FROM "+ BdTabelaCategoria.NOME_TABELA+" WHERE "+ CAMPO_DESCRICAO+" =?";
+        Cursor cursor = db.rawQuery(query,new String[]{categoria});
+
+        int id = -1;
+
+        if (cursor.getCount() > 0){
+            cursor.moveToFirst();
+            id = cursor.getInt(cursor.getColumnIndex(BdTabelaCategoria._ID));
+        }
+
+        cursor.close();
+        db.close();
+        return id;
+    }
+    private void goToMainActivity(){
+        Intent i = new Intent(this, GerirCategorias.class);
+        startActivity(i);
+    }
+
 }

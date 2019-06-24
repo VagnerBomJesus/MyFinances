@@ -43,4 +43,6 @@ public class BdTabelaCategoria implements BaseColumns {
     public int delete (String whereClause, String[] whereArgs) {
         return db.delete(NOME_TABELA, whereClause, whereArgs);
     }
+
+
 }

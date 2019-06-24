@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class BdFinancesOpenHelper extends SQLiteOpenHelper {
 
     public static final String NOME_BASE_DADOS = "finances.db";
@@ -32,6 +34,7 @@ public class BdFinancesOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         new BdTabelaCategoria(db).cria();
+       //initialDespesasCategories(db);
         new BdTabelaTipoDespesa(db).cria();
         new BdTabelaTipoReceita(db).cria();
     }
@@ -60,4 +63,8 @@ public class BdFinancesOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+
+
+
 }

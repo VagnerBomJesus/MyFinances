@@ -73,10 +73,7 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            //todo: Colocar as Definicoes da App
-            return true;
-        }
+
 
         if (id == R.id.action_EditarReceita) {//com sua ação Editar
             Intent i = new Intent(this, EditReceita.class);
@@ -95,11 +92,7 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
-        if (id == R.id.action_sobre) {//com sua ação Sobre
-            Intent i = new Intent(this, sobre.class);
-            startActivity(i);
-            return true;
-        }
+
 
 
         //Onclik in Terminar

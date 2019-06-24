@@ -36,3 +36,9 @@
 ![Capturar1](https://user-images.githubusercontent.com/48354097/60036624-8b29fb80-96a7-11e9-898a-696613989dae.PNG)
 ![Capturar2](https://user-images.githubusercontent.com/48354097/60036664-a09f2580-96a7-11e9-853c-0909956bc78f.PNG)
 
+<h2>Editar Dispesas Receitas Orçamento </h2>
+
+![Capturar3](https://user-images.githubusercontent.com/48354097/60037094-a9dcc200-96a8-11e9-93f8-05c3685ca0ab.GIF)
+![Capturar2](https://user-images.githubusercontent.com/48354097/60037100-aba68580-96a8-11e9-919f-9ce416f8deef.GIF)
+
+

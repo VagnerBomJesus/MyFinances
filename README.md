@@ -38,7 +38,9 @@
 ![Capturar2](https://user-images.githubusercontent.com/48354097/60037100-aba68580-96a8-11e9-919f-9ce416f8deef.GIF)
 
 <h2>Eliminar <h2>
-  
+
+![Elirar](https://user-images.githubusercontent.com/48354097/60037598-e1983980-96a9-11e9-9cd7-df1a47e0dc34.GIF)
+![Elimir](https://user-images.githubusercontent.com/48354097/60037600-e2c96680-96a9-11e9-9cd4-13b575a5787d.GIF)
 
 <h2>Sobre o Programador</h2>
 

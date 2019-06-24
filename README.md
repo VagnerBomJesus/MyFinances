@@ -1,6 +1,6 @@
-<h1>My Finances</h1>
+<h1>BJ Finances Pessoais</h1>
 <h3>Meu Projeto Android</h3>
-<h4>My Finaces</h4><p>É uma aplicação móvel desenvolvida para os dispositivos Android "até 4.0.3 versão Android" que permite gerenciar as finanças pessoais "despesas e receitas".</p>
+<h4>BJ F</h4><p>É uma aplicação móvel desenvolvida para os dispositivos Android "até 4.0.3 versão Android" que permite gerenciar as finanças pessoais "despesas e receitas".</p>
 <h4>Objectivo do app</h4>
 <ul>
 <li>-> Gerenciar as despesas e receitas por meio de banco de dados SQLite.</li>

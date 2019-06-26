@@ -1,5 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="title_activity_main" translatable="false">Finanças</string>
     <string name="app_name">BJ F</string>
     <string name="nav_header_title" translatable="false">Vagner Bom Jesus</string>
     <string name="nav_header_subtitle" translatable="false">vagneripg@gmail.com</string>
@@ -7,7 +6,6 @@
 
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-
 
     <string name="action_settings">Definições</string>
     <string name="saldo">Saldo:</string>
@@ -176,9 +174,8 @@
     <string name="pagina_invalida">Página inválida</string>
     <string name="erro_guardar_livro">Erro: Não foi possível guardar o Registo!</string>
     <string name="livro_guardado_sucesso">Registo guardado com suceeso</string>
-    <string name="title_activity_alterar_livro">AlterarLivroActivity</string>
+
     <string name="nao_e_possimve_eliminar">Erro: não foi possível apagar o Registo</string>
-    <string name="title_activity_listar_todos_tipo_receita">ListarTodosTipoReceitaActivity</string>
 
     <string name="TITULO_receita">Listar Receita...</string>
     <string name="TITULO_despesa">Listar Despesa...</string>
@@ -186,8 +183,6 @@
     <string name="acion_despesa">Listar Despesa</string>
     <string name="receita">Receita</string>
     <string name="despesa">Despesa</string>
-    <string name="title_activity_listar_todo_tipo_receita">ListarTodoTipoReceitaActivity</string>
     <string name="title_activity_eliminar_categoria">Eliminar Categoria</string>
-
     <string name="inserir_Categoria">Iserir Categorias</string>
 </resources>

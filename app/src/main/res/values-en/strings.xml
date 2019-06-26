@@ -23,7 +23,7 @@
     <string name="redeSociais">Social networks</string>
     <string name="inserir_despesa">Insert Expense</string>
     <string name="valor_despesa">Value €</string>
-    <string name="valor">Value</string>
+    <string name="valor">Value:</string>
     <string name="descricao_despesa">Expenditure Description (optional)</string>
     <string name="designacao">Description:</string>
     <string name="categoria">Category:</string>
@@ -147,6 +147,42 @@
     <string name="toque_na_cat_eliminar">Touch the category you want to delete</string>
     <string name="deslize_ver_cat_restantes">Scroll down to see other categories</string>
     <string name="nova_cat">New Category</string>
+
+    <string name="elminarRegisto">Alert, Delete Registration</string>
+    <string name="alertaEliminar">Are you sure you want to Delete!</string>
+
+
+    <string name="naorecopera">By deleting you can not retrieve it.</string>
+
+
+    <string name="inserir">Insert</string>
+    <string name="alterar">Alterar</string>
+
+    <string name="title_activity_inserir_livro">List</string>
+    <string name="descricaoDespesa">Title</string>
+
+
+    <string name="preecha_titulo">Fill in the title</string>
+    <string name="preecha_pagina">Pre-page</string>
+    <string name="pagina_invalida">Invalid page</string>
+    <string name="erro_guardar_livro">Error: The Registry could not be saved!</string>
+    <string name="livro_guardado_sucesso">Saved registration successfully</string>
+
+    <string name="nao_e_possimve_eliminar">Error: Could not delete the Registry</string>
+
+    <string name="TITULO_receita">List Income...</string>
+    <string name="TITULO_despesa">List Expense...</string>
+    <string name="acion_receita">List Income</string>
+    <string name="acion_despesa">List Expense</string>
+
+
+
+    <string name="receita">Income</string>
+    <string name="despesa">Expense</string>
+
+    <string name="title_activity_eliminar_categoria">Remove Category</string>
+
+    <string name="inserir_Categoria">Insert Category</string>
 
 
 
